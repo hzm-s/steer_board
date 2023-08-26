@@ -3,68 +3,78 @@
     <div style="height:92vh">
       <div class="flex flex-row gap-2">
         <div data-comp="column" class="basis-64 flex-shrink-0">
-          <div class="flex justify-center">
-            <h3 class="text-lg font-bold">
-              Todo
-            </h3>
-          </div>
-          <div class="flex flex-col gap-2">
-            <%= render partial: 'pages/pull_action' %>
-            <%= render partial: 'pages/card', locals: { content: '[UI prototype] Check to done' } %>
-            <%= render partial: 'pages/card', locals: { content: '[UI prototype] Backlog' } %>
-          </div>
-        </div>
-        <div data-comp="column" class="basis-64 flex-shrink-0">
-          <div class="flex justify-center">
-            <h3 class="text-lg font-bold">
-              Analyze
-            </h3>
-          </div>
-          <div class="flex flex-col gap-2">
-            <%= render partial: 'pages/pull_action' %>
-            <%= render partial: 'pages/card', locals: { content: '[UI prototype] Item with tasks' } %>
-            <%= render partial: 'pages/card', locals: { content: '[UI prototype] Pull items' } %>
+          <div class="pb-2 bg-zinc-200 rounded-lg">
+            <%= render partial: 'pages/header', locals: { title: 'Idea' } %>
+            <div class="flex flex-col gap-2 px-2">
+              <%= render partial: 'pages/pull_action' %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Check to done' } %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Backlog' } %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Cycle time' } %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Lead time' } %>
+            </div>
           </div>
         </div>
         <div data-comp="column" class="basis-64 flex-shrink-0">
-          <div class="flex justify-center">
-            <h3 class="text-lg font-bold">
-              Develop
-            </h3>
-          </div>
-          <div class="flex flex-col gap-2">
-            <%= render partial: 'pages/pull_action' %>
-            <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board' } %>
-          </div>
-        </div>
-        <div data-comp="column" class="basis-64 flex-shrink-0">
-          <div class="flex justify-center">
-            <h3 class="text-lg font-bold">
-              QA
-            </h3>
-          </div>
-          <div class="flex flex-col gap-2">
-            <%= render partial: 'pages/pull_action' %>
+          <div class="pb-2 bg-zinc-200 rounded-lg">
+            <%= render partial: 'pages/header', locals: { title: 'Analyze' } %>
+            <div class="flex flex-col gap-2 px-2">
+              <%= render partial: 'pages/pull_action' %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Item with tasks' } %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Pull items' } %>
+            </div>
           </div>
         </div>
         <div data-comp="column" class="basis-64 flex-shrink-0">
-          <div class="flex justify-center">
-            <h3 class="text-lg font-bold">
-              Release
-            </h3>
-          </div>
-          <div class="flex flex-col gap-2">
-            <%= render partial: 'pages/pull_action' %>
+          <div class="pb-2 bg-zinc-200 rounded-lg">
+            <%= render partial: 'pages/header', locals: { title: 'Develop' } %>
+            <div class="flex flex-col gap-2 px-2">
+              <%= render partial: 'pages/pull_action' %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board' } %>
+            </div>
+            <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
+            <div class="flex flex-col gap-2 px-2">
+              <%= render partial: 'pages/pull_action' %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board buffer' } %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board column' } %>
+            </div>
           </div>
         </div>
         <div data-comp="column" class="basis-64 flex-shrink-0">
-          <div class="flex justify-center">
-            <h3 class="text-lg font-bold">
-              Done
-            </h3>
+          <div class="pb-2 bg-zinc-200 rounded-lg">
+            <%= render partial: 'pages/header', locals: { title: 'QA' } %>
+            <div class="flex flex-col gap-2 px-2">
+              <%= render partial: 'pages/pull_action' %>
+            </div>
+            <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
+            <div class="flex flex-col gap-2 px-2">
+              <%= render partial: 'pages/pull_action' %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Index page' } %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Individual pages' } %>
+            </div>
           </div>
-          <div class="flex flex-col gap-2">
-            <%= render partial: 'pages/pull_action' %>
+        </div>
+        <div data-comp="column" class="basis-64 flex-shrink-0">
+          <div class="pb-2 bg-zinc-200 rounded-lg">
+            <%= render partial: 'pages/header', locals: { title: 'Release' } %>
+            <div class="flex flex-col gap-2 px-2">
+              <%= render partial: 'pages/pull_action' %>
+              <%= render partial: 'pages/card', locals: { content: '[Setup] db' } %>
+            </div>
+            <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
+            <div class="flex flex-col gap-2 px-2">
+              <%= render partial: 'pages/pull_action' %>
+              <%= render partial: 'pages/card', locals: { content: '[Setup] repository' } %>
+            </div>
+          </div>
+        </div>
+        <div data-comp="column" class="basis-64 flex-shrink-0">
+          <div class="pb-2 bg-zinc-200 rounded-lg">
+            <%= render partial: 'pages/header', locals: { title: 'Production' } %>
+            <div class="flex flex-col gap-2 px-2">
+              <%= render partial: 'pages/pull_action' %>
+              <%= render partial: 'pages/card', locals: { content: '[Setup] git' } %>
+              <%= render partial: 'pages/card', locals: { content: '[Setup] rails' } %>
+            </div>
           </div>
         </div>
       </div>
