@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  .flow-line {
+    @apply flex items-center;
+  }
+
+  .flow-line::before,
+  .flow-line::after {
+    @apply flex-grow bg-gray-200;
+    content: '';
+    height: 3px;
   }
 }
-
-*/
