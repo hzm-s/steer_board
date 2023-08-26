@@ -6,7 +6,6 @@
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <%= render partial: 'pages/header', locals: { title: 'Idea' } %>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/pull_action' %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Check to done' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Backlog' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Cycle time' } %>
@@ -18,9 +17,8 @@
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <%= render partial: 'pages/header', locals: { title: 'Analyze' } %>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/pull_action' %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Item with tasks' } %>
-              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Pull items' } %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Move items' } %>
             </div>
           </div>
         </div>
@@ -28,12 +26,10 @@
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <%= render partial: 'pages/header', locals: { title: 'Develop' } %>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/pull_action' %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board' } %>
             </div>
             <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/pull_action' %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board buffer' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board column' } %>
             </div>
@@ -43,11 +39,9 @@
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <%= render partial: 'pages/header', locals: { title: 'QA' } %>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/pull_action' %>
             </div>
             <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/pull_action' %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Index page' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Individual pages' } %>
             </div>
@@ -57,12 +51,10 @@
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <%= render partial: 'pages/header', locals: { title: 'Release' } %>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/pull_action' %>
               <%= render partial: 'pages/card', locals: { content: '[Setup] db' } %>
             </div>
             <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/pull_action' %>
               <%= render partial: 'pages/card', locals: { content: '[Setup] repository' } %>
             </div>
           </div>
@@ -71,7 +63,6 @@
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <%= render partial: 'pages/header', locals: { title: 'Production' } %>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/pull_action' %>
               <%= render partial: 'pages/card', locals: { content: '[Setup] git' } %>
               <%= render partial: 'pages/card', locals: { content: '[Setup] rails' } %>
             </div>
