@@ -2,7 +2,7 @@
   <div class="w-full overflow-x-auto">
     <div style="height:92vh">
       <div class="flex flex-row gap-2">
-        <div data-comp="column" class="basis-64 flex-shrink-0">
+        <div data-comp="column" class="basis-[16rem] flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
@@ -17,7 +17,7 @@
             </div>
           </div>
         </div>
-        <div data-comp="column" class="basis-64 flex-shrink-0">
+        <div data-comp="column" class="basis-[16rem] flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
@@ -30,42 +30,64 @@
             </div>
           </div>
         </div>
-        <div data-comp="column" class="basis-64 flex-shrink-0">
+        <div data-comp="column" class="basis-[33.5rem] flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
               <%= render partial: 'pages/wip', locals: { count: 3, limit: 8 } %>
               <%= render partial: 'pages/header', locals: { title: 'Develop' } %>
             </div>
-            <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board' } %>
-            </div>
-            <%= render partial: 'pages/header', locals: { title: 'Todo', sub: true } %>
-            <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board buffer' } %>
-              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board column' } %>
+            <div class="flex flex-row justify-between px-2">
+              <div class="basis-[16rem] flex-shrink-0">
+                <div class="pb-2 bg-zinc-100 rounded-lg">
+                  <%= render partial: 'pages/header', locals: { title: 'WIP', sub: true } %>
+                  <div class="flex flex-col gap-2 px-2">
+                    <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board' } %>
+                  </div>
+                </div>
+              </div>
+              <div class="basis-[16rem] flex-shrink-0">
+                <div class="pb-2 bg-zinc-100 rounded-lg">
+                  <%= render partial: 'pages/header', locals: { title: 'Done', sub: true } %>
+                  <div class="flex flex-col gap-2 px-2">
+                    <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board buffer' } %>
+                    <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board column' } %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div data-comp="column" class="basis-64 flex-shrink-0">
+        <div data-comp="column" class="basis-[33.5rem] flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
               <%= render partial: 'pages/wip', locals: { count: 2, limit: 5 } %>
               <%= render partial: 'pages/header', locals: { title: 'QA' } %>
             </div>
-            <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Index page' } %>
-              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Individual pages' } %>
-              <%= render partial: 'pages/card', locals: { content: '[Setup] db' } %>
-              <%= render partial: 'pages/card', locals: { content: '[Setup] repository' } %>
+            <div class="flex flex-row justify-between px-2">
+              <div class="basis-[16rem] flex-shrink-0">
+                <div class="pb-2 bg-zinc-100 rounded-lg">
+                  <%= render partial: 'pages/header', locals: { title: 'WIP', sub: true } %>
+                  <div class="flex flex-col gap-2 px-2">
+                    <%= render partial: 'pages/card', locals: { content: '[UI prototype] Index page' } %>
+                    <%= render partial: 'pages/card', locals: { content: '[UI prototype] Individual pages' } %>
+                    <%= render partial: 'pages/card', locals: { content: '[Setup] db' } %>
+                    <%= render partial: 'pages/card', locals: { content: '[Setup] repository' } %>
+                  </div>
+                </div>
+              </div>
+              <div class="basis-[16rem] flex-shrink-0">
+                <div class="pb-2 bg-zinc-100 rounded-lg">
+                  <%= render partial: 'pages/header', locals: { title: 'Done', sub: true } %>
+                  <div class="flex flex-col gap-2 px-2">
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="flex flex-col gap-2 px-2">
-            </div>
-            <%= render partial: 'pages/header', locals: { title: 'Done', sub: true } %>
           </div>
         </div>
-        <div data-comp="column" class="basis-64 flex-shrink-0">
+        <div data-comp="column" class="basis-[16rem] flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
@@ -76,7 +98,7 @@
             </div>
           </div>
         </div>
-        <div data-comp="column" class="basis-64 flex-shrink-0">
+        <div data-comp="column" class="basis-[16rem] flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
