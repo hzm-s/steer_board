@@ -40,7 +40,7 @@
             <div class="flex flex-col gap-2 px-2">
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board' } %>
             </div>
-            <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
+            <%= render partial: 'pages/header', locals: { title: 'Todo', sub: true } %>
             <div class="flex flex-col gap-2 px-2">
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board buffer' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board column' } %>
@@ -55,27 +55,24 @@
               <%= render partial: 'pages/header', locals: { title: 'QA' } %>
             </div>
             <div class="flex flex-col gap-2 px-2">
-            </div>
-            <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
-            <div class="flex flex-col gap-2 px-2">
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Index page' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Individual pages' } %>
+              <%= render partial: 'pages/card', locals: { content: '[Setup] db' } %>
+              <%= render partial: 'pages/card', locals: { content: '[Setup] repository' } %>
             </div>
+            <div class="flex flex-col gap-2 px-2">
+            </div>
+            <%= render partial: 'pages/header', locals: { title: 'Done', sub: true } %>
           </div>
         </div>
         <div data-comp="column" class="basis-64 flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
-              <%= render partial: 'pages/wip', locals: { count: 2, limit: 15 } %>
+              <%= render partial: 'pages/wip', locals: { count: 0, limit: 15 } %>
               <%= render partial: 'pages/header', locals: { title: 'Release' } %>
             </div>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/card', locals: { content: '[Setup] db' } %>
-            </div>
-            <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
-            <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/card', locals: { content: '[Setup] repository' } %>
             </div>
           </div>
         </div>
