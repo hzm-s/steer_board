@@ -4,8 +4,11 @@
       <div class="flex flex-row gap-2">
         <div data-comp="column" class="basis-64 flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
-            <%= render partial: 'pages/wip', locals: { count: 3 } %>
-            <%= render partial: 'pages/header', locals: { title: 'Idea' } %>
+            <div class="relative">
+              <%= render partial: 'pages/menu' %>
+              <%= render partial: 'pages/wip', locals: { count: 3 } %>
+              <%= render partial: 'pages/header', locals: { title: 'Idea' } %>
+            </div>
             <div class="flex flex-col gap-2 px-2">
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Check to done' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Backlog' } %>
@@ -16,8 +19,11 @@
         </div>
         <div data-comp="column" class="basis-64 flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
-            <%= render partial: 'pages/wip', locals: { count: 2, limit: 10 } %>
-            <%= render partial: 'pages/header', locals: { title: 'Analyze' } %>
+            <div class="relative">
+              <%= render partial: 'pages/menu' %>
+              <%= render partial: 'pages/wip', locals: { count: 2, limit: 10 } %>
+              <%= render partial: 'pages/header', locals: { title: 'Analyze' } %>
+            </div>
             <div class="flex flex-col gap-2 px-2">
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Item with tasks' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Move items' } %>
@@ -26,8 +32,11 @@
         </div>
         <div data-comp="column" class="basis-64 flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
-            <%= render partial: 'pages/wip', locals: { count: 3, limit: 8 } %>
-            <%= render partial: 'pages/header', locals: { title: 'Develop' } %>
+            <div class="relative">
+              <%= render partial: 'pages/menu' %>
+              <%= render partial: 'pages/wip', locals: { count: 3, limit: 8 } %>
+              <%= render partial: 'pages/header', locals: { title: 'Develop' } %>
+            </div>
             <div class="flex flex-col gap-2 px-2">
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board' } %>
             </div>
@@ -40,8 +49,11 @@
         </div>
         <div data-comp="column" class="basis-64 flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
-            <%= render partial: 'pages/wip', locals: { count: 2, limit: 5 } %>
-            <%= render partial: 'pages/header', locals: { title: 'QA' } %>
+            <div class="relative">
+              <%= render partial: 'pages/menu' %>
+              <%= render partial: 'pages/wip', locals: { count: 2, limit: 5 } %>
+              <%= render partial: 'pages/header', locals: { title: 'QA' } %>
+            </div>
             <div class="flex flex-col gap-2 px-2">
             </div>
             <%= render partial: 'pages/header', locals: { title: 'Ready', sub: true } %>
@@ -53,8 +65,11 @@
         </div>
         <div data-comp="column" class="basis-64 flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
-            <%= render partial: 'pages/wip', locals: { count: 2, limit: 15 } %>
-            <%= render partial: 'pages/header', locals: { title: 'Release' } %>
+            <div class="relative">
+              <%= render partial: 'pages/menu' %>
+              <%= render partial: 'pages/wip', locals: { count: 2, limit: 15 } %>
+              <%= render partial: 'pages/header', locals: { title: 'Release' } %>
+            </div>
             <div class="flex flex-col gap-2 px-2">
               <%= render partial: 'pages/card', locals: { content: '[Setup] db' } %>
             </div>
@@ -66,8 +81,11 @@
         </div>
         <div data-comp="column" class="basis-64 flex-shrink-0">
           <div class="pb-2 bg-zinc-200 rounded-lg">
-            <%= render partial: 'pages/wip', locals: { count: 2 } %>
-            <%= render partial: 'pages/header', locals: { title: 'Production' } %>
+            <div class="relative">
+              <%= render partial: 'pages/menu' %>
+              <%= render partial: 'pages/wip', locals: { count: 2 } %>
+              <%= render partial: 'pages/header', locals: { title: 'Production' } %>
+            </div>
             <div class="flex flex-col gap-2 px-2">
               <%= render partial: 'pages/card', locals: { content: '[Setup] git' } %>
               <%= render partial: 'pages/card', locals: { content: '[Setup] rails' } %>
