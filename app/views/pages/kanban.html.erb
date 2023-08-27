@@ -3,14 +3,13 @@
     <div style="height:92vh">
       <div class="flex flex-row gap-2">
         <div data-comp="column" class="basis-[16rem] flex-shrink-0">
-          <div class="pb-2 bg-zinc-200 rounded-lg">
+          <div class="pb-2 bg-slate-300 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
               <%= render partial: 'pages/wip', locals: { count: 3 } %>
               <%= render partial: 'pages/header', locals: { title: 'Idea' } %>
             </div>
             <div class="flex flex-col gap-2 px-2">
-              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Check to done' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Backlog' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Cycle time' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Lead time' } %>
@@ -18,20 +17,21 @@
           </div>
         </div>
         <div data-comp="column" class="basis-[16rem] flex-shrink-0">
-          <div class="pb-2 bg-zinc-200 rounded-lg">
+          <div class="pb-2 bg-slate-300 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
-              <%= render partial: 'pages/wip', locals: { count: 2, limit: 10 } %>
+              <%= render partial: 'pages/wip', locals: { count: 3, limit: 10 } %>
               <%= render partial: 'pages/header', locals: { title: 'Analyze' } %>
             </div>
             <div class="flex flex-col gap-2 px-2">
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Item with tasks' } %>
               <%= render partial: 'pages/card', locals: { content: '[UI prototype] Move items' } %>
+              <%= render partial: 'pages/card', locals: { content: '[UI prototype] Check to done' } %>
             </div>
           </div>
         </div>
         <div data-comp="column" class="basis-[33.5rem] flex-shrink-0">
-          <div class="pb-2 bg-zinc-200 rounded-lg">
+          <div class="pb-2 bg-slate-300 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
               <%= render partial: 'pages/wip', locals: { count: 3, limit: 8 } %>
@@ -39,7 +39,7 @@
             </div>
             <div class="flex flex-row justify-between px-2">
               <div class="basis-[16rem] flex-shrink-0">
-                <div class="pb-2 bg-zinc-100 rounded-lg">
+                <div class="pb-2 bg-zinc-200 rounded-lg">
                   <%= render partial: 'pages/header', locals: { title: 'WIP', sub: true } %>
                   <div class="flex flex-col gap-2 px-2">
                     <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board' } %>
@@ -47,7 +47,7 @@
                 </div>
               </div>
               <div class="basis-[16rem] flex-shrink-0">
-                <div class="pb-2 bg-zinc-100 rounded-lg">
+                <div class="pb-2 bg-zinc-200 rounded-lg">
                   <%= render partial: 'pages/header', locals: { title: 'Done', sub: true } %>
                   <div class="flex flex-col gap-2 px-2">
                     <%= render partial: 'pages/card', locals: { content: '[UI prototype] Board buffer' } %>
@@ -59,15 +59,15 @@
           </div>
         </div>
         <div data-comp="column" class="basis-[33.5rem] flex-shrink-0">
-          <div class="pb-2 bg-zinc-200 rounded-lg">
+          <div class="pb-2 bg-slate-300 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
-              <%= render partial: 'pages/wip', locals: { count: 2, limit: 5 } %>
+              <%= render partial: 'pages/wip', locals: { count: 4, limit: 5 } %>
               <%= render partial: 'pages/header', locals: { title: 'QA' } %>
             </div>
             <div class="flex flex-row justify-between px-2">
               <div class="basis-[16rem] flex-shrink-0">
-                <div class="pb-2 bg-zinc-100 rounded-lg">
+                <div class="pb-2 bg-zinc-200 rounded-lg">
                   <%= render partial: 'pages/header', locals: { title: 'WIP', sub: true } %>
                   <div class="flex flex-col gap-2 px-2">
                     <%= render partial: 'pages/card', locals: { content: '[UI prototype] Index page' } %>
@@ -78,7 +78,7 @@
                 </div>
               </div>
               <div class="basis-[16rem] flex-shrink-0">
-                <div class="pb-2 bg-zinc-100 rounded-lg">
+                <div class="pb-2 bg-zinc-200 rounded-lg">
                   <%= render partial: 'pages/header', locals: { title: 'Done', sub: true } %>
                   <div class="flex flex-col gap-2 px-2">
                   </div>
@@ -88,7 +88,7 @@
           </div>
         </div>
         <div data-comp="column" class="basis-[16rem] flex-shrink-0">
-          <div class="pb-2 bg-zinc-200 rounded-lg">
+          <div class="pb-2 bg-slate-300 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
               <%= render partial: 'pages/wip', locals: { count: 0, limit: 15 } %>
@@ -99,7 +99,7 @@
           </div>
         </div>
         <div data-comp="column" class="basis-[16rem] flex-shrink-0">
-          <div class="pb-2 bg-zinc-200 rounded-lg">
+          <div class="pb-2 bg-slate-300 rounded-lg">
             <div class="relative">
               <%= render partial: 'pages/menu' %>
               <%= render partial: 'pages/wip', locals: { count: 2 } %>
