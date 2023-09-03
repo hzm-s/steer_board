@@ -23,10 +23,10 @@
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'QA', items: { count: 4, limit: 5 } ,column_count: 2) do %>
           <%= render Board::InnerColumnComponent.new(name: 'WIP') do %>
-              <%= render CardComponent.new(body: '[UI prototype] Index page') %>
-              <%= render CardComponent.new(body: '[UI prototype] Individual pages') %>
-              <%= render CardComponent.new(body: '[Setup] DB') %>
-              <%= render CardComponent.new(body: '[Setup] Repository') %>
+            <%= render CardComponent.new(body: '[UI prototype] Index page') %>
+            <%= render CardComponent.new(body: '[UI prototype] Individual pages') %>
+            <%= render CardComponent.new(body: '[Setup] DB') %>
+            <%= render CardComponent.new(body: '[Setup] Repository') %>
           <% end -%>
           <%= render Board::InnerColumnComponent.new(name: 'Done') do %>
           <% end -%>
