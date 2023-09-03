@@ -1,11 +1,11 @@
 <div class="flex justify-center pt-2">
-  <% if defined? limit -%>
+  <% if @limit -%>
     <span class="inline-flex justify-center items-center h-7 rounded-full bg-white text-stone-600 text-sm font-bold px-3">
-      <%= count %> / <%= limit %>
+      <%= @count %> / <%= @limit %>
     </span>
   <% else -%>
     <span class="inline-flex justify-center items-center h-7 rounded-full bg-white text-stone-600 text-sm font-bold w-7">
-      <%= count %>
+      <%= @count %>
     </span>
   <% end -%>
 </div>
