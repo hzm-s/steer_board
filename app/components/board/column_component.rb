@@ -7,8 +7,9 @@ class Board::ColumnComponent < ViewComponent::Base
     @column_count = column_count
   end
 
-  def css_class_width
-    size = 16 * @column_count + (@column_count - 1) * 1.5
-    "basis-[#{tw_size(size)}rem]"
+  def width
+    return 16 if @column_count == 1
+
+    16 * @column_count + (@column_count + 1) * 0.5
   end
 end

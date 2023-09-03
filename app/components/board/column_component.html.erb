@@ -1,4 +1,4 @@
-<div class="<%= css_class_width %> flex-shrink-0">
+<div class="flex-shrink-0" style="flex-basis: <%= width %>rem">
   <div class="pb-2 bg-slate-300 rounded-lg">
     <%= render Board::ColumnHeaderComponent.new(name: @name, items: @items) %>
     <% if @column_count == 1 -%>
