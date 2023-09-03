@@ -1,11 +1,9 @@
-<div class="flex justify-center pt-2">
-  <% if @limit -%>
-    <span class="inline-flex justify-center items-center h-7 rounded-full bg-white text-stone-600 text-sm font-bold px-3">
-      <%= @count %> / <%= @limit %>
-    </span>
-  <% else -%>
-    <span class="inline-flex justify-center items-center h-7 rounded-full bg-white text-stone-600 text-sm font-bold w-7">
-      <%= @count %>
-    </span>
-  <% end -%>
-</div>
+<% if @limit -%>
+  <span class="inline-flex justify-center items-center h-7 rounded-full bg-white text-stone-600 text-sm font-bold px-3">
+    <%= @count %> / <%= @limit %>
+  </span>
+<% else -%>
+  <span class="inline-flex justify-center items-center h-7 rounded-full bg-white text-stone-600 text-sm font-bold w-7">
+    <%= @count %>
+  </span>
+<% end -%>

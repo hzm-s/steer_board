@@ -2,115 +2,61 @@
   <div class="w-full overflow-x-auto">
     <div style="height:92vh">
       <div class="flex flex-row gap-2">
-        <div class="basis-[16rem] flex-shrink-0">
-          <div class="pb-2 bg-slate-300 rounded-lg">
-            <div class="relative">
-              <%= render partial: 'pages/menu' %>
-              <%= render partial: 'pages/wip', locals: { count: 3 } %>
-              <%= render partial: 'pages/header', locals: { title: 'Idea' } %>
-            </div>
-            <div class="flex flex-col gap-2 px-2">
-              <%= render CardComponent.new(body: '[UI prototype] Backlog') %>
-              <%= render CardComponent.new(body: '[UI prototype] Cycle time') %>
-              <%= render CardComponent.new(body: '[UI prototype] Lead time') %>
-            </div>
+        <%= render Board::ColumnComponent.new(name: 'Idea', items: { count: 3 }) do %>
+          <div class="flex flex-col gap-2 px-2">
+            <%= render CardComponent.new(body: '[UI prototype] Backlog') %>
+            <%= render CardComponent.new(body: '[UI prototype] Cycle time') %>
+            <%= render CardComponent.new(body: '[UI prototype] Lead time') %>
           </div>
-        </div>
-        <div class="basis-[16rem] flex-shrink-0">
-          <div class="pb-2 bg-slate-300 rounded-lg">
-            <div class="relative">
-              <%= render partial: 'pages/menu' %>
-              <%= render partial: 'pages/wip', locals: { count: 3, limit: 10 } %>
-              <%= render partial: 'pages/header', locals: { title: 'Analyze' } %>
-            </div>
-            <div class="flex flex-col gap-2 px-2">
-              <%= render CardComponent.new(body: '[UI prototype] Item with tasks') %>
-              <%= render CardComponent.new(body: '[UI prototype] Move items') %>
-              <%= render CardComponent.new(body: '[UI prototype] Check to done') %>
-            </div>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(name: 'Analyze', items: { count: 3, limit: 10 }) do %>
+          <div class="flex flex-col gap-2 px-2">
+            <%= render CardComponent.new(body: '[UI prototype] Item with tasks') %>
+            <%= render CardComponent.new(body: '[UI prototype] Move items') %>
+            <%= render CardComponent.new(body: '[UI prototype] Check to done') %>
           </div>
-        </div>
-        <div class="basis-[33.5rem] flex-shrink-0">
-          <div class="pb-2 bg-slate-300 rounded-lg">
-            <div class="relative">
-              <%= render partial: 'pages/menu' %>
-              <%= render partial: 'pages/wip', locals: { count: 3, limit: 8 } %>
-              <%= render partial: 'pages/header', locals: { title: 'Develop' } %>
-            </div>
-            <div class="flex flex-row justify-between px-2">
-              <div class="basis-[16rem] flex-shrink-0">
-                <div class="pb-2 bg-zinc-200 rounded-lg">
-                  <%= render partial: 'pages/header', locals: { title: 'WIP', sub: true } %>
-                  <div class="flex flex-col gap-2 px-2">
-                    <%= render CardComponent.new(body: '[UI prototype] Board') %>
-                  </div>
-                </div>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(name: 'Develop', items: { count: 3, limit: 8 }, column_count: 2) do %>
+          <div class="flex flex-row justify-between px-2">
+            <%= render Board::InnerColumnComponent.new(name: 'WIP') do %>
+              <div class="flex flex-col gap-2 px-2">
+                <%= render CardComponent.new(body: '[UI prototype] Board') %>
               </div>
-              <div class="basis-[16rem] flex-shrink-0">
-                <div class="pb-2 bg-zinc-200 rounded-lg">
-                  <%= render partial: 'pages/header', locals: { title: 'Done', sub: true } %>
-                  <div class="flex flex-col gap-2 px-2">
-                    <%= render CardComponent.new(body: '[UI prototype] Board buffer') %>
-                    <%= render CardComponent.new(body: '[UI prototype] Board column') %>
-                  </div>
-                </div>
+            <% end -%>
+            <%= render Board::InnerColumnComponent.new(name: 'Done') do %>
+              <div class="flex flex-col gap-2 px-2">
+                <%= render CardComponent.new(body: '[UI prototype] Board buffer') %>
+                <%= render CardComponent.new(body: '[UI prototype] Board column') %>
               </div>
-            </div>
+            <% end -%>
           </div>
-        </div>
-        <div class="basis-[33.5rem] flex-shrink-0">
-          <div class="pb-2 bg-slate-300 rounded-lg">
-            <div class="relative">
-              <%= render partial: 'pages/menu' %>
-              <%= render partial: 'pages/wip', locals: { count: 4, limit: 5 } %>
-              <%= render partial: 'pages/header', locals: { title: 'QA' } %>
-            </div>
-            <div class="flex flex-row justify-between px-2">
-              <div class="basis-[16rem] flex-shrink-0">
-                <div class="pb-2 bg-zinc-200 rounded-lg">
-                  <%= render partial: 'pages/header', locals: { title: 'WIP', sub: true } %>
-                  <div class="flex flex-col gap-2 px-2">
-                    <%= render CardComponent.new(body: '[UI prototype] Index page') %>
-                    <%= render CardComponent.new(body: '[UI prototype] Individual pages') %>
-                    <%= render CardComponent.new(body: '[Setup] DB') %>
-                    <%= render CardComponent.new(body: '[Setup] Repository') %>
-                  </div>
-                </div>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(name: 'QA', items: { count: 4, limit: 5 } ,column_count: 2) do %>
+          <div class="flex flex-row justify-between px-2">
+            <%= render Board::InnerColumnComponent.new(name: 'WIP') do %>
+              <div class="flex flex-col gap-2 px-2">
+                <%= render CardComponent.new(body: '[UI prototype] Index page') %>
+                <%= render CardComponent.new(body: '[UI prototype] Individual pages') %>
+                <%= render CardComponent.new(body: '[Setup] DB') %>
+                <%= render CardComponent.new(body: '[Setup] Repository') %>
               </div>
-              <div class="basis-[16rem] flex-shrink-0">
-                <div class="pb-2 bg-zinc-200 rounded-lg">
-                  <%= render partial: 'pages/header', locals: { title: 'Done', sub: true } %>
-                  <div class="flex flex-col gap-2 px-2">
-                  </div>
-                </div>
+            <% end -%>
+            <%= render Board::InnerColumnComponent.new(name: 'Done') do %>
+              <div class="flex flex-col gap-2 px-2">
               </div>
-            </div>
+            <% end -%>
           </div>
-        </div>
-        <div class="basis-[16rem] flex-shrink-0">
-          <div class="pb-2 bg-slate-300 rounded-lg">
-            <div class="relative">
-              <%= render partial: 'pages/menu' %>
-              <%= render partial: 'pages/wip', locals: { count: 0, limit: 15 } %>
-              <%= render partial: 'pages/header', locals: { title: 'Release' } %>
-            </div>
-            <div class="flex flex-col gap-2 px-2">
-            </div>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(name: 'Release', items: { count: 0, limit: 15 }) do %>
+          <div class="flex flex-col gap-2 px-2">
           </div>
-        </div>
-        <div class="basis-[16rem] flex-shrink-0">
-          <div class="pb-2 bg-slate-300 rounded-lg">
-            <div class="relative">
-              <%= render partial: 'pages/menu' %>
-              <%= render partial: 'pages/wip', locals: { count: 2 } %>
-              <%= render partial: 'pages/header', locals: { title: 'Production' } %>
-            </div>
-            <div class="flex flex-col gap-2 px-2">
-              <%= render CardComponent.new(body: '[Setup] git') %>
-              <%= render CardComponent.new(body: '[Setup] rails') %>
-            </div>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(name: 'Production', items: { count: 2 }) do %>
+          <div class="flex flex-col gap-2 px-2">
+            <%= render CardComponent.new(body: '[Setup] git') %>
+            <%= render CardComponent.new(body: '[Setup] rails') %>
           </div>
-        </div>
+        <% end -%>
       </div>
     </div>
   </div>
