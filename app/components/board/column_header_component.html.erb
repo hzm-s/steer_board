@@ -1,0 +1,13 @@
+<div class="relative">
+  <div class="absolute top-0 right-0 pr-2">
+    <%= render ContextMenuComponent.new %>
+  </div>
+  <div class="flex justify-center pt-2">
+    <%= render ItemCounterComponent.new(**@items) %>
+  </div>
+  <div class="flex justify-center p-2">
+    <h3 class="font-bold">
+      <%= @name %>
+    </h3>
+  </div>
+</div>
