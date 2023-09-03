@@ -14,29 +14,21 @@
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'Develop', items: { count: 3, limit: 8 }, column_count: 2) do %>
           <%= render Board::InnerColumnComponent.new(name: 'WIP') do %>
-            <div class="flex flex-col gap-2 px-2">
-              <%= render CardComponent.new(body: '[UI prototype] Board') %>
-            </div>
+            <%= render CardComponent.new(body: '[UI prototype] Board') %>
           <% end -%>
           <%= render Board::InnerColumnComponent.new(name: 'Done') do %>
-            <div class="flex flex-col gap-2 px-2">
-              <%= render CardComponent.new(body: '[UI prototype] Board buffer') %>
-              <%= render CardComponent.new(body: '[UI prototype] Board column') %>
-            </div>
+            <%= render CardComponent.new(body: '[UI prototype] Board buffer') %>
+            <%= render CardComponent.new(body: '[UI prototype] Board column') %>
           <% end -%>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'QA', items: { count: 4, limit: 5 } ,column_count: 2) do %>
           <%= render Board::InnerColumnComponent.new(name: 'WIP') do %>
-            <div class="flex flex-col gap-2 px-2">
               <%= render CardComponent.new(body: '[UI prototype] Index page') %>
               <%= render CardComponent.new(body: '[UI prototype] Individual pages') %>
               <%= render CardComponent.new(body: '[Setup] DB') %>
               <%= render CardComponent.new(body: '[Setup] Repository') %>
-            </div>
           <% end -%>
           <%= render Board::InnerColumnComponent.new(name: 'Done') do %>
-            <div class="flex flex-col gap-2 px-2">
-            </div>
           <% end -%>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'Release', items: { count: 0, limit: 15 }) do %>
