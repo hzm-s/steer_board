@@ -1,5 +1,9 @@
-# frozen_string_literal: true
-
 class ContextMenuComponent < ViewComponent::Base
+  def initialize(position: :right)
+    @position = position
+  end
 
+  def left?
+    @position == :left
+  end
 end
