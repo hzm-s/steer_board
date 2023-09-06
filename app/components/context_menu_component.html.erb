@@ -1,10 +1,5 @@
 <div data-controller="dropdown" class="relative">
-  <%= tag.button(
-    type: :button,
-    data: { action: 'dropdown#toggle click@window->dropdown#hide' },
-    class: %w(inline-flex justify-center items-center rounded-lg px-1 hover:ring-4 hover:ring-blue-400 transition duration-150),
-    style: 'height: 1.75rem;'
-  ) do -%>
+  <%= render IconButtonComponent.new(size: 1.75, dropdown: true) do %>
     <%= render IconComponent.new(name: 'ellipsis', size: 1.5) %>
   <% end -%>
   <%= tag.div(

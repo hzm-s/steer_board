@@ -1,0 +1,8 @@
+<%= tag.button(
+  type: :button,
+  data: data.merge(data_for_dropdown),
+  class: %w(inline-flex justify-center items-center rounded-lg text-gray-700 hover:bg-white transition duration-150),
+  style: "width: #{size}rem; height: #{size}rem;"
+) do -%>
+  <%= content %>
+<% end -%>
