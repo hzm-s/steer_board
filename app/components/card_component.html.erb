@@ -1,5 +1,12 @@
-<div class="py-3 px-3 rounded-lg bg-white border border-stone-100">
-  <p>
+<% colors = {
+  idea: 'border-stone-400',
+  value: 'border-yellow-400',
+  rework: 'border-rose-500',
+  backyard: 'border-green-500',
+  other: 'border-blue-400',
+} %>
+<%= tag.div class: %w(rounded-lg bg-white) do %>
+  <%= tag.div class: %w(p-3 rounded-l-lg border-l-8) + [colors[@kind]] do %>
     <%= @body %>
-  </p>
-</div>
+  <% end -%>
+<% end -%>

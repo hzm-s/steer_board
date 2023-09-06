@@ -3,30 +3,30 @@
     <div style="height:92vh">
       <div class="flex flex-row gap-2">
         <%= render Board::ColumnComponent.new(name: 'Idea', items: { count: 3 }) do %>
-          <%= render CardComponent.new(body: '[UI prototype] Backlog') %>
-          <%= render CardComponent.new(body: '[UI prototype] Cycle time') %>
-          <%= render CardComponent.new(body: '[UI prototype] Lead time') %>
+          <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Backlog') %>
+          <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Cycle time') %>
+          <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Lead time') %>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'Analyze', items: { count: 3, limit: 10 }) do %>
-          <%= render CardComponent.new(body: '[UI prototype] Item with tasks') %>
-          <%= render CardComponent.new(body: '[UI prototype] Move items') %>
-          <%= render CardComponent.new(body: '[UI prototype] Check to done') %>
+          <%= render CardComponent.new(kind: :value, body: '[UI prototype] Item with tasks') %>
+          <%= render CardComponent.new(kind: :value, body: '[UI prototype] Move items') %>
+          <%= render CardComponent.new(kind: :value, body: '[UI prototype] Check to done') %>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'Develop', items: { count: 3, limit: 8 }, column_count: 2) do %>
           <%= render Board::InnerColumnComponent.new(name: 'WIP') do %>
-            <%= render CardComponent.new(body: '[UI prototype] Board') %>
+            <%= render CardComponent.new(kind: :backyard, body: 'Board (use ViewComponent)') %>
           <% end -%>
           <%= render Board::InnerColumnComponent.new(name: 'Done') do %>
-            <%= render CardComponent.new(body: '[UI prototype] Board buffer') %>
-            <%= render CardComponent.new(body: '[UI prototype] Board column') %>
+            <%= render CardComponent.new(kind: :value, body: '[UI prototype] Board buffer') %>
+            <%= render CardComponent.new(kind: :value, body: '[UI prototype] Board column') %>
           <% end -%>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'QA', items: { count: 4, limit: 5 } ,column_count: 2) do %>
           <%= render Board::InnerColumnComponent.new(name: 'WIP') do %>
-            <%= render CardComponent.new(body: '[UI prototype] Index page') %>
-            <%= render CardComponent.new(body: '[UI prototype] Individual pages') %>
-            <%= render CardComponent.new(body: '[Setup] DB') %>
-            <%= render CardComponent.new(body: '[Setup] Repository') %>
+            <%= render CardComponent.new(kind: :value, body: '[UI prototype] Index page') %>
+            <%= render CardComponent.new(kind: :rework, body: '[UI prototype] Individual pages') %>
+            <%= render CardComponent.new(kind: :other, body: '[Setup] DB') %>
+            <%= render CardComponent.new(kind: :other, body: '[Setup] Repository') %>
           <% end -%>
           <%= render Board::InnerColumnComponent.new(name: 'Done') do %>
           <% end -%>
@@ -34,8 +34,8 @@
         <%= render Board::ColumnComponent.new(name: 'Release', items: { count: 0, limit: 15 }) do %>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'Production', items: { count: 2 }) do %>
-          <%= render CardComponent.new(body: '[Setup] git') %>
-          <%= render CardComponent.new(body: '[Setup] rails') %>
+          <%= render CardComponent.new(kind: :other, body: '[Setup] git') %>
+          <%= render CardComponent.new(kind: :other, body: '[Setup] rails') %>
         <% end -%>
       </div>
     </div>
