@@ -1,21 +1,14 @@
-<div data-controller="dropdown" class="relative">
-  <%= render IconButtonComponent.new(size: 1.75, dropdown: true) do %>
-    <%= render IconComponent.new(name: 'ellipsis', size: 1.5) %>
+<%= render DropdownComponent.new(position: :right) do |c| -%>
+  <% c.with_trigger do -%>
+    <%= render IconButtonComponent.new(size: 1.75, dropdown: true) do %>
+      <%= render IconComponent.new(name: 'ellipsis', size: 1.5) %>
+    <% end -%>
   <% end -%>
-  <%= tag.div(
-    data: {
-      dropdown_target: 'menu',
-      transition_enter_from: 'opacity-20 scale-98',
-      transition_enter_to: 'opacity-100 scale-100',
-      transition_leave_from: 'opacity-100 scale-100',
-      transition_leave_to: 'opacity-0 scale-100',
-    },
-    class: %w(hidden transition transform absolute z-50) + (left? ? %w(left-0 origin-top-left) : %w(right-0 origin-top-right))
-  ) do -%>
-    <div class="whitespace-nowrap flex flex-col divider-y mt-1 p-2 bg-white rounded-lg drop-shadow">
+  <%= c.with_dropping do -%>
+    <%= tag.div class: %w(flex flex-col divider-y p-2) do -%>
       <%= link_to 'Manage policies', '#', class: %w(px-2 py-1 rounded-lg hover:bg-gray-100) %>
       <%= link_to 'Manage WIP limit', '#', class: %w(px-2 py-1 rounded-lg hover:bg-gray-100) %>
       <%= link_to 'Add a Column', '#', class: %w(px-2 py-1 rounded-lg hover:bg-gray-100) %>
-    </div>
+    <% end -%>
   <% end -%>
-</div>
+<% end -%>
