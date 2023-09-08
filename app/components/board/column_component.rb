@@ -8,8 +8,8 @@ class Board::ColumnComponent < ViewComponent::Base
   end
 
   def width
-    return 16 if @column_count == 1
+    return 18 if @column_count == 1
 
-    16 * @column_count + (@column_count + 1) * 0.5
+    18 * @column_count + (@column_count + 1) * 0.5
   end
 end
