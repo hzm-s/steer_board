@@ -1,12 +1,12 @@
 <% colors = {
-  idea: 'border-stone-400',
-  value: 'border-yellow-400',
-  rework: 'border-rose-500',
-  backyard: 'border-green-500',
-  other: 'border-blue-400',
+  idea: { border: 'border-white', bg: 'bg-amber-100' },
+  item: { border: 'border-yellow-400', bg: 'bg-white' },
+  rework: { border: 'border-rose-500', bg: 'bg-white' },
+  tech: { border: 'border-green-500', bg: 'bg-white' },
+  other: { border: 'border-blue-400', bg: 'bg-white' },
 } %>
 <%= tag.div class: %w(rounded-lg bg-white) do %>
-  <%= tag.div class: %w(p-3 rounded-l-lg border-l-8) + [colors[@kind]] do %>
+  <%= tag.div class: %w(px-2 py-3 rounded-lg border-l-8) + [colors[@kind][:border]] + [colors[@kind][:bg]] do %>
     <%= @body %>
   <% end -%>
 <% end -%>
