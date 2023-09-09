@@ -6,6 +6,7 @@
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Cycle time') %>
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Lead time') %>
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Add item') %>
+          <%= render Board::AddCardComponent.new %>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'Analyze', items: { count: 1, limit: 5 }) do %>
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Backlog') %>
