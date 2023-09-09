@@ -2,6 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input,
+  textarea,
+  select
+  {
+    @apply border border-gray-300 transition duration-150;
+  }
+
+  a,
+  input,
+  textarea,
+  select,
+  button
+  {
+    @apply rounded-lg transition duration-150;
+  }
+
+  [type='text']:focus,
+  [type='email']:focus,
+  [type='url']:focus,
+  [type='password']:focus,
+  [type='number']:focus,
+  [type='date']:focus,
+  [type='datetime-local']:focus,
+  [type='month']:focus,
+  [type='search']:focus,
+  [type='tel']:focus,
+  [type='time']:focus,
+  [type='week']:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus {
+    --tw-ring-color: #93c5fd;
+    border-color: var(--tw-ring-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  }
+
+  [type="checkbox"],
+  [type="radio"] {
+    color: #3b82f6;
+  }
+
+  [type="checkbox"]:focus,
+  [type="radio"]:focus {
+    --tw-ring-color: #93c5fd;
+  }
+
+  button:focus,
+  a:focus {
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    border-color: #93c5fd;
+    outline: none;
+  }
+}
+
 @layer components {
   .flow-line {
     @apply flex items-center;

@@ -2,11 +2,11 @@
   <%= tag.div data: { controller: 'reveal' } do %>
     <%= tag.div data: { reveal_target: 'item' } do %>
       <%= form_with scope: :item, url: '/' do |f| -%>
-        <%= f.text_area :content, class: %w(w-full rounded-lg transition duration-150) %>
-        <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(w-full rounded-lg transition duration-150) } %>
+        <%= f.text_area :content, class: %w(w-full) %>
+        <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(w-full) } %>
         <%= tag.div class: %w(mt-2 flex gap-4) do %>
-          <%= f.button 'Add', type: :submit, class: %w(py-2 px-4 rounded-lg bg-violet-500 hover:bg-violet-600 text-white transition duration-150) %>
-          <%= tag.button 'Cancel', type: :button, data: { action: 'click->reveal#toggle' }, class: %w(text-stone-500 hover:underline hover:text-stone-600 transition duration-150) %>
+          <%= f.button 'Add', type: :submit, class: %w(py-2 px-4  bg-violet-500 hover:bg-violet-600 text-white) %>
+          <%= tag.button 'Cancel', type: :button, data: { action: 'click->reveal#toggle' }, class: %w(text-stone-500 hover:underline hover:text-stone-600) %>
         <% end -%>
       <% end -%>
     <% end -%>
