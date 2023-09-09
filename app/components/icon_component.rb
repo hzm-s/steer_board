@@ -1,11 +1,16 @@
 class IconComponent < ViewComponent::Base
-  def initialize(name:, size: 1.5, style: :solid)
-    @name = name
-    @size = size
-    @style = style
+  def initialize(**attrs)
+    @name = attrs[:name]
+    @size = attrs[:size] || 1.5
+    @style = attrs[:style] || :solid
+    @extra_class = attrs[:class] || ''
   end
 
-  def classes
+  def icon_class
     "fa-#{@style.to_s} fa-#{@name.to_s}"
   end
+
+  private
+
+  attr_reader :size, :extra_class
 end
