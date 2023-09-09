@@ -6,28 +6,30 @@
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Cycle time') %>
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Lead time') %>
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Add item') %>
-          <%= render Board::AddCardComponent.new %>
+          <%= tag.turbo_frame id: 'new_item_form' do %>
+            <%= render Board::AddItemComponent.new %>
+          <% end -%>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'Analyze', items: { count: 1, limit: 5 }) do %>
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Backlog') %>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'Next 10', items: { count: 3, limit: 10 }) do %>
-          <%= render CardComponent.new(kind: :item, body: '[UI prototype] Item with tasks') %>
-          <%= render CardComponent.new(kind: :item, body: '[UI prototype] Move items') %>
-          <%= render CardComponent.new(kind: :item, body: '[UI prototype] Check to done') %>
+          <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Item with tasks') %>
+          <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Move items') %>
+          <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Check to done') %>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'Develop', items: { count: 3, limit: 8 }, column_count: 2) do %>
           <%= render Board::InnerColumnComponent.new(name: 'WIP') do %>
             <%= render CardComponent.new(kind: :tech, body: 'Board (use ViewComponent)') %>
           <% end -%>
           <%= render Board::InnerColumnComponent.new(name: 'Done') do %>
-            <%= render CardComponent.new(kind: :item, body: '[UI prototype] Board buffer') %>
-            <%= render CardComponent.new(kind: :item, body: '[UI prototype] Board column') %>
+            <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Board buffer') %>
+            <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Board column') %>
           <% end -%>
         <% end -%>
         <%= render Board::ColumnComponent.new(name: 'QA', items: { count: 4, limit: 5 } ,column_count: 2) do %>
           <%= render Board::InnerColumnComponent.new(name: 'WIP') do %>
-            <%= render CardComponent.new(kind: :item, body: '[UI prototype] Index page') %>
+            <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Index page') %>
             <%= render CardComponent.new(kind: :rework, body: '[UI prototype] Individual pages') %>
             <%= render CardComponent.new(kind: :other, body: '[Setup] DB') %>
             <%= render CardComponent.new(kind: :other, body: '[Setup] Repository') %>
