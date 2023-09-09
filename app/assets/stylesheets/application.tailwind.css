@@ -7,7 +7,7 @@
   textarea,
   select
   {
-    @apply border border-gray-300 transition duration-150;
+    @apply border border-gray-300;
   }
 
   a,
@@ -16,7 +16,7 @@
   select,
   button
   {
-    @apply rounded-lg transition duration-150;
+    @apply rounded-lg transition duration-300;
   }
 
   [type='text']:focus,
