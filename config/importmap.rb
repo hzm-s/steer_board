@@ -9,3 +9,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "stimulus-dropdown" # @2.1.0
 pin "hotkeys-js" # @3.12.0
 pin "stimulus-use" # @0.51.3
+pin "stimulus-reveal-controller" # @4.1.0
