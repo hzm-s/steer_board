@@ -1,14 +1,14 @@
 <%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{width}rem" do %>
   <%= tag.div class: %w(pb-4 bg-slate-200 border border-slate-300 rounded-lg) do %>
-    <%= render Board::ColumnHeaderComponent.new(name: @name, items: @items) %>
-    <% if @column_count == 1 -%>
-      <div class="flex flex-col gap-2 px-2">
+    <%= render Board::ColumnHeaderComponent.new(name: name, items: items) %>
+    <% if column_count == 1 -%>
+      <%= tag.div data: { controller: 'sort', sort_group: key, sort_allow_src: allow_src }, class: %w(flex flex-col gap-2 px-2) do %>
         <%= content %>
-      </div>
+      <% end -%>
     <% else -%>
-      <div class="flex flex-row justify-between px-2">
+      <%= tag.div class: %w(flex flex-row justify-between px-2) do %>
         <%= content %>
-      </div>
+      <% end -%>
     <% end -%>
   <% end -%>
 <% end -%>
