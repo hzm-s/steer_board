@@ -1,6 +1,6 @@
 <%= render DropdownComponent.new(position: :right) do |c| -%>
   <% c.with_trigger do -%>
-    <%= render IconButtonComponent.new(size: 1.75, dropdown: true) do %>
+    <%= render IconButtonComponent.new(size: 1.75, dropdown: true, class: %w(hover:bg-gray-300)) do %>
       <%= render IconComponent.new(name: 'ellipsis', size: 1.5, class: %w(text-gray-600)) %>
     <% end -%>
   <% end -%>

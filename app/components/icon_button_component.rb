@@ -1,8 +1,9 @@
 class IconButtonComponent < ViewComponent::Base
-  def initialize(size: 1.75, data: {}, dropdown: false)
-    @size = size
-    @data = data
-    @dropdown = dropdown
+  def initialize(**attrs)
+    @size = attrs[:size] || 1.75
+    @dropdown = attrs[:dropdown] || false
+    @extra_data = attrs[:data] || {}
+    @extra_class = attrs[:class] || []
   end
 
   def data_for_dropdown
@@ -13,5 +14,5 @@ class IconButtonComponent < ViewComponent::Base
 
   private
 
-  attr_reader :size, :data
+  attr_reader :size, :extra_data, :extra_class
 end
