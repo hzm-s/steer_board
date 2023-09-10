@@ -1,5 +1,4 @@
-<%# TODO: use style %>
-<%= tag.div class: %w(basis-[18rem] flex-shrink-0) do %>
+<%= tag.div class: %w(flex-shrink-0), style: "flex-basis: 18rem" do %>
   <%= tag.div class: %w(pb-2 rounded-lg bg-zinc-200 border border-zinc-300) do %>
     <%= tag.div class: %w(flex justify-center p-2) do %>
       <%= tag.h3 @name, class: %w(text-sm font-semibold text-stone-600) %>
