@@ -1,12 +1,32 @@
-<% colors = {
-  idea: { border: 'border-white', bg: 'bg-amber-50' },
-  feature: { border: 'border-yellow-400', bg: 'bg-white' },
-  rework: { border: 'border-rose-500', bg: 'bg-white' },
-  tech: { border: 'border-green-500', bg: 'bg-white' },
-  other: { border: 'border-blue-400', bg: 'bg-white' },
+<% themes = {
+  idea: {
+    bg: 'bg-amber-50',
+    main: 'text-gray-400',
+  },
+  feature: {
+    bg: 'bg-white',
+    main: 'text-yellow-500',
+  },
+  rework: {
+    bg: 'bg-white',
+    main: 'text-rose-600',
+  },
+  tech: {
+    bg: 'bg-white',
+    main: 'text-emerald-500',
+  },
+  other: {
+    bg: 'bg-white',
+    main: 'text-blue-500',
+  },
 } %>
-<%= tag.div data: { sort_item: true }, class: %w(rounded-lg bg-white border border-gray-300) do %>
-  <%= tag.div class: %w(px-2 py-3 rounded-lg border-l-8) + [colors[@kind][:border]] + [colors[@kind][:bg]] do %>
-    <%= @body %>
+<% theme = themes[kind] %>
+<%= tag.div data: { sort_item: true }, class: %w(px-3 py-2 rounded-lg border border-gray-300 drop-shadow-sm cursor-pointer) + [theme[:bg]] do %>
+  <%= tag.div class: %w(flex items-center gap-2) do %>
+    <%= render IconComponent.new(name: 'circle', size: 0.8, class: [theme[:main]]) %>
+    <%= tag.span "#123", class: %w(text-gray-600 text-sm) %>
+  <% end -%>
+  <%= tag.div class: %w(mt-1) do %>
+    <%= simple_format @body %>
   <% end -%>
 <% end -%>

@@ -3,4 +3,8 @@ class CardComponent < ViewComponent::Base
     @kind = kind
     @body = body
   end
+
+  private
+
+  attr_reader :kind, :body
 end
