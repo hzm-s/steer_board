@@ -1,16 +1,11 @@
 class Board::InnerColumnComponent < ViewComponent::Base
-  delegate :key, to: :@step
+  delegate :name, to: :@step
 
   def initialize(step:)
     @step = step
-    @name = step.name
-  end
-
-  def allow_src
-    @step.previous&.key
   end
 
   private
 
-  attr_reader :name
+  attr_reader :step
 end

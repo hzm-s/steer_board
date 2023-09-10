@@ -2,7 +2,7 @@
   <%= tag.div class: %w(pb-4 bg-slate-200 border border-slate-300 rounded-lg) do %>
     <%= render Board::ColumnHeaderComponent.new(name: name, items: items) %>
     <% if column_count == 1 -%>
-      <%= tag.div data: { controller: 'sort', sort_group: key, sort_allow_src: allow_src }, class: %w(flex flex-col gap-2 px-2) do %>
+      <%= render Board::ItemListComponent.new(step: step) do %>
         <%= content %>
       <% end -%>
     <% else -%>
