@@ -5,7 +5,7 @@
   tech: { border: 'border-green-500', bg: 'bg-white' },
   other: { border: 'border-blue-400', bg: 'bg-white' },
 } %>
-<%= tag.div class: %w(rounded-lg bg-white) do %>
+<%= tag.div class: %w(rounded-lg bg-white border border-gray-300) do %>
   <%= tag.div class: %w(px-2 py-3 rounded-lg border-l-8) + [colors[@kind][:border]] + [colors[@kind][:bg]] do %>
     <%= @body %>
   <% end -%>
