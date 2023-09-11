@@ -1,6 +1,8 @@
 class Board::ColumnComponent < ViewComponent::Base
   include TailwindHelper
 
+  renders_one :footer
+
   delegate :name, to: :@step
 
   def initialize(step:, items:, column_count: 1)

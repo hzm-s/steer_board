@@ -14,12 +14,22 @@
   <div class="w-full overflow-x-auto">
     <div style="height:92vh">
       <div class="flex flex-row gap-2">
-        <%= render Board::ColumnComponent.new(step: step_inbox, items: { count: 3 }) do %>
+        <%= render Board::ColumnComponent.new(step: step_inbox, items: { count: 3 }) do |c| %>
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Cycle time') %>
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Lead time') %>
           <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Add item') %>
-          <%= tag.turbo_frame id: 'new_item_form' do %>
-            <%= render Board::AddItemComponent.new %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ---') %>
+          <% c.with_footer do %>
+            <%= tag.turbo_frame id: 'new_item_form' do %>
+              <%= render Board::AddItemComponent.new %>
+            <% end -%>
           <% end -%>
         <% end -%>
         <%= render Board::ColumnComponent.new(step: step_analyze, items: { count: 1, limit: 5 }) do %>
@@ -33,6 +43,15 @@
         <%= render Board::ColumnComponent.new(step: step_dev, items: { count: 3, limit: 8 }, column_count: 2) do %>
           <%= render Board::InnerColumnComponent.new(step: step_dev_wip) do %>
             <%= render CardComponent.new(kind: :tech, body: 'Board (use ViewComponent)') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ---') %>
           <% end -%>
           <%= render Board::InnerColumnComponent.new(step: step_dev_done) do %>
             <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Board buffer') %>
