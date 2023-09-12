@@ -5,6 +5,8 @@ class Board::ColumnComponent < ViewComponent::Base
 
   delegate :name, to: :@step
 
+  SPACE_WIDTH = 0.5
+
   def initialize(step:, items:, column_count: 1)
     @step = step
     @column_count = column_count
@@ -12,9 +14,7 @@ class Board::ColumnComponent < ViewComponent::Base
   end
 
   def width
-    return 18 if @column_count == 1
-
-    18 * @column_count + (@column_count + 1) * 0.5
+    18 * @column_count + (SPACE_WIDTH * (@column_count + 1))
   end
 
   private

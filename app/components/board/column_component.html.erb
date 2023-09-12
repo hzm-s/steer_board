@@ -1,15 +1,16 @@
+<% bg_color = 'bg-white' %>
 <%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{width}rem" do %>
-  <%= tag.div class: %w(relative pb-4 bg-slate-50 border border-gray-300 rounded-lg drop-shadow-sm) do %>
+  <%= tag.div class: %W(relative pb-4 #{bg_color} border border-gray-200 rounded-lg drop-shadow-md) do %>
     <%= render Board::ColumnHeaderComponent.new(name: name, items: items) %>
     <%= tag.div class: %w(h-full overflow-y-auto) do %>
       <%= tag.div style: "max-height:79vh" do %>
-        <%= tag.div style: "#{footer? && 'padding-bottom: 3rem;'}" do %>
+        <%= tag.div class: %w(px-2), style: "#{footer? && 'padding-bottom: 4rem;'}" do %>
           <% if column_count == 1 -%>
             <%= render Board::ItemListComponent.new(step: step) do %>
               <%= content %>
             <% end -%>
           <% else -%>
-            <%= tag.div class: %w(flex flex-row justify-between px-2) do %>
+            <%= tag.div class: %w(flex flex-row justify-between) do %>
               <%= content %>
             <% end -%>
           <% end -%>
@@ -17,7 +18,7 @@
       <% end -%>
     <% end -%>
     <% if footer? %>
-      <%= tag.div class: %w(block absolute bottom-0 w-full rounded-lg pt-2 pb-4 px-2 bg-slate-100) do %>
+      <%= tag.div class: %W(block absolute bottom-0 w-full #{bg_color} rounded-lg pt-4 pb-4 px-2) do %>
         <%= footer %>
       <% end -%>
     <% end -%>

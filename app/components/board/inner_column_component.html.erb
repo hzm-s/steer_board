@@ -1,10 +1,8 @@
 <%= tag.div class: %w(flex-shrink-0), style: "flex-basis: 18rem" do %>
-  <%= tag.div class: %w(pb-2 rounded-lg bg-zinc-100 border border-zinc-300 drop-shadow-sm) do %>
-    <%= tag.div class: %w(flex justify-center p-2) do %>
-      <%= tag.h3 name, class: %w(text-sm font-semibold text-stone-600) %>
-    <% end -%>
-    <%= render Board::ItemListComponent.new(step: step) do %>
-      <%= content %>
-    <% end -%>
+  <%= tag.div class: %w(flex justify-center pb-2) do %>
+    <%= tag.h3 name, class: %w(text-sm font-bold) %>
+  <% end -%>
+  <%= render Board::ItemListComponent.new(step: step) do %>
+    <%= content %>
   <% end -%>
 <% end -%>
