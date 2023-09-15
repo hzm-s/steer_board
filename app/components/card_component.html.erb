@@ -23,7 +23,7 @@
 <% theme = themes[kind] %>
 <%= tag.div data: { sort_item: true }, class: %w(px-3 py-2 rounded-lg border border-stone-300 cursor-pointer) + [theme[:bg]] do %>
   <%= tag.div class: %w(flex items-center gap-2) do %>
-    <%= render IconComponent.new(name: 'circle', size: 0.8, class: [theme[:main]]) %>
+    <%= render Ui::IconComponent.new(name: 'circle', size: 0.8, class: [theme[:main]]) %>
     <%= tag.span "#123", class: %w(text-gray-600 text-sm) %>
   <% end -%>
   <%= tag.div class: %w(mt-1) do %>
