@@ -1,0 +1,5 @@
+<%= tag.div data: { controller: 'sort', sort_group: 'dummy', sort_allow_src: 'dummy' }, class: %w(flex flex-col gap-2) do %>
+  <% items.each do |item| %>
+    <%= render CardComponent.new(kind: item.kind, body: item.body) %>
+  <% end -%>
+<% end -%>
