@@ -16,7 +16,6 @@ export default class extends Controller {
   connect() {
     const groupName = this.data.get('group')
     const allowSrc = this.data.get('allow-src')
-    console.log(allowSrc, '=>', groupName)
 
     let group = { name: groupName }
     if (allowSrc !== null) {
