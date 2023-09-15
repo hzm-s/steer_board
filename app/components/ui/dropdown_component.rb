@@ -1,4 +1,4 @@
-class DropdownComponent < ViewComponent::Base
+class Ui::DropdownComponent < ViewComponent::Base
   renders_one :trigger
   renders_one :dropping
 

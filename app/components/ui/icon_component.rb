@@ -1,4 +1,4 @@
-class IconComponent < ViewComponent::Base
+class Ui::IconComponent < ViewComponent::Base
   def initialize(**attrs)
     @name = attrs[:name]
     @style = attrs[:style] || :solid

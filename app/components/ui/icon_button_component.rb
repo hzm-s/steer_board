@@ -1,4 +1,4 @@
-class IconButtonComponent < ViewComponent::Base
+class Ui::IconButtonComponent < ViewComponent::Base
   def initialize(**attrs)
     @size = attrs[:size] || 1.75
     @dropdown = attrs[:dropdown] || false

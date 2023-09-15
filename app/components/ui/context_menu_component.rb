@@ -1,4 +1,4 @@
-class ContextMenuComponent < ViewComponent::Base
+class Ui::ContextMenuComponent < ViewComponent::Base
   def initialize(position: :right)
     @position = position
   end
