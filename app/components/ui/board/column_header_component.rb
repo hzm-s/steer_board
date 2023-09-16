@@ -1,6 +1,8 @@
 class Ui::Board::ColumnHeaderComponent < ViewComponent::Base
-  def initialize(title:, limit:)
+  renders_one :counter
+
+  def initialize(title:, sub_titles:)
     @title = title
-    @limit = limit
+    @sub_titles = sub_titles
   end
 end

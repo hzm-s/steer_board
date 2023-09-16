@@ -3,10 +3,9 @@ class Kanban::StateComponent < ViewComponent::Base
 
   delegate :id, :name, to: :state
 
-  def initialize(state:, work_flow:, has_sibling:)
+  def initialize(state:, work_flow:)
     @state = state
     @work_flow = work_flow
-    @has_sibling = has_sibling
   end
 
   def allow_src
@@ -15,5 +14,5 @@ class Kanban::StateComponent < ViewComponent::Base
 
   private
 
-  attr_reader :state, :work_flow, :has_sibling
+  attr_reader :state, :work_flow
 end

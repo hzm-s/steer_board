@@ -1,7 +1,7 @@
 class Kanban::StepComponent < ViewComponent::Base
   include UiBoardHelper
 
-  delegate :name, :limit, :has_buffer?, to: :@step
+  delegate :name, :limit, :has_buffer?, :states, to: :@step
 
   def initialize(step:, work_flow:)
     @step = step
