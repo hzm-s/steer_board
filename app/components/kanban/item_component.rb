@@ -1,4 +1,4 @@
-class Kanban::CardComponent < ViewComponent::Base
+class Kanban::ItemComponent < ViewComponent::Base
   def initialize(kind:, body:)
     @kind = kind
     @body = body
