@@ -4,5 +4,5 @@
       <%= tag.h3 name, class: %w(text-sm font-bold) %>
     <% end -%>
   <% end -%>
-  <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id) %>
+  <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id), data: { item_counter_target: 'list' } %>
 <% end -%>

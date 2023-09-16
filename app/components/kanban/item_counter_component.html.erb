@@ -1,0 +1,12 @@
+<% base_class = %w(inline-flex justify-center items-center h-7 rounded-full bg-slate-200 text-stone-600 text-sm font-bold) %>
+<% if @limit -%>
+  <%= tag.div class: base_class + %w(px-3 gap-1) do %>
+    <%= tag.span '-', data: { item_counter_target: 'count' } %>
+    <%= tag.span '/' %>
+    <%= tag.span @limit %>
+  <% end -%>
+<% else -%>
+  <%= tag.div class: base_class + %w(w-7) do %>
+    <%= tag.span '-', data: { item_counter_target: 'count' } %>
+  <% end -%>
+<% end -%>
