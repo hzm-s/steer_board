@@ -1,6 +1,6 @@
 class Ui::Board::ColumnHeaderComponent < ViewComponent::Base
-  def initialize(name:, limit:)
-    @name = name
+  def initialize(title:, limit:)
+    @title = title
     @limit = limit
   end
 end
