@@ -6,12 +6,12 @@
     <%= counter %>
   </div>
   <%= tag.div class: %w(pt-2 px-2) do %>
-    <%= tag.div class: %w(w-full h-[3rem]) do %>
-      <%= tag.h3 @title, class: %w(text-center font-bold) %>
+    <%= tag.div class: %w(w-full h-[2.5rem]) do %>
+      <%= tag.h3 @title, class: %w(text-center font-bold leading-tight) %>
       <% if @sub_titles.any? %>
         <%= tag.div class: %w(flex flex-row justify-around) do %>
           <% @sub_titles.each do |st| %>
-            <%= tag.h4 st, class: %w(text-sm font-bold) %>
+            <%= tag.h4 st, class: %w(text-sm font-bold leading-none) %>
           <% end %>
         <% end -%>
       <% end -%>
