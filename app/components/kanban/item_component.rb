@@ -1,10 +1,7 @@
 class Kanban::ItemComponent < ViewComponent::Base
-  def initialize(kind:, body:)
-    @kind = kind
-    @body = body
+  delegate :kind, :body, to: :@item
+
+  def initialize(item:)
+    @item = item
   end
-
-  private
-
-  attr_reader :kind, :body
 end
