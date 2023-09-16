@@ -1,7 +1,7 @@
 <% bg_color = 'bg-white' %>
 <%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{width}rem" do %>
   <%= tag.div class: %W(relative pb-2 #{bg_color} border border-gray-200 rounded-lg drop-shadow-md), data: { controller: 'item-counter' } do %>
-    <%= render Board::ColumnHeaderComponent.new(name: name, limit: limit) %>
+    <%= render Ui::Board::ColumnHeaderComponent.new(name: name, limit: limit) %>
 
     <%= tag.div class: %w(h-full overflow-y-auto) do %>
       <%= tag.div style: "max-height:79vh" do %>
@@ -26,7 +26,7 @@
     <% if initial_step? %>
       <%= tag.div class: %W(block absolute bottom-0 w-full #{bg_color} rounded-lg p-2) do %>
         <%= tag.turbo_frame id: 'new_item_form' do %>
-          <%= render Board::AddItemComponent.new %>
+          <%= render Ui::Board::AddItemComponent.new %>
         <% end -%>
       <% end -%>
     <% end -%>

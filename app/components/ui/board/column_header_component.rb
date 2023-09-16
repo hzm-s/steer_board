@@ -1,4 +1,4 @@
-class Board::ColumnHeaderComponent < ViewComponent::Base
+class Ui::Board::ColumnHeaderComponent < ViewComponent::Base
   def initialize(name:, limit:)
     @name = name
     @limit = limit
