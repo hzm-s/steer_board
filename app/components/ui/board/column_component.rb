@@ -1,8 +1,12 @@
 class Ui::Board::ColumnComponent < ViewComponent::Base
   include UiBoardHelper
 
-  def initialize(size:)
+  renders_one :header
+  renders_one :body
+
+  def initialize(size:, **extra)
     @size = size
+    @extra_data = extra[:data] || {}
   end
 
   def width
