@@ -1,23 +1,18 @@
 <% themes = {
   idea: {
     bg: 'bg-stone-50',
-    main: 'text-gray-500',
   },
   feature: {
     bg: 'bg-amber-50',
-    main: 'text-yellow-500',
   },
   rework: {
     bg: 'bg-amber-50',
-    main: 'text-rose-600',
   },
   tech: {
     bg: 'bg-amber-50',
-    main: 'text-emerald-500',
   },
   other: {
     bg: 'bg-amber-50',
-    main: 'text-blue-500',
   },
 } %>
 <% theme = themes[kind] %>
@@ -26,7 +21,7 @@
   class: %w(kanban-item px-3 py-2 rounded-lg border border-stone-300 cursor-pointer) + [theme[:bg]]
 ) do %>
   <%= tag.div class: %w(flex items-center gap-2) do %>
-    <%= render Ui::IconComponent.new(name: 'circle', size: 0.8, class: [theme[:main]]) %>
+    <%= render ItemKindComponent.new(kind: kind) %>
     <%= tag.span "#123", class: %w(text-gray-600 text-sm) %>
   <% end -%>
   <%= tag.div class: %w(mt-1) do %>
