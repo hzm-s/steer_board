@@ -1,4 +1,4 @@
-class Ui::Board::ColumnHeaderComponent < ViewComponent::Base
+class Kanban::StepHeaderComponent < ViewComponent::Base
   renders_one :counter
 
   def initialize(title:, sub_titles:)
