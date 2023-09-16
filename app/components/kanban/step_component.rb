@@ -1,5 +1,5 @@
 class Kanban::StepComponent < ViewComponent::Base
-  SPACE_WIDTH = 0.5
+  include UiBoardHelper
 
   delegate :name, :limit, to: :@step
 
@@ -13,7 +13,7 @@ class Kanban::StepComponent < ViewComponent::Base
   end
 
   def width
-    18 * state_size + (SPACE_WIDTH * (state_size + 1))
+    board_column_width(state_size)
   end
 
   def initial_step?
