@@ -21,7 +21,13 @@ class ItemsController < ApplicationController
     'Develop__primary' => [
       Item.new(kind: :tech, body: 'Board (use ViewComponent)'),
       Item.new(kind: :other, body: '[Dummy] ***'),
-      Item.new(kind: :other, body: '[Dummy] ---'),
+      Item.new(kind: :feature, body: '[Dummy] ***'),
+      Item.new(kind: :feature, body: '[Dummy] ***'),
+      Item.new(kind: :feature, body: '[Dummy] ***'),
+      Item.new(kind: :feature, body: '[Dummy] ***'),
+      Item.new(kind: :feature, body: '[Dummy] ***'),
+      Item.new(kind: :feature, body: '[Dummy] ***'),
+      Item.new(kind: :feature, body: '[Dummy] ---'),
     ],
     'Develop__post_buffer' => [
       Item.new(kind: :feature, body: '[UI prototype] Board buffer'),
