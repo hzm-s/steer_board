@@ -1,30 +1,11 @@
-<% themes = {
-  idea: {
-    bg: 'bg-stone-50',
-  },
-  feature: {
-    bg: 'bg-amber-50',
-  },
-  rework: {
-    bg: 'bg-amber-50',
-  },
-  tech: {
-    bg: 'bg-amber-50',
-  },
-  other: {
-    bg: 'bg-amber-50',
-  },
-} %>
-<% theme = themes[kind] %>
-<%= tag.div(
-  data: { sort_item: true, item_in_list: true },
-  class: %w(kanban-item px-3 py-2 rounded-lg border border-stone-300 cursor-pointer) + [theme[:bg]]
-) do %>
-  <%= tag.div class: %w(flex items-center gap-2) do %>
-    <%= render ItemKindComponent.new(kind: kind) %>
-    <%= tag.span "#123", class: %w(text-gray-600 text-sm) %>
-  <% end -%>
-  <%= tag.div class: %w(mt-1) do %>
-    <%= simple_format body %>
+<%= tag.div data: { sort_item: true, item_in_list: true } do %>
+  <%= render Ui::Board::CardComponent.new(theme: kind == :idea ? :draft : :primary) do |c| %>
+    <% c.with_header do %>
+      <%= render ItemKindComponent.new(kind: kind) %>
+    <% end -%>
+    <% c.with_id { '123' } %>
+    <% c.with_body do %>
+      <%= simple_format body %>
+    <% end -%>
   <% end -%>
 <% end -%>

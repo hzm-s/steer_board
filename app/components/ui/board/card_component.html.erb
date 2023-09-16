@@ -1,0 +1,15 @@
+<% themes = {
+  draft: 'bg-stone-50',
+  primary: 'bg-amber-50',
+} %>
+<%= tag.div class: %w(kanban-item px-3 py-2 rounded-lg border border-stone-300 cursor-pointer) + [themes[@theme]] do %>
+  <% if header? %>
+    <%= tag.div class: %w(flex items-center gap-2) do %>
+      <%= header %>
+      <%= tag.span(class: %w(text-gray-600 text-sm)) { "##{id}" } %>
+    <% end -%>
+  <% end -%>
+  <%= tag.div class: %w(mt-1) do %>
+    <%= body %>
+  <% end -%>
+<% end -%>
