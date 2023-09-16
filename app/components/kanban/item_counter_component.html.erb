@@ -1,5 +1,4 @@
-<% base_class = %w(flex justify-center items-center h-[1.5rem] min-w-[1.5rem] rounded-full bg-slate-200 text-stone-600 text-sm font-bold) %>
-<%= tag.div class: base_class + (@limit ? %w(px-3 gap-1) : []) do %>
+<%= render Ui::PillComponent.new(wide: @limit) do %>
   <%= tag.span '-', data: { item_counter_target: 'count' } %>
   <% if @limit -%>
     <%= tag.span '/' %>
