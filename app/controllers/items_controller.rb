@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
       Item.new(kind: :idea, body: '[UI prototype] Add item'),
       Item.new(kind: :idea, body: '[Dummy] ***'),
       Item.new(kind: :idea, body: '[Dummy] ***'),
+      Item.new(kind: :idea, body: '[Dummy] ***'),
+      Item.new(kind: :idea, body: '[Dummy] ***'),
       Item.new(kind: :idea, body: '[Dummy] ---'),
     ],
     'Analyze__primary' => [

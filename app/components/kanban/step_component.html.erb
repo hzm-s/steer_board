@@ -6,16 +6,16 @@
     <%= tag.div class: %w(h-full overflow-y-auto) do %>
       <%= tag.div style: "max-height:79vh" do %>
 
-        <%= tag.div class: %w(px-2), style: "#{footer? && 'padding-bottom: 4rem;'}" do %>
+        <%= tag.div class: %w(px-2), style: "#{initial_step? && 'padding-bottom: 4rem;'}" do %>
           <% if state_size > 1 %>
             <%= tag.div class: %w(flex flex-row justify-between) do %>
-              <% step.states.each do |state| %>
-                <%= render Kanban::StateComponent.new(state: state, work_flow: work_flow, has_sibling: true) %>
+              <% @step.states.each do |state| %>
+                <%= render Kanban::StateComponent.new(state: state, work_flow: @work_flow, has_sibling: true) %>
               <% end -%>
             <% end -%>
           <% else -%>
-            <% step.states.each do |state| %>
-              <%= render Kanban::StateComponent.new(state: state, work_flow: work_flow, has_sibling: false) %>
+            <% @step.states.each do |state| %>
+              <%= render Kanban::StateComponent.new(state: state, work_flow: @work_flow, has_sibling: false) %>
             <% end -%>
           <% end -%>
         <% end -%>
@@ -23,9 +23,11 @@
       <% end -%>
     <% end -%>
 
-    <% if footer? %>
-      <%= tag.div class: %W(block absolute bottom-0 w-full #{bg_color} rounded-lg pt-2 pb-2 px-2) do %>
-        <%= footer %>
+    <% if initial_step? %>
+      <%= tag.div class: %W(block absolute bottom-0 w-full #{bg_color} rounded-lg p-2) do %>
+        <%= tag.turbo_frame id: 'new_item_form' do %>
+          <%= render Board::AddItemComponent.new %>
+        <% end -%>
       <% end -%>
     <% end -%>
   <% end -%>

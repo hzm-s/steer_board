@@ -2,16 +2,8 @@
   <div class="w-full overflow-x-auto">
     <div style="height:92vh">
       <div class="flex flex-row gap-2">
-        <% @work_flow.steps.each_with_index do |step, i| %>
-          <%= render Kanban::StepComponent.new(step: step, work_flow: @work_flow) do |c| %>
-            <% if i == 0 %>
-              <% c.with_footer do %>
-                <%= tag.turbo_frame id: 'new_item_form' do %>
-                  <%= render Board::AddItemComponent.new %>
-                <% end -%>
-              <% end -%>
-            <% end -%>
-          <% end -%>
+        <% @work_flow.steps.each do |step| %>
+          <%= render Kanban::StepComponent.new(step: step, work_flow: @work_flow) %>
         <% end -%>
       </div>
     </div>
