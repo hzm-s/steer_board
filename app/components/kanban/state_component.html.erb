@@ -1,3 +1,19 @@
-<%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{single_column_size}rem" do %>
-  <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id), data: { item_counter_target: 'list' } %>
+<%= tag.div class: %w(flex-shrink-0 relative), style: "flex-basis: #{single_column_size}rem" do %>
+
+  <%= tag.div class: %w(h-full overflow-y-auto) do %>
+    <%= tag.div style: "max-height:79vh" do %>
+      <%= tag.div style: @initial && ' padding-bottom:4rem' do %>
+        <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id), data: { item_counter_target: 'list' } %>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+
+  <% if @initial %>
+    <%= tag.div class: %W(block absolute bottom-0 w-full bg-white rounded-lg p-2) do %>
+      <%= tag.turbo_frame id: 'new_item_form' do %>
+        <%= render Kanban::AddItemComponent.new %>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+
 <% end -%>

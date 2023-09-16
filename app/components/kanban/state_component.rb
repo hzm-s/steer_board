@@ -3,9 +3,10 @@ class Kanban::StateComponent < ViewComponent::Base
 
   delegate :id, :name, to: :state
 
-  def initialize(state:, work_flow:)
+  def initialize(state:, work_flow:, initial:)
     @state = state
     @work_flow = work_flow
+    @initial = initial
   end
 
   def allow_src
