@@ -1,6 +1,4 @@
 class Kanban::StateComponent < ViewComponent::Base
-  include UiBoardHelper
-
   delegate :id, :name, to: :state
 
   def initialize(state:, work_flow:, can_add:)
