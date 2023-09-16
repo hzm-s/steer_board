@@ -1,8 +1,13 @@
 <%= render Ui::Board::ColumnComponent.new(size: states.size) do |ui_column| %>
   <%= tag.div data: { controller: 'item-counter' } do %>
 
-    <%= render Kanban::StepHeaderComponent.new(title: name, sub_titles: has_buffer? ? states.map(&:name) : []) do |c| %>
-      <% c.with_counter { render Kanban::ItemCounterComponent.new(limit: limit) } %>
+    <%= render Ui::Board::ColumnHeaderComponent.new(main_title: name, sub_titles: has_buffer? ? states.map(&:name) : []) do |h| %>
+      <% h.with_context_menu do %>
+        <%= render Ui::ContextMenuComponent.new %>
+      <% end -%>
+      <% h.with_counter do %>
+        <%= render Kanban::ItemCounterComponent.new(limit: limit) %>
+      <% end -%>
     <% end -%>
 
     <%= tag.div class: %w(px-2) do %>
