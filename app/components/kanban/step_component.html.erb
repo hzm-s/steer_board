@@ -26,7 +26,7 @@
     <% if initial_step? %>
       <%= tag.div class: %W(block absolute bottom-0 w-full #{bg_color} rounded-lg p-2) do %>
         <%= tag.turbo_frame id: 'new_item_form' do %>
-          <%= render Ui::Board::AddItemComponent.new %>
+          <%= render Kanban::AddItemComponent.new %>
         <% end -%>
       <% end -%>
     <% end -%>
