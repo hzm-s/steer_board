@@ -61,6 +61,10 @@ class Step < Struct.new(:id, :name, :limit, :state_map, keyword_init: true)
     states.last
   end
 
+  def has_buffer?
+    states.size > 1
+  end
+
   def hash
     id.hash
   end

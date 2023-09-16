@@ -1,19 +1,15 @@
 class Kanban::StepComponent < ViewComponent::Base
   include UiBoardHelper
 
-  delegate :name, :limit, to: :@step
+  delegate :name, :limit, :has_buffer?, to: :@step
 
   def initialize(step:, work_flow:)
     @step = step
     @work_flow = work_flow
   end
 
-  def state_size
-    @step.states.size
-  end
-
   def width
-    board_column_width(state_size)
+    board_column_width(@step.states.size)
   end
 
   def initial_step?

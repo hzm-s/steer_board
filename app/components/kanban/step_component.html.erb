@@ -7,7 +7,7 @@
       <%= tag.div style: "max-height:79vh" do %>
 
         <%= tag.div class: %w(px-2), style: "#{initial_step? && 'padding-bottom: 4rem;'}" do %>
-          <% if state_size > 1 %>
+          <% if has_buffer? %>
             <%= tag.div class: %w(flex flex-row justify-between) do %>
               <% @step.states.each do |state| %>
                 <%= render Kanban::StateComponent.new(state: state, work_flow: @work_flow, has_sibling: true) %>
