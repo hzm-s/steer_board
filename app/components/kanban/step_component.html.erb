@@ -1,7 +1,7 @@
 <% bg_color = 'bg-white' %>
 <%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{width}rem" do %>
   <%= tag.div class: %W(relative pb-4 #{bg_color} border border-gray-200 rounded-lg drop-shadow-md), data: { controller: 'item-counter' } do %>
-    <%= render Board::ColumnHeaderComponent.new(name: name, items: items) %>
+    <%= render Board::ColumnHeaderComponent.new(name: name, limit: limit) %>
 
     <%= tag.div class: %w(h-full overflow-y-auto) do %>
       <%= tag.div style: "max-height:79vh" do %>

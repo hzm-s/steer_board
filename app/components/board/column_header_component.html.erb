@@ -3,7 +3,7 @@
     <%= render Ui::ContextMenuComponent.new %>
   </div>
   <div class="flex justify-center pt-2">
-    <%= render Kanban::ItemCounterComponent.new(**@items) %>
+    <%= render Kanban::ItemCounterComponent.new(limit: @limit) %>
   </div>
   <div class="flex justify-center p-2">
     <h3 class="font-bold">

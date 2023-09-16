@@ -1,8 +1,9 @@
-class Step < Struct.new(:id, :name, :state_map, keyword_init: true)
-  def initialize(name:)
+class Step < Struct.new(:id, :name, :limit, :state_map, keyword_init: true)
+  def initialize(name:, limit: nil)
     super(
       id: name,
       name: name,
+      limit: limit,
       state_map: {}
     )
     state_map[:primary] = State.new(parent_id: id, kind: :primary)

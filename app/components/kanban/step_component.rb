@@ -1,14 +1,13 @@
 class Kanban::StepComponent < ViewComponent::Base
   SPACE_WIDTH = 0.5
 
-  delegate :name, to: :step
+  delegate :name, :limit, to: :step
 
   renders_one :footer
 
-  def initialize(step:, work_flow:, items:)
+  def initialize(step:, work_flow:)
     @step = step
     @work_flow = work_flow
-    @items = items
   end
 
   def state_size
@@ -21,5 +20,5 @@ class Kanban::StepComponent < ViewComponent::Base
 
   private
 
-  attr_reader :step, :work_flow, :items
+  attr_reader :step, :work_flow
 end

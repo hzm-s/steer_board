@@ -1,6 +1,6 @@
 class Board::ColumnHeaderComponent < ViewComponent::Base
-  def initialize(name:, items:)
+  def initialize(name:, limit:)
     @name = name
-    @items = items
+    @limit = limit
   end
 end
