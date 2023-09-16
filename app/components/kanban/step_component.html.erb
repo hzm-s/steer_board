@@ -9,11 +9,11 @@
       <% if has_buffer? %>
         <%= tag.div class: %w(flex flex-row justify-between) do %>
           <% states.each do |state| %>
-            <%= render Kanban::StateComponent.new(state: state, work_flow: @work_flow, initial: initial_step?) %>
+            <%= render Kanban::StateComponent.new(state: state, work_flow: @work_flow, can_add: initial_step?) %>
           <% end -%>
         <% end -%>
       <% else -%>
-        <%= render Kanban::StateComponent.new(state: @step.first_state, work_flow: @work_flow, initial: initial_step?) %>
+        <%= render Kanban::StateComponent.new(state: @step.first_state, work_flow: @work_flow, can_add: initial_step?) %>
       <% end -%>
     <% end -%>
 
