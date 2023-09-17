@@ -1,0 +1,8 @@
+<% colors = {
+  idea: 'text-gray-500',
+  feature: 'text-yellow-500',
+  rework: 'text-rose-600',
+  tech: 'text-emerald-500',
+  other: 'text-blue-500',
+} %>
+<%= render Ui::IconComponent.new(name: 'circle', size: 0.8, class: [colors[@kind]]) %>

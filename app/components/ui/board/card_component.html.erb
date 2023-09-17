@@ -1,0 +1,7 @@
+<% themes = {
+  draft: 'bg-stone-50',
+  primary: 'bg-amber-50',
+} %>
+<%= tag.div class: %w(kanban-item px-3 py-2 rounded-lg border border-stone-300 cursor-pointer) + [themes[@theme]] do %>
+  <%= content %>
+<% end -%>

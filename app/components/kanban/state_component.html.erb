@@ -1,0 +1,12 @@
+<%= render Ui::Board::InnerColumnComponent.new do |c| %>
+  <% if @can_add %>
+    <% c.with_header do %>
+      <%= tag.turbo_frame id: 'new_item_form' do %>
+        <%= render Kanban::AddItemComponent.new %>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+  <% c.with_body do %>
+    <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id), data: { item_counter_target: 'list' } %>
+  <% end -%>
+<% end -%>

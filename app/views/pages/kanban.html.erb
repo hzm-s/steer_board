@@ -1,0 +1,80 @@
+<% step_inbox = Step.new(name: 'Inbox', previous: nil) %>
+<% step_analyze = Step.new(name: 'Analyze', previous: step_inbox) %>
+<% step_next = Step.new(name: 'Next', previous: step_analyze) %>
+<% step_dev = Step.new(name: 'Develop', previous: step_next) %>
+<% step_dev_wip = Step.new(parent: step_dev, name: 'WIP', previous: step_next) %>
+<% step_dev_done = Step.new(parent: step_dev, name: 'Done', previous: step_dev_wip) %>
+<% step_qa = Step.new(name: 'QA', previous: step_dev) %>
+<% step_qa_wip = Step.new(parent: step_qa, name: 'WIP', previous: step_dev_done) %>
+<% step_qa_done = Step.new(parent: step_qa, name: 'Done', previous: step_qa_wip) %>
+<% step_rel = Step.new(name: 'Release', previous: step_qa_done) %>
+<% step_prod = Step.new(name: 'Production', previous: step_rel) %>
+
+<div class="mt-10 px-8">
+  <div class="w-full overflow-x-auto">
+    <div style="height:92vh">
+      <div class="flex flex-row gap-2">
+        <%= render Board::ColumnComponent.new(step: step_inbox, items: { count: 3 }) do |c| %>
+          <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Cycle time') %>
+          <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Lead time') %>
+          <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Add item') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ***') %>
+          <%= render CardComponent.new(kind: :idea, body: '[Dummy] ---') %>
+          <% c.with_footer do %>
+            <%= tag.turbo_frame id: 'new_item_form' do %>
+              <%= render Board::AddItemComponent.new %>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(step: step_analyze, items: { count: 1, limit: 5 }) do %>
+          <%= render CardComponent.new(kind: :idea, body: '[UI prototype] Backlog') %>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(step: step_next, items: { count: 3, limit: 10 }) do %>
+          <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Item with tasks') %>
+          <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Move items') %>
+          <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Check to done') %>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(step: step_dev, items: { count: 3, limit: 8 }, column_count: 2) do %>
+          <%= render Board::InnerColumnComponent.new(step: step_dev_wip) do %>
+            <%= render CardComponent.new(kind: :tech, body: 'Board (use ViewComponent)') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ***') %>
+            <%= render CardComponent.new(kind: :other, body: '[Dummy] ---') %>
+          <% end -%>
+          <%= render Board::InnerColumnComponent.new(step: step_dev_done) do %>
+            <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Board buffer') %>
+            <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Board column') %>
+          <% end -%>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(step: step_qa, items: { count: 4, limit: 5 }, column_count: 2) do %>
+          <%= render Board::InnerColumnComponent.new(step: step_qa_wip) do %>
+            <%= render CardComponent.new(kind: :feature, body: '[UI prototype] Index page') %>
+            <%= render CardComponent.new(kind: :rework, body: '[UI prototype] Individual pages') %>
+            <%= render CardComponent.new(kind: :other, body: '[Setup] DB') %>
+            <%= render CardComponent.new(kind: :other, body: '[Setup] Repository') %>
+          <% end -%>
+          <%= render Board::InnerColumnComponent.new(step: step_qa_done) do %>
+          <% end -%>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(step: step_rel, items: { count: 0, limit: 15 }) do %>
+        <% end -%>
+        <%= render Board::ColumnComponent.new(step: step_prod, items: { count: 2 }) do %>
+          <%= render CardComponent.new(kind: :other, body: '[Setup] git') %>
+          <%= render CardComponent.new(kind: :other, body: '[Setup] rails') %>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>

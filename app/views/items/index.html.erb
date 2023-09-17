@@ -1,0 +1,3 @@
+<%= tag.turbo_frame id: "#{@state_id}__items" do %>
+  <%= render Kanban::ItemListComponent.new(items: @items) %>
+<% end -%>

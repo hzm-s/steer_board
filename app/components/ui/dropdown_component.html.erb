@@ -1,0 +1,16 @@
+<% position_class = left? ? %w(left-0 origin-top-left) : %w(right-0 origin-top-right) %>
+<%= tag.div data: { controller: 'dropdown' }, class: 'relative' do -%>
+  <%= trigger %>
+  <%= tag.div(
+    data: {
+      dropdown_target: 'menu',
+      transition_enter_from: 'opacity-20 scale-98',
+      transition_enter_to: 'opacity-100 scale-100',
+      transition_leave_from: 'opacity-100 scale-100',
+      transition_leave_to: 'opacity-0 scale-100',
+    },
+    class: %w(hidden transition transform absolute z-50 whitespace-nowrap mt-1 bg-white rounded-lg drop-shadow border border-gray-100) + position_class
+  ) do -%>
+    <%= dropping %>
+  <% end -%>
+<% end -%>

@@ -1,0 +1,13 @@
+<%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{single_column_size}rem" do %>
+  <% if header? %>
+    <%= tag.div class: %W(w-full p-x-2 pb-2) do %>
+      <%= header %>
+    <% end -%>
+  <% end -%>
+
+  <%= tag.div class: %w(h-full overflow-y-auto) do %>
+    <%= tag.div class: header? ? %w(board__inner-column-with-footer) : %w(board__inner-column) do %>
+      <%= body %>
+    <% end -%>
+  <% end -%>
+<% end -%>

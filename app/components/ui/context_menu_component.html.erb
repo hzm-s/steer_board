@@ -1,0 +1,14 @@
+<%= render Ui::DropdownComponent.new(position: :right) do |c| -%>
+  <% c.with_trigger do -%>
+    <%= render Ui::IconButtonComponent.new(size: 1.75, dropdown: true, class: %w(hover:bg-gray-200)) do %>
+      <%= render Ui::IconComponent.new(name: 'ellipsis', size: 1.5, class: %w(text-gray-600)) %>
+    <% end -%>
+  <% end -%>
+  <%= c.with_dropping do -%>
+    <%= tag.div class: %w(flex flex-col divider-y p-2) do -%>
+      <%= link_to 'Manage policies', '#', class: %w(px-2 py-1 rounded-lg hover:bg-gray-100) %>
+      <%= link_to 'Manage WIP limit', '#', class: %w(px-2 py-1 rounded-lg hover:bg-gray-100) %>
+      <%= link_to 'Add a Column', '#', class: %w(px-2 py-1 rounded-lg hover:bg-gray-100) %>
+    <% end -%>
+  <% end -%>
+<% end -%>
