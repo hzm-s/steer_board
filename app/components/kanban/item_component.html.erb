@@ -2,7 +2,7 @@
   <%= render Ui::Board::CardComponent.new(theme: kind == :idea ? :draft : :primary) do %>
     <%= tag.div class: %w(flex items-center gap-2) do %>
       <%= render ItemKindComponent.new(kind: kind) %>
-      <%= tag.span '#123', class: %w(text-gray-600 text-sm) %>
+      <%= tag.span "##{item_id}", class: %w(text-gray-600 text-sm) %>
     <% end -%>
     <%= tag.div class: %w(mt-1) do %>
       <%= body %>
