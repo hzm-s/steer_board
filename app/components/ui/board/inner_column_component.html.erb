@@ -1,17 +1,13 @@
-<%= tag.div class: %w(flex-shrink-0 relative), style: "flex-basis: #{single_column_size}rem" do %>
+<%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{single_column_size}rem" do %>
+  <% if header? %>
+    <%= tag.div class: %W(w-full bg-white rounded-b-lg p-x-2 pb-2) do %>
+      <%= header %>
+    <% end -%>
+  <% end -%>
 
   <%= tag.div class: %w(h-full overflow-y-auto) do %>
-    <%= tag.div style: "max-height:79vh" do %>
-      <%= tag.div style: footer? ? 'padding-bottom:4rem' : '' do %>
-        <%= body %>
-      <% end -%>
+    <%= tag.div class: header? ? %w(board__inner-column-with-footer) : %w(board__inner-column) do %>
+      <%= body %>
     <% end -%>
   <% end -%>
-
-  <% if footer? %>
-    <%= tag.div class: %W(block absolute bottom-0 w-full bg-white rounded-b-lg pt-2) do %>
-      <%= footer %>
-    <% end -%>
-  <% end -%>
-
 <% end -%>

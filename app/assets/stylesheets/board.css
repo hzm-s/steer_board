@@ -1,0 +1,7 @@
+.board__inner-column {
+  max-height: calc(79vh);
+}
+
+.board__inner-column-with-footer {
+  max-height: calc(79vh - 2.75rem);
+}
