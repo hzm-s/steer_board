@@ -1,5 +1,10 @@
 <%= tag.div data: { sort_item: true, item_in_list: true } do %>
   <%= render Ui::Board::CardComponent.new(theme: kind == :idea ? :draft : :primary) do %>
+    <% if due %>
+      <%= tag.div class: %w(mb-3) do %>
+        <%= render ItemDueComponent.new(date: due) %>
+      <% end -%>
+    <% end -%>
     <%= tag.div class: %w(flex justify-between) do %>
       <%= tag.div class: %w(flex items-center gap-1) do %>
         <%= render ItemKindComponent.new(kind: kind) %>

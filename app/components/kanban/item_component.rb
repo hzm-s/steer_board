@@ -16,4 +16,13 @@ class Kanban::ItemComponent < ViewComponent::Base
   def contributors
     @__contributors ||= (0..3).to_a.sample.times.map { Member.random }.uniq
   end
+
+  def due
+    @__due ||=
+      begin
+        return nil if (1..30).to_a.sample != 1
+
+        Time.current.days_since((7..200).to_a.sample).to_date
+      end
+  end
 end
