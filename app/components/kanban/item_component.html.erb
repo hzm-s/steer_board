@@ -1,11 +1,13 @@
 <%= tag.div data: { sort_item: true, item_in_list: true } do %>
-  <%= render Ui::Board::CardComponent.new(theme: kind == :idea ? :draft : :primary) do |c| %>
-    <% c.with_header do %>
+  <%= render Ui::Board::CardComponent.new(theme: kind == :idea ? :draft : :primary) do %>
+    <%= tag.div class: %w(flex items-center gap-2) do %>
       <%= render ItemKindComponent.new(kind: kind) %>
+      <%= tag.span '#123', class: %w(text-gray-600 text-sm) %>
     <% end -%>
-    <% c.with_id { '123' } %>
-    <% c.with_body do %>
-      <%= simple_format body %>
+    <%= tag.div class: %w(mt-1) do %>
+      <%= body %>
+    <% end -%>
+    <%= tag.div %w(flex) do %>
     <% end -%>
   <% end -%>
 <% end -%>
