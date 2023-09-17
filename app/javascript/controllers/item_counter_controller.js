@@ -4,11 +4,17 @@ export default class extends Controller {
   static targets = ['list', 'count']
 
   connect() {
+    this.resetCount()
+
     this.listTargets.forEach((list) => {
       list.loaded.then(() => {
         this.countTarget.textContent = this.currentCount + this.countListItems(list)
       })
     })
+  }
+
+  resetCount() {
+    this.countTarget.textContent = '-'
   }
 
   countListItems(list) {
