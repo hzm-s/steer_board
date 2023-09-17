@@ -7,7 +7,16 @@
     <%= tag.div class: %w(mt-1) do %>
       <%= body %>
     <% end -%>
-    <%= tag.div %w(flex) do %>
+    <%= tag.div class: %w(mt-1 flex justify-end) do %>
+      <%= tag.div class: %w(flex flex-wrap gap-1) do %>
+        <% if contributors.empty? %>
+          <%= render Ui::BlankAvatarComponent.new %>
+        <% else -%>
+          <% contributors.each do |c| %>
+            <%= render Ui::AvatarComponent.new(member: c) %>
+          <% end -%>
+        <% end -%>
+      <% end -%>
     <% end -%>
   <% end -%>
 <% end -%>
