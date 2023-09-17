@@ -14,6 +14,6 @@ class Kanban::ItemComponent < ViewComponent::Base
   end
 
   def contributors
-    @__contributors ||= (0..3).to_a.sample.times.map { Member.random }
+    @__contributors ||= (0..3).to_a.sample.times.map { Member.random }.uniq
   end
 end
