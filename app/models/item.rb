@@ -55,7 +55,7 @@ class Item < Struct.new(:id, :kind, :body, keyword_init: true)
     end
 
     def find(id)
-      ALL_ITEMS.values.find { _1.id == id }
+      ALL_ITEMS.values.flatten.find { _1.id == id.to_i }
     end
   end
 
