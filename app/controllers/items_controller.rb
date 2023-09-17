@@ -53,7 +53,4 @@ class ItemsController < ApplicationController
     @state_id = params[:state_id]
     @items = ALL_ITEMS[@state_id]
   end
-
-  def new
-  end
 end
