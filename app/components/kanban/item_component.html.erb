@@ -1,27 +1,29 @@
 <%= tag.div data: { sort_item: true, item_in_list: true } do %>
-  <%= render Ui::Board::CardComponent.new(theme: kind == :idea ? :draft : :primary) do %>
-    <% if due %>
-      <%= tag.div class: %w(mb-3) do %>
-        <%= render ItemDueComponent.new(date: due) %>
+  <%= link_to item_path(id), data: { turbo_frame: '_top' } do %>
+    <%= render Ui::Board::CardComponent.new(theme: kind == :idea ? :draft : :primary) do %>
+      <% if due %>
+        <%= tag.div class: %w(mb-3) do %>
+          <%= render ItemDueComponent.new(date: due) %>
+        <% end -%>
       <% end -%>
-    <% end -%>
-    <%= tag.div class: %w(flex justify-between) do %>
-      <%= tag.div class: %w(flex items-center gap-1) do %>
-        <%= render ItemKindComponent.new(kind: kind) %>
-        <%= tag.span "##{id}", class: %w(text-gray-600 text-sm) %>
+      <%= tag.div class: %w(flex justify-between) do %>
+        <%= tag.div class: %w(flex items-center gap-1) do %>
+          <%= render ItemKindComponent.new(kind: kind) %>
+          <%= tag.span "##{id}", class: %w(text-gray-600 text-sm) %>
+        <% end -%>
+        <%= size && render(ItemSizeComponent.new(value: size)) %>
       <% end -%>
-      <%= size && render(ItemSizeComponent.new(value: size)) %>
-    <% end -%>
-    <%= tag.div class: %w(mt-1) do %>
-      <%= body %>
-    <% end -%>
-    <%= tag.div class: %w(mt-1 flex justify-end) do %>
-      <%= tag.div class: %w(flex flex-wrap gap-1) do %>
-        <% if contributors.empty? %>
-          <%= render Ui::BlankAvatarComponent.new %>
-        <% else -%>
-          <% contributors.each do |c| %>
-            <%= render Ui::AvatarComponent.new(member: c) %>
+      <%= tag.div class: %w(mt-1) do %>
+        <%= body %>
+      <% end -%>
+      <%= tag.div class: %w(mt-1 flex justify-end) do %>
+        <%= tag.div class: %w(flex flex-wrap gap-1) do %>
+          <% if contributors.empty? %>
+            <%= render Ui::BlankAvatarComponent.new %>
+          <% else -%>
+            <% contributors.each do |c| %>
+              <%= render Ui::AvatarComponent.new(member: c) %>
+            <% end -%>
           <% end -%>
         <% end -%>
       <% end -%>
