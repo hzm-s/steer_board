@@ -9,6 +9,10 @@ class Kanban::ItemComponent < ViewComponent::Base
     (100..3000).to_a.sample
   end
 
+  def item_size
+    [1, 3, 5, 8, 13, 21, '?'].sample
+  end
+
   def contributors
     @__contributors ||= (0..3).to_a.sample.times.map { Member.random }
   end
