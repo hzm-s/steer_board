@@ -84,7 +84,7 @@ class Item < Struct.new(:id, :kind, :body, keyword_init: true)
       begin
         return nil unless kind == :feature
 
-        return nil if (1..10).to_a.sample != 1
+        return nil if (1..5).to_a.sample != 1
 
         Time.current.days_since((7..200).to_a.sample).to_date
       end
