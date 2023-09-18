@@ -1,0 +1,11 @@
+<% bg_colors = {
+  primary: 'bg-amber-50',
+  option: 'bg-stone-50',
+} %>
+<% size_classes = {
+  sm: %w(px-3 py-2 rounded-lg),
+  lg: %w(px-6 py-4 rounded-xl),
+} %>
+<%= tag.div class: %w(border border-stone-300) + size_classes[@size] + [bg_colors[color_type]] + @extra_class do %>
+  <%= content %>
+<% end -%>

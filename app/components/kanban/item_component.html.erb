@@ -1,6 +1,6 @@
 <%= tag.div data: { sort_item: true, item_in_list: true } do %>
   <%= link_to item_path(id), data: { turbo_frame: '_top' } do %>
-    <%= render Ui::Board::CardComponent.new(theme: kind == :idea ? :draft : :primary) do %>
+    <%= render Ui::ItemCardComponent.new(kind: kind, size: :sm) do %>
       <% if due %>
         <%= tag.div class: %w(mb-3) do %>
           <%= render ItemDueComponent.new(date: due) %>
