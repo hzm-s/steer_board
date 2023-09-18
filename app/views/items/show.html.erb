@@ -1,2 +1,52 @@
-show item
-<%= @item.body %>
+<%= tag.div class: %w(mt-10 container mx-auto) do %>
+  <%= render Ui::ItemCardComponent.new(kind: @item.kind, size: :lg, class: %w(w-[38rem] drop-shadow)) do %>
+    <%= tag.div class: %w(mb-2) do %>
+      <%= render ItemIdComponent.new(id: @item.id, class: %w(font-bold text-lg)) %>
+    <% end -%>
+    <%= tag.div class: %w(flex items-center) do %>
+      <%= tag.div class: %w(flex items-center gap-2) do %>
+        <%= tag.button class: %w(flex items-center py-2 px-4 gap-2 rounded-lg bg-white border border-gray-300) do %>
+          <%= render ItemKindComponent.new(kind: @item.kind) %>
+          <%= tag.span @item.kind.name, class: %w(text-md) %>
+          <%= render Ui::IconComponent.new(name: 'chevron-down', size: 0.75) %>
+        <% end -%>
+      <% end -%>
+      <%= tag.div class: %w(ml-auto) do %>
+        <%= tag.button class: %w(flex items-center py-2 px-4 gap-2 rounded-lg bg-white border border-gray-300) do %>
+          <%= render ItemSizeComponent.new(size: @item.size, element_size: :lg) %>
+          <%= render Ui::IconComponent.new(name: 'chevron-down', size: 0.75) %>
+        <% end -%>
+      <% end -%>
+    <% end -%>
+    <%= tag.div class: %w(my-6) do %>
+      <%= tag.div class: %w(flex justify-between mb-2) do %>
+        <%= tag.span 'Content', class: %w(text-stone-500 text-sm font-bold) %>
+        <%= link_to 'Edit', '#', class: %w(text-stone-500 text-sm hover:underline) %>
+      <% end -%>
+      <%= simple_format @item.body, class: %w(text-lg) %>
+    <% end -%>
+    <%= tag.div class: %w(my-6) do %>
+      <%= tag.div class: %w(flex justify-between mb-2) do %>
+        <%= tag.span 'Note', class: %w(text-stone-500 text-sm font-bold) %>
+        <%= link_to 'Edit', '#', class: %w(text-stone-500 text-sm hover:underline) %>
+      <% end -%>
+      <%= simple_format 'Note about this item', class: %w() %>
+    <% end -%>
+    <%= tag.div class: %w(my-6) do %>
+      <%= tag.div class: %w(flex justify-between mb-2) do %>
+        <%= tag.span 'Due', class: %w(text-stone-500 text-sm font-bold) %>
+        <%= link_to 'Edit', '#', class: %w(text-stone-500 text-sm hover:underline) %>
+      <% end -%>
+      <% if @item.due %>
+        <%= tag.span l(@item.due), class: %w(text-md) %>
+      <% else -%>
+        No due
+      <% end -%>
+    <% end -%>
+    <%= tag.div class: %w(mt-1 flex justify-end) do %>
+      <%= tag.div class: %w(flex flex-wrap gap-1) do %>
+        <%= render Ui::AvatarListComponent.new(members: @item.contributors, size: :md) %>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+<% end -%>
