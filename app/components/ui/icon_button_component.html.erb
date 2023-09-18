@@ -1,7 +1,7 @@
 <%= tag.button(
   type: :button,
   data: extra_data.merge(data_for_dropdown),
-  class: %w(inline-flex justify-center items-center) + extra_class,
+  class: %w(inline-flex justify-center items-center) + extra_class + focus_class,
   style: "width: #{size}rem; height: #{size}rem;"
 ) do -%>
   <%= content %>
