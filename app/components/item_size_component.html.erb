@@ -1,5 +1,5 @@
 <% size_classes = {
-  sm: %w(h-[1rem] px-2 text-xs),
-  lg: %w(h-[1.5rem] px-4),
+  sm: %w(px-2 text-xs),
+  lg: %w(px-4 text-lg),
 } %>
-<%= tag.span @size, class: %w(inline-block rounded-sm bg-stone-400 text-white font-bold) + size_classes[@element_size] %>
+<%= tag.span @size, class: %w(flex items-center rounded-sm bg-stone-400 text-white font-bold) + size_classes[@element_size] %>
