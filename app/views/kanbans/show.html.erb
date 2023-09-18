@@ -10,9 +10,11 @@
       </div>
     <% end -%>
     <%= tag.div class: %w(slide-over), aria: { expanded: false }, data: { slide_over_target: 'container' } do %>
-      <%= tag.div class: %w(slide-over__panel bg-white border-l border-gray-300) do %>
-        <%= tag.div class: %w(text-right pr-4) do %>
-          <%= tag.button 'close', type: :button, data: { action: 'slide-over#close' } %>
+      <%= tag.div class: %w(slide-over__panel bg-white border-l border-gray-300 py-2 px-4) do %>
+        <%= tag.div class: %w(text-right) do %>
+          <%= render Ui::IconButtonComponent.new(data: { action: 'slide-over#close' }) do %>
+            <%= render Ui::IconComponent.new(name: 'close') %>
+          <% end -%>
         <% end -%>
         <%= tag.div class: %w(flex) do%>
           <%= tag.div class: %w(mx-auto) do %>
