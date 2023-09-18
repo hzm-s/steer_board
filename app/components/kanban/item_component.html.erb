@@ -17,13 +17,7 @@
         <%= body %>
       <% end -%>
       <%= tag.div class: %w(mt-1 flex justify-end) do %>
-        <%= tag.div class: %w(flex flex-wrap gap-1) do %>
-          <% if contributors.empty? %>
-            <%= render Ui::BlankAvatarComponent.new %>
-          <% else -%>
-            <%= render Ui::AvatarComponent.with_collection(contributors) %>
-          <% end -%>
-        <% end -%>
+        <%= render Ui::AvatarListComponent.new(members: contributors, size: :sm) %>
       <% end -%>
     <% end -%>
   <% end -%>

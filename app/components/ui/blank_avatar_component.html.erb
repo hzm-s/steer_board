@@ -1,3 +1,6 @@
-<%= tag.div class: %w(inline-flex items-center justify-center w-6 h-6 bg-white rounded-full border-2 border-dotted border-gray-400) do %>
-  <%= render Ui::IconComponent.new(name: 'user', size: 0.75, class: %w(text-gray-400)) %>
+<%= tag.div(
+  class: %w(inline-flex items-center justify-center bg-white rounded-full border-2 border-dotted border-gray-400),
+  style: "width:#{outer_size}rem; height:#{outer_size}rem;"
+) do %>
+  <%= render Ui::IconComponent.new(name: 'user', size: icon_size, class: %w(text-gray-400)) %>
 <% end -%>

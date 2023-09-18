@@ -1,0 +1,7 @@
+<%= tag.div class: %w(flex flex-wrap gap-1) do %>
+  <% if @members.empty? %>
+    <%= render Ui::BlankAvatarComponent.new(size: @size) %>
+  <% else -%>
+    <%= render Ui::AvatarComponent.with_collection(@members, size: @size) %>
+  <% end -%>
+<% end -%>
