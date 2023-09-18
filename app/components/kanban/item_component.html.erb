@@ -21,9 +21,7 @@
           <% if contributors.empty? %>
             <%= render Ui::BlankAvatarComponent.new %>
           <% else -%>
-            <% contributors.each do |c| %>
-              <%= render Ui::AvatarComponent.new(member: c) %>
-            <% end -%>
+            <%= render Ui::AvatarComponent.with_collection(contributors) %>
           <% end -%>
         <% end -%>
       <% end -%>
