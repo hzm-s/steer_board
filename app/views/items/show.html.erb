@@ -1,4 +1,4 @@
-<%= tag.div class: %w(mt-10 container mx-auto) do %>
+<%= tag.turbo_frame id: 'item_detail' do %>
   <%= render Ui::ItemCardComponent.new(kind: @item.kind, size: :lg, class: %w(w-[38rem] drop-shadow)) do %>
     <%= tag.div class: %w(mb-2) do %>
       <%= render ItemIdComponent.new(id: @item.id, class: %w(font-bold text-lg)) %>
