@@ -1,1 +1,5 @@
-<%= tag.span @value, class: %w(inline-block h-[1rem] rounded-sm px-2 bg-stone-400 text-xs text-white font-bold) %>
+<% size_classes = {
+  sm: %w(h-[1rem] px-2 text-xs),
+  lg: %w(h-[1.5rem] px-4),
+} %>
+<%= tag.span @size, class: %w(inline-block rounded-sm bg-stone-400 text-white font-bold) + size_classes[@element_size] %>
