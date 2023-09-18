@@ -1,13 +1,15 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['container']
+  static targets = ['sliding', 'base']
 
   open(el) {
-    this.containerTarget.setAttribute('aria-expanded', true)
+    this.slidingTarget.setAttribute('aria-expanded', true)
+    this.baseTarget.style.width = '50%'
   }
 
   close() {
-    this.containerTarget.setAttribute('aria-expanded', false)
+    this.slidingTarget.setAttribute('aria-expanded', false)
+    this.baseTarget.style.width = '100%'
   }
 }
