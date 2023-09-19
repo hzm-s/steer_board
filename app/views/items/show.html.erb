@@ -43,7 +43,11 @@
         No due
       <% end -%>
     <% end -%>
-    <%= tag.div class: %w(mt-1 flex justify-end) do %>
+    <%= tag.div class: %w(mt-4) do %>
+      <%= tag.div class: %w(flex items-start justify-between) do %>
+        <%= tag.span 'Current woker(s)', class: %w(text-stone-500 text-xs font-bold) %>
+        <%= link_to 'Join', '#', class: %w(text-stone-500 text-sm hover:underline) %>
+      <% end -%>
       <%= tag.div class: %w(flex flex-wrap gap-1) do %>
         <%= render Ui::AvatarListComponent.new(members: @item.contributors, size: :md) %>
       <% end -%>
