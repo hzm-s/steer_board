@@ -1,6 +1,6 @@
 <div class="mt-10 px-8">
-  <%= tag.div data: { controller: 'slide-over' } do %>
-    <%= tag.div class: %w(overflow-x-auto), style: 'width:100%;', data: { slide_over_target: 'base' } do %>
+  <%= tag.div data: { controller: 'slide-over', slide_over_width_value: 40 } do %>
+    <%= tag.div class: %w(overflow-x-auto), data: { slide_over_target: 'base' } do %>
       <%= tag.div style: "height:92vh;" do %>
         <div class="flex flex-row gap-2">
           <% @work_flow.steps.each do |step| %>
