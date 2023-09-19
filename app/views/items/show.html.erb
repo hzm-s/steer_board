@@ -1,40 +1,40 @@
 <%= tag.turbo_frame id: 'item_detail' do %>
   <%= render Ui::ItemCardComponent.new(kind: @item.kind, size: :lg, class: %w(drop-shadow)) do %>
-    <%= tag.div class: %w(mb-2) do %>
-      <%= render ItemIdComponent.new(id: @item.id, class: %w(font-bold text-lg)) %>
-    <% end -%>
     <%= tag.div class: %w(flex items-center) do %>
       <%= tag.div class: %w(flex items-center gap-2) do %>
-        <%= tag.button class: %w(flex items-center py-2 px-4 gap-2 rounded-lg bg-white border border-gray-300) do %>
+        <%= tag.button class: %w(flex items-center py-2 px-3 gap-2 rounded-lg bg-white border border-gray-300) do %>
           <%= render ItemKindComponent.new(kind: @item.kind) %>
-          <%= tag.span @item.kind.name, class: %w(text-md) %>
+          <%= tag.span @item.kind.name, class: %w(text-sm) %>
           <%= render Ui::IconComponent.new(name: 'chevron-down', size: 0.75) %>
         <% end -%>
+      <% end -%>
+      <%= tag.div class: %w(ml-2) do %>
+        <%= render ItemIdComponent.new(id: @item.id, class: %w(text-md)) %>
       <% end -%>
       <%= tag.div class: %w(ml-auto) do %>
-        <%= tag.button class: %w(flex items-center py-2 px-4 gap-2 rounded-lg bg-white border border-gray-300) do %>
-          <%= render ItemSizeComponent.new(size: @item.size, element_size: :lg) %>
+        <%= tag.button class: %w(flex items-center py-2 px-3 gap-2 rounded-lg bg-white border border-gray-300) do %>
+          <%= render ItemSizeComponent.new(size: @item.size, element_size: :md) %>
           <%= render Ui::IconComponent.new(name: 'chevron-down', size: 0.75) %>
         <% end -%>
       <% end -%>
     <% end -%>
-    <%= tag.div class: %w(my-6) do %>
-      <%= tag.div class: %w(flex justify-between mb-2) do %>
-        <%= tag.span 'Content', class: %w(text-stone-500 text-sm font-bold) %>
+    <%= tag.div class: %w(my-4) do %>
+      <%= tag.div class: %w(flex justify-between) do %>
+        <%= tag.span 'Content', class: %w(text-stone-500 text-xs font-bold) %>
         <%= link_to 'Edit', '#', class: %w(text-stone-500 text-sm hover:underline) %>
       <% end -%>
-      <%= simple_format @item.body, class: %w(text-lg) %>
+      <%= simple_format @item.body, class: %w(text-md) %>
     <% end -%>
-    <%= tag.div class: %w(my-6) do %>
-      <%= tag.div class: %w(flex justify-between mb-2) do %>
-        <%= tag.span 'Note', class: %w(text-stone-500 text-sm font-bold) %>
+    <%= tag.div class: %w(my-4) do %>
+      <%= tag.div class: %w(flex justify-between) do %>
+        <%= tag.span 'Note', class: %w(text-stone-500 text-xs font-bold) %>
         <%= link_to 'Edit', '#', class: %w(text-stone-500 text-sm hover:underline) %>
       <% end -%>
-      <%= simple_format 'Note about this item', class: %w() %>
+      <%= simple_format 'Note about this item', class: %w(text-md) %>
     <% end -%>
-    <%= tag.div class: %w(my-6) do %>
-      <%= tag.div class: %w(flex justify-between mb-2) do %>
-        <%= tag.span 'Due', class: %w(text-stone-500 text-sm font-bold) %>
+    <%= tag.div class: %w(my-4) do %>
+      <%= tag.div class: %w(flex justify-between) do %>
+        <%= tag.span 'Due', class: %w(text-stone-500 text-xs font-bold) %>
         <%= link_to 'Edit', '#', class: %w(text-stone-500 text-sm hover:underline) %>
       <% end -%>
       <% if @item.due %>
