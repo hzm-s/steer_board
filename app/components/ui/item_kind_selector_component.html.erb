@@ -1,0 +1,6 @@
+<%= tag.div class: %w(relative flex items-center rounded-lg border border-gray-300) do %>
+  <%= tag.div class: %w(absolute left-3), aria: { hidden: true } do %>
+    <%= render ItemKindComponent.new(kind: :feature) %>
+  <% end -%>
+  <%= @builder.collection_select @name, @kinds, :name, :name, {}, { class: %w(border-none pl-8) + @extra_class } %>
+<% end -%>
