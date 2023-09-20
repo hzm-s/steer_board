@@ -11,7 +11,9 @@
           <%= render ItemKindComponent.new(kind: kind) %>
           <%= render ItemIdComponent.new(id: id, class: %w(text-sm)) %>
         <% end -%>
-        <%= size && render(ItemSizeComponent.new(size: size)) %>
+        <%= tag.div class: %w(flex-grow-0) do %>
+          <%= size && render(ItemSizeComponent.new(size: size)) %>
+        <% end -%>
       <% end -%>
       <%= tag.div class: %w(mt-1) do %>
         <%= body %>
