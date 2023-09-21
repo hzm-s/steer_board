@@ -3,6 +3,6 @@ class ItemSizeComponent < ViewComponent::Base
     @size = size
     @decorate = decorate
     @element_size = args[:element_size] || :sm
-    @extra_class = args[:class]
+    @extra_class = args[:class] || []
   end
 end

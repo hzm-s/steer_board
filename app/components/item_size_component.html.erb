@@ -4,7 +4,7 @@
   lg: %w(px-4 text-md),
 } %>
 <% if @decorate %>
-  <%= tag.span @size || '-', class: %w(inline-block align-middle rounded-sm font-bold bg-stone-400 text-white) + size_classes[@element_size] %>
+  <%= tag.span @size || '-', class: %w(inline-block align-middle rounded-sm font-bold bg-stone-400 text-white) + size_classes[@element_size] + @extra_class %>
 <% else -%>
-  <%= tag.span @size || '-' %>
+  <%= tag.span @size || '-', class: @extra_class %>
 <% end -%>
