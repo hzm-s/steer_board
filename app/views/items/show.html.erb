@@ -8,7 +8,7 @@
       <%= tag.div class: %w(flex flex-col gap-3 w-[10rem]) do %>
         <%= tag.div do %>
           <%= tag.div class: %w(flex justify-between) do %>
-            <%= tag.span 'Due', class: %w(text-stone-500 text-xs font-bold) %>
+            <%= tag.span 'Due', class: %w(text-slate-400 text-xs font-bold) %>
             <%= link_to 'Edit', '#', class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
           <% end -%>
           <% if @item.due %>
@@ -19,37 +19,37 @@
         <% end -%>
         <%= tag.div do %>
           <%= tag.div class: %w(flex justify-between) do %>
-            <%= tag.span 'Estimate', class: %w(text-stone-500 text-xs font-bold) %>
+            <%= tag.span 'Estimate', class: %w(text-slate-400 text-xs font-bold) %>
             <%= link_to 'Edit', '#', class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
           <% end -%>
-          <%= render ItemSizeComponent.new(size: @item.size, element_size: :lg) %>
+          <%= render ItemSizeComponent.new(size: @item.size, element_size: :md) %>
         <% end -%>
       <% end -%>
     <% end -%>
     <%= tag.div class: %w(my-4) do %>
       <%= tag.div class: %w(flex justify-between) do %>
-        <%= tag.span 'Kind', class: %w(text-stone-500 text-xs font-bold) %>
+        <%= tag.span 'Kind', class: %w(text-slate-400 text-xs font-bold) %>
         <%= link_to 'Edit', '#', class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
       <% end -%>
       <%= @item.kind %>
     <% end -%>
     <%= tag.div class: %w(my-4) do %>
       <%= tag.div class: %w(flex justify-between) do %>
-        <%= tag.span 'Content', class: %w(text-stone-500 text-xs font-bold) %>
+        <%= tag.span 'Content', class: %w(text-slate-400 text-xs font-bold) %>
         <%= link_to 'Edit', '#', class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
       <% end -%>
       <%= simple_format @item.body, class: %w(text-md) %>
     <% end -%>
     <%= tag.div class: %w(my-4) do %>
       <%= tag.div class: %w(flex justify-between) do %>
-        <%= tag.span 'Note', class: %w(text-stone-500 text-xs font-bold) %>
+        <%= tag.span 'Note', class: %w(text-slate-400 text-xs font-bold) %>
         <%= link_to 'Edit', '#', class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
       <% end -%>
       <%= simple_format 'Note about this item', class: %w(text-md) %>
     <% end -%>
     <%= tag.div class: %w(mt-4) do %>
       <%= tag.div class: %w(flex items-start justify-between) do %>
-        <%= tag.span 'Current woker(s)', class: %w(text-stone-500 text-xs font-bold) %>
+        <%= tag.span 'Current woker(s)', class: %w(text-slate-400 text-xs font-bold) %>
         <%= link_to 'Join', '#', class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
       <% end -%>
       <%= tag.div class: %w(flex flex-wrap gap-1) do %>
