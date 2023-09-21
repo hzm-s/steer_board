@@ -22,7 +22,7 @@
             <%= tag.span 'Estimate', class: %w(text-slate-400 text-xs font-bold) %>
             <%= link_to 'Edit', '#', class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
           <% end -%>
-          <%= render ItemSizeComponent.new(size: @item.size, element_size: :md) %>
+          <%= render ItemSizeComponent.new(size: @item.size, decorate: false) %>
         <% end -%>
       <% end -%>
     <% end -%>

@@ -3,9 +3,8 @@
   md: %w(px-2 text-sm),
   lg: %w(px-4 text-md),
 } %>
-<% base_class = %w(inline-block align-middle rounded-sm font-bold) %>
-<% if @size %>
-  <%= tag.span @size, class: base_class + %w(bg-stone-400 text-white) + size_classes[@element_size] %>
+<% if @decorate %>
+  <%= tag.span @size || '-', class: %w(inline-block align-middle rounded-sm font-bold bg-stone-400 text-white) + size_classes[@element_size] %>
 <% else -%>
-  <%= tag.span '-', class: base_class + %w(text-stone-400) + size_classes[@element_size] %>
+  <%= tag.span @size || '-' %>
 <% end -%>
