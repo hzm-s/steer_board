@@ -16,8 +16,8 @@ export default class extends Controller {
       this.enabled = false
     })
 
-    this.slidingTarget.style.left = `${100 - this.widthValue}%`
-    this.slidingTarget.style.width = `${this.widthValue}%`
+    this.slidingTarget.style.left = `calc(100% - ${this.widthValue}rem)`
+    this.slidingTarget.style.width = `${this.widthValue}rem`
   }
 
   open(el) {
@@ -26,7 +26,7 @@ export default class extends Controller {
       return
     }
     this.slidingTarget.setAttribute('aria-expanded', true)
-    this.baseTarget.style.width = `${100 - this.widthValue}%`
+    this.baseTarget.style.width = `calc(100% - ${this.widthValue}rem)`
   }
 
   close() {
