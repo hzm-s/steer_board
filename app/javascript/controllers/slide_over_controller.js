@@ -1,32 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['sliding', 'base']
-  static values = {
-    width: Number
-  }
-
-  initialize() {
-    this.enabled = true
-  }
-
-  connect() {
-    document.addEventListener('keydown', (e) => {
-      console.log('keydown', e.key)
-      this.enabled = false
-    })
-
-    this.slidingTarget.style.left = `calc(100% - ${this.widthValue}rem)`
-    this.slidingTarget.style.width = `${this.widthValue}rem`
-  }
+  static targets = ['sliding', 'base', 'trigger']
 
   open(el) {
-    if (!this.enabled) {
-      this.enabled = true
-      return
-    }
+    this.slidingWidth = el.currentTarget.dataset.slidingWidth
+
+    this.slidingTarget.style.left = `calc(100% - ${this.slidingWidth}rem)`
+    this.slidingTarget.style.width = `${this.slidingWidth}rem`
+
     this.slidingTarget.setAttribute('aria-expanded', true)
-    this.baseTarget.style.width = `calc(100% - ${this.widthValue}rem)`
+    this.baseTarget.style.width = `calc(100% - ${this.slidingWidth}rem)`
   }
 
   close() {
