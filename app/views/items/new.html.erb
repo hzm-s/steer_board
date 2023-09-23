@@ -1,5 +1,4 @@
 <%= tag.turbo_frame id: 'new_item' do %>
-  <%= tag.h2 'New item', class: %w(font-bold) %>
   <%= form_with scope: :item, url: '/' do |f| -%>
     <%= f.text_area :content, class: %w(w-full) %>
     <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(w-full) } %>

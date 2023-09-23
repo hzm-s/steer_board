@@ -1,5 +1,5 @@
 <%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{single_column_size}rem" do %>
-  <%= tag.div class: %w(overflow-y-auto relative) do %>
+  <%= tag.div class: %w(overflow-y-auto) do %>
     <%= tag.div class: @can_add ? %w(board__column-with-add) : %w(board__column) do %>
       <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id), data: { item_counter_target: 'list' } %>
     <% end -%>
@@ -7,18 +7,19 @@
 
   <% if @can_add %>
     <%= tag.div data: { controller: 'reveal' }, class: %w(relative) do %>
-      <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden absolute pr-2 py-2 bg-white), style: 'bottom:2.125rem;' do %>
+      <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden fixed bg-white rounded-lg p-2), style: 'left: 0; bottom:-3rem;' do %>
+        <%= tag.div class: %w(flex items-center justify-between) do %>
+          <%= tag.h3 'New item', class: %w(font-bold) %>
+          <%= render Ui::IconButtonComponent.new(data: { action: 'reveal#toggle' }) do %>
+            <%= render Ui::IconComponent.new(name: 'close', class: %w(text-gray-400 hover:text-gray-500)) %>
+          <% end -%>
+        <% end -%>
         <%= tag.turbo_frame id: 'new_item', src: new_item_path %>
       <% end -%>
       <%= tag.div class: %W(bg-white pt-2), data: { reveal_target: 'item' } do %>
-        <%= tag.button type: :button, data: { action: 'click->reveal#toggle' }, class: %w(block w-full text-center py-1 rounded-lg border border-gray-200 bg-gray-200 hover:bg-violet-500 hover:text-white) do -%>
+        <%= tag.button type: :button, data: { action: 'reveal#toggle' }, class: %w(block w-full text-center py-1 rounded-lg border border-gray-200 bg-gray-200 hover:bg-violet-500 hover:text-white) do -%>
           <%= render Ui::IconComponent.new(name: 'plus', size: 1, class: %w(text-green-600)) %>
           <%= tag.span 'Add new item' %>
-        <% end -%>
-      <% end -%>
-      <%= tag.div class: %W(bg-white pt-2), data: { reveal_target: 'item' }, class: %w(hidden) do %>
-        <%= tag.button type: :button, data: { action: 'click->reveal#toggle' }, class: %w(block w-full text-center py-1 rounded-lg border border-gray-200 bg-gray-200 hover:bg-gray-500 hover:text-white) do -%>
-          <%= tag.span 'Cancel' %>
         <% end -%>
       <% end -%>
     <% end -%>
