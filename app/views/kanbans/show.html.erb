@@ -11,9 +11,9 @@
       <% end -%>
     <% end -%>
 
-    <%= render Ui::SlidingComponent.new(id: 'item_detail', width: 40) do |sc| %>
+    <%= render Ui::SlidingComponent.new(id: 'item_detail', width: 43) do |sc| %>
       <% sc.with_title do %>
-        <%= tag.h3 'Item Detail', class: %w(text-gray-500 font-bold) %>
+        <%= tag.h3 'Item Detail', class: %w(font-bold) %>
       <% end -%>
       <%= tag.turbo_frame id: 'item_detail' %>
     <% end -%>

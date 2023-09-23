@@ -1,6 +1,6 @@
 <%= tag.div id: sliding_target_id, aria: { expanded: false }, data: data_attrs, class: %w(slide-over) + @extra_class do %>
-  <%= tag.div class: %w(slide-over__panel bg-white border-l border-gray-300 py-2 px-4) do %>
-    <%= tag.div class: %w(flex items-center justify-between) do %>
+  <%= tag.div class: %w(slide-over__panel bg-white border-l border-gray-300) do %>
+    <%= tag.div class: %w(flex items-center justify-between py-2 px-4 border-b border-gray-300) do %>
       <% if title? %>
         <%= title %>
       <% end -%>
@@ -8,6 +8,8 @@
         <%= render Ui::IconComponent.new(name: 'close') %>
       <% end -%>
     <% end -%>
-    <%= content %>
+    <%= tag.div class: %w(py-4 px-4) do %>
+      <%= content %>
+    <% end -%>
   <% end -%>
 <% end -%>
