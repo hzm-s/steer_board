@@ -59,6 +59,14 @@ class Item < Struct.new(:id, :kind, :body, keyword_init: true)
     end
   end
 
+  def note
+    <<~EOS
+      Note about this item
+
+      Acceptance criteria, background, work log etc
+    EOS
+  end
+
   def size
     @__size ||=
       begin
