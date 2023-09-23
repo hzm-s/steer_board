@@ -5,3 +5,7 @@
 .board__inner-column-with-footer {
   max-height: calc(79vh - 2.75rem);
 }
+
+.board__item-list-outer {
+  padding: 3px; /* focus時のoutlineのため */
+}

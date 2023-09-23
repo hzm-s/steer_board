@@ -1,0 +1,95 @@
+<%= tag.div class: %w(mt-10 container) do %>
+  <%= tag.div class: %w(mx-auto w-[43rem]) do %>
+    <%= tag.h3 'Item detail', class: %w(font-bold) %>
+
+    <%= tag.turbo_frame id: 'item_detail' do %>
+      <%= render ItemDetailComponent.new(item: @item) do |idc| %>
+
+        <%= idc.with_main_content do %>
+          <%= tag.turbo_frame id: 'item_detail_content' do %>
+            <%= render Ui::LabeledFieldComponent.new(name: 'Content') do |c| %>
+              <%= c.with_actions do %>
+                <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(sw-text-link sw-text-link-sm leading-tight) %>
+              <% end -%>
+              <%= c.with_field do %>
+                <%= simple_format @item.body, class: %w(text-md) %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+
+        <%= idc.with_note do %>
+          <%= tag.turbo_frame id: 'item_detail_note' do %>
+            <%= render Ui::LabeledFieldComponent.new(name: 'Note') do |c| %>
+              <%= c.with_actions do %>
+                <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(sw-text-link sw-text-link-sm leading-tight) %>
+              <% end -%>
+              <%= c.with_field do %>
+                <%= simple_format @item.note, class: %w(text-sm) %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+
+        <%= idc.with_current_contributors do %>
+          <%= tag.turbo_frame id: 'item_detail_contributors' do %>
+            <%= render Ui::LabeledFieldComponent.new(name: 'Current worker(s)') do |c| %>
+              <%= c.with_actions do %>
+                <%= link_to 'Join', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(sw-text-link sw-text-link-sm leading-tight) %>
+              <% end -%>
+              <%= c.with_field do %>
+                <%= tag.div class: %w(mt-1 flex flex-wrap gap-1) do %>
+                  <%= render Ui::AvatarListComponent.new(members: @item.contributors, size: :md) %>
+                <% end -%>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+
+        <%= idc.with_kind do %>
+          <%= tag.turbo_frame id: 'item_detail_kind' do %>
+            <%= render Ui::LabeledFieldComponent.new(name: 'Kind') do |c| %>
+              <%= c.with_actions do %>
+                <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(sw-text-link sw-text-link-sm leading-tight) %>
+              <% end -%>
+              <%= c.with_field do %>
+                <%= tag.span @item.kind, class: %w(text-sm) %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+
+        <%= idc.with_estimate do %>
+          <%= tag.turbo_frame id: 'item_detail_estimate' do %>
+            <%= render Ui::LabeledFieldComponent.new(name: 'Estimate') do |c| %>
+              <%= c.with_actions do %>
+                <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(sw-text-link sw-text-link-sm leading-tight) %>
+              <% end -%>
+              <%= c.with_field do %>
+                <%= render ItemSizeComponent.new(size: @item.size, decorate: false, class: %w(text-sm)) %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+
+        <%= idc.with_due do %>
+          <%= tag.turbo_frame id: 'item_detail_due' do %>
+            <%= render Ui::LabeledFieldComponent.new(name: 'Due') do |c| %>
+              <%= c.with_actions do %>
+                <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(sw-text-link sw-text-link-sm leading-tight) %>
+              <% end -%>
+              <%= c.with_field do %>
+                <%= tag.span @item.due ? l(@item.due) : 'No due', class: %w(text-sm) %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+
+      <% end -%>
+
+      <%= tag.div class: %w(text-right mt-1) do %>
+        <%= link_to 'Log', '#', class: %w(text-stone-500 hover:underline) %>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+<% end -%>

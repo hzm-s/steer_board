@@ -1,1 +1,10 @@
-<%= tag.span @value, class: %w(inline-block h-[1rem] rounded-sm px-2 bg-stone-400 text-xs text-white font-bold) %>
+<% size_classes = {
+  sm: %w(px-2 text-xs),
+  md: %w(px-2 text-sm),
+  lg: %w(px-4 text-md),
+} %>
+<% if @decorate %>
+  <%= tag.span @size || '-', class: %w(inline-block align-middle rounded-sm font-bold bg-stone-400 text-white) + size_classes[@element_size] + @extra_class %>
+<% else -%>
+  <%= tag.span @size || '-', class: @extra_class %>
+<% end -%>

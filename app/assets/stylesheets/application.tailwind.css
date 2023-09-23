@@ -4,19 +4,23 @@
 
 @layer base {
   input,
+  input[type=date],
   textarea,
   select
   {
     @apply border border-gray-300;
   }
 
-  a,
   input,
+  input[type=date],
   textarea,
   select,
   button
   {
     @apply rounded-lg transition duration-300;
+  }
+  a {
+    @apply transition duration-300;
   }
 
   [type='text']:focus,
@@ -58,14 +62,22 @@
 }
 
 @layer components {
-  .flow-line {
+  .sw-text-link {
+    @apply text-stone-500 hover:underline;
+  }
+
+  .sw-text-link-sm {
+    @apply text-sm;
+  }
+
+  .sw-break-line {
     @apply flex items-center;
   }
 
-  .flow-line::before,
-  .flow-line::after {
+  .sw-break-line::after {
     @apply flex-grow bg-gray-200;
+    margin-left: 0.5rem;
     content: '';
-    height: 3px;
+    height: 1px;
   }
 }

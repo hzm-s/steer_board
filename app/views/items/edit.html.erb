@@ -1,0 +1,104 @@
+<%= tag.div class: %w(mt-10 container) do %>
+  <%= tag.div class: %w(mx-auto w-[43rem]) do %>
+    <%= tag.h3 'Edit Item', class: %w(font-bold) %>
+
+    <%= render ItemDetailComponent.new(item: @item) do |idc| %>
+
+      <%= idc.with_main_content do %>
+        <%= tag.turbo_frame id: 'item_detail_content' do %>
+          <%= render Ui::LabeledFieldComponent.new(name: 'Content') do |c| %>
+            <%= c.with_actions do %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
+            <% end -%>
+            <%= c.with_field do %>
+              <%= form_with scope: :item do |f| %>
+                <%= f.text_area @item.body, class: 'w-full' %>
+                <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+
+      <%= idc.with_note do %>
+        <%= tag.turbo_frame id: 'item_detail_note' do %>
+          <%= render Ui::LabeledFieldComponent.new(name: 'Note') do |c| %>
+            <%= c.with_actions do %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
+            <% end -%>
+            <%= c.with_field do %>
+              <%= form_with scope: :item do |f| %>
+                <%= f.text_area @item.note, class: 'w-full' %>
+                <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+
+      <%= idc.with_current_contributors do %>
+        <%= tag.turbo_frame id: 'item_detail_contributors' do %>
+          <%= render Ui::LabeledFieldComponent.new(name: 'Current worker(s)') do |c| %>
+            <%= c.with_actions do %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
+            <% end -%>
+            <%= c.with_field do %>
+              <%= tag.div class: %w(mt-1 flex flex-wrap gap-1) do %>
+                <%= render Ui::AvatarListComponent.new(members: @item.contributors, size: :md) %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+
+      <%= idc.with_kind do %>
+        <%= tag.turbo_frame id: 'item_detail_kind' do %>
+          <%= render Ui::LabeledFieldComponent.new(name: 'Kind') do |c| %>
+            <%= c.with_actions do %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
+            <% end -%>
+            <%= c.with_field do %>
+              <%= form_with scope: :item do |f| %>
+                <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(w-full mb-1) } %>
+                <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+
+      <%= idc.with_estimate do %>
+        <%= tag.turbo_frame id: 'item_detail_estimate' do %>
+          <%= render Ui::LabeledFieldComponent.new(name: 'Estimate') do |c| %>
+            <%= c.with_actions do %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
+            <% end -%>
+            <%= c.with_field do %>
+              <%= form_with scope: :item do |f| %>
+                <%= f.collection_select :size, %w(0 1 2 3 5 8 13 21 ?), :to_s, :to_s, {}, { class: %w(w-full mb-1) } %>
+                <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+
+      <%= idc.with_due do %>
+        <%= tag.turbo_frame id: 'item_detail_due' do %>
+          <%= render Ui::LabeledFieldComponent.new(name: 'Due') do |c| %>
+            <%= c.with_actions do %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
+            <% end -%>
+            <%= c.with_field do %>
+              <%= form_with scope: :item do |f| %>
+                <%= f.date_field :due, class: %w(w-full mb-1) %>
+                <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+
+    <% end -%>
+  <% end -%>
+<% end -%>

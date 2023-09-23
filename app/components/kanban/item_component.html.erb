@@ -1,29 +1,25 @@
 <%= tag.div data: { sort_item: true, item_in_list: true } do %>
-  <%= render Ui::Board::CardComponent.new(theme: kind == :idea ? :draft : :primary) do %>
-    <% if due %>
-      <%= tag.div class: %w(mb-3) do %>
-        <%= render ItemDueComponent.new(date: due) %>
-      <% end -%>
-    <% end -%>
-    <%= tag.div class: %w(flex justify-between) do %>
-      <%= tag.div class: %w(flex items-center gap-1) do %>
-        <%= render ItemKindComponent.new(kind: kind) %>
-        <%= tag.span "##{item_id}", class: %w(text-gray-600 text-sm) %>
-      <% end -%>
-      <%= render ItemSizeComponent.new(value: item_size) %>
-    <% end -%>
-    <%= tag.div class: %w(mt-1) do %>
-      <%= body %>
-    <% end -%>
-    <%= tag.div class: %w(mt-1 flex justify-end) do %>
-      <%= tag.div class: %w(flex flex-wrap gap-1) do %>
-        <% if contributors.empty? %>
-          <%= render Ui::BlankAvatarComponent.new %>
-        <% else -%>
-          <% contributors.each do |c| %>
-            <%= render Ui::AvatarComponent.new(member: c) %>
-          <% end -%>
+  <%= link_to item_path(id), data: { turbo_frame: 'item_detail', action: 'slide-over#open', sliding_id: 'item_detail' }, class: %w(block rounded-lg) do %>
+    <%= render Ui::ItemCardComponent.new(kind: kind, size: :sm) do %>
+      <% if due %>
+        <%= tag.div class: %w(mb-1) do %>
+          <%= render ItemDueComponent.new(date: due) %>
         <% end -%>
+      <% end -%>
+      <%= tag.div class: %w(flex justify-between) do %>
+        <%= tag.div class: %w(flex items-center gap-1) do %>
+          <%= render ItemKindComponent.new(kind: kind) %>
+          <%= render ItemIdComponent.new(id: id, class: %w(text-sm)) %>
+        <% end -%>
+        <%= tag.div class: %w(flex-grow-0) do %>
+          <%= size && render(ItemSizeComponent.new(size: size)) %>
+        <% end -%>
+      <% end -%>
+      <%= tag.div class: %w(mt-1) do %>
+        <%= body %>
+      <% end -%>
+      <%= tag.div class: %w(mt-1 flex justify-end) do %>
+        <%= render Ui::AvatarListComponent.new(members: contributors, size: :sm) %>
       <% end -%>
     <% end -%>
   <% end -%>
