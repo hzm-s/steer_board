@@ -1,0 +1,28 @@
+<%= render Ui::ItemCardComponent.new(kind: @item.kind, size: :lg, class: %w(drop-shadow)) do %>
+  <%= tag.div class: %w(flex flex-row gap-4) do %>
+
+    <%= tag.div class: %w(flex-auto) do %>
+      <%= tag.div class: %w(mb-2) do %>
+        <%= tag.div class: %w(flex items-center gap-2) do %>
+          <%= render ItemKindComponent.new(kind: @item.kind, size: :md) %>
+          <%= render ItemIdComponent.new(id: @item.id, class: %w(text-sm)) %>
+        <% end -%>
+      <% end -%>
+
+      <%= tag.div class: %w(flex flex-col gap-5) do %>
+        <%= main_content %>
+        <%= note %>
+        <%= current_contributors %>
+      <% end -%>
+    <% end -%>
+
+    <%= tag.div class: %w(flex-none w-[10rem] border-l border-gray-200 pl-4) do %>
+      <%= tag.div class: %w(flex flex-col gap-3) do %>
+        <%= kind %>
+        <%= estimate %>
+        <%= due %>
+      <% end -%>
+    <% end -%>
+
+  <% end -%>
+<% end -%>
