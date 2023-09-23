@@ -1,12 +1,15 @@
-<%= render Ui::Board::InnerColumnComponent.new do |c| %>
+<%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{single_column_size}rem" do %>
+  <%= tag.div class: %w(overflow-y-auto relative) do %>
+    <%= tag.div class: @can_add ? %w(board__column-with-add) : %w(board__column) do %>
+      <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id), data: { item_counter_target: 'list' } %>
+    <% end -%>
+  <% end -%>
+
   <% if @can_add %>
-    <% c.with_header do %>
+    <%= tag.div class: %W(bg-white pt-2) do %>
       <%= tag.turbo_frame id: 'new_item_form' do %>
         <%= render Kanban::AddItemComponent.new %>
       <% end -%>
     <% end -%>
-  <% end -%>
-  <% c.with_body do %>
-    <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id), data: { item_counter_target: 'list' } %>
   <% end -%>
 <% end -%>
