@@ -1,20 +1,10 @@
-<%= tag.turbo_frame id: 'new_item_form' do %>
-  <%= tag.div data: { controller: 'reveal' } do %>
-    <%= tag.div data: { reveal_target: 'item' } do %>
-      <%= tag.h2 'New Item', class: %w(font-bold text-stone-500) %>
-      <%= form_with scope: :item, url: '/' do |f| -%>
-        <%= f.text_area :content, class: %w(w-full) %>
-        <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(w-full) } %>
-        <%= tag.div class: %w(mt-2 flex gap-4) do %>
-          <%= render Ui::ButtonComponent.new do %>
-            Add
-          <% end -%>
-          <%= tag.button 'Cancel', type: :button, data: { action: 'click->reveal#toggle' }, class: %w(px-2 text-stone-500 hover:underline hover:text-stone-600) %>
-        <% end -%>
-      <% end -%>
-    <% end -%>
-    <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden) do -%>
-      <%= render Kanban::AddItemComponent.new %>
+<%= tag.turbo_frame id: 'new_item' do %>
+  <%= tag.h2 'New item', class: %w(font-bold) %>
+  <%= form_with scope: :item, url: '/' do |f| -%>
+    <%= f.text_area :content, class: %w(w-full) %>
+    <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(w-full) } %>
+    <%= tag.div class: %w(mt-2 flex gap-4) do %>
+      <%= render Ui::ButtonComponent.new.with_content('Add') %>
     <% end -%>
   <% end -%>
 <% end -%>

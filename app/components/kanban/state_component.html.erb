@@ -6,9 +6,20 @@
   <% end -%>
 
   <% if @can_add %>
-    <%= tag.div class: %W(bg-white pt-2) do %>
-      <%= tag.turbo_frame id: 'new_item_form' do %>
-        <%= render Kanban::AddItemComponent.new %>
+    <%= tag.div data: { controller: 'reveal' }, class: %w(relative) do %>
+      <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden absolute pr-2 py-2 bg-white), style: 'bottom:2.125rem;' do %>
+        <%= tag.turbo_frame id: 'new_item', src: new_item_path %>
+      <% end -%>
+      <%= tag.div class: %W(bg-white pt-2), data: { reveal_target: 'item' } do %>
+        <%= tag.button type: :button, data: { action: 'click->reveal#toggle' }, class: %w(block w-full text-center py-1 rounded-lg border border-gray-200 bg-gray-200 hover:bg-violet-500 hover:text-white) do -%>
+          <%= render Ui::IconComponent.new(name: 'plus', size: 1, class: %w(text-green-600)) %>
+          <%= tag.span 'Add new item' %>
+        <% end -%>
+      <% end -%>
+      <%= tag.div class: %W(bg-white pt-2), data: { reveal_target: 'item' }, class: %w(hidden) do %>
+        <%= tag.button type: :button, data: { action: 'click->reveal#toggle' }, class: %w(block w-full text-center py-1 rounded-lg border border-gray-200 bg-gray-200 hover:bg-gray-500 hover:text-white) do -%>
+          <%= tag.span 'Cancel' %>
+        <% end -%>
       <% end -%>
     <% end -%>
   <% end -%>
