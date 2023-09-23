@@ -8,7 +8,7 @@
         <%= tag.turbo_frame id: 'item_detail_content' do %>
           <%= render Ui::LabeledFieldComponent.new(name: 'Content') do |c| %>
             <%= c.with_actions do %>
-              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>
@@ -24,7 +24,7 @@
         <%= tag.turbo_frame id: 'item_detail_note' do %>
           <%= render Ui::LabeledFieldComponent.new(name: 'Note') do |c| %>
             <%= c.with_actions do %>
-              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>
@@ -40,7 +40,7 @@
         <%= tag.turbo_frame id: 'item_detail_contributors' do %>
           <%= render Ui::LabeledFieldComponent.new(name: 'Current worker(s)') do |c| %>
             <%= c.with_actions do %>
-              <%= link_to 'Join', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
             <% end -%>
             <%= c.with_field do %>
               <%= tag.div class: %w(mt-1 flex flex-wrap gap-1) do %>
@@ -55,7 +55,7 @@
         <%= tag.turbo_frame id: 'item_detail_kind' do %>
           <%= render Ui::LabeledFieldComponent.new(name: 'Kind') do |c| %>
             <%= c.with_actions do %>
-              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>
@@ -71,7 +71,7 @@
         <%= tag.turbo_frame id: 'item_detail_estimate' do %>
           <%= render Ui::LabeledFieldComponent.new(name: 'Estimate') do |c| %>
             <%= c.with_actions do %>
-              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>
@@ -87,7 +87,7 @@
         <%= tag.turbo_frame id: 'item_detail_due' do %>
           <%= render Ui::LabeledFieldComponent.new(name: 'Due') do |c| %>
             <%= c.with_actions do %>
-              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-stone-500 text-sm hover:underline) %>
+              <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight sw-text-link sw-text-link-sm) %>
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>

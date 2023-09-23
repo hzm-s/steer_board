@@ -62,11 +62,19 @@
 }
 
 @layer components {
-  .break-line {
+  .sw-text-link {
+    @apply text-stone-500 hover:underline;
+  }
+
+  .sw-text-link-sm {
+    @apply text-sm;
+  }
+
+  .sw-break-line {
     @apply flex items-center;
   }
 
-  .break-line::after {
+  .sw-break-line::after {
     @apply flex-grow bg-gray-200;
     margin-left: 0.5rem;
     content: '';
