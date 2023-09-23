@@ -1,11 +1,12 @@
-<% base_class = %w(font-bold text-sm) %>
+<% base_class = %w(font-bold) %>
 <% color_classes = {
   primary: %w(bg-violet-500 hover:bg-violet-600 text-white),
 } %>
 <% size_classes = {
-  primary: %w(py-2 px-6)
+  md: %w(py-2 px-6 text-sm),
+  sm: %w(py-2 px-4 text-xs),
 } %>
-<% css_class = base_class + color_classes[@kind] + size_classes[@kind] %>
+<% css_class = base_class + color_classes[@kind] + size_classes[@size] %>
 
 <% if @form_builder %>
   <%= @form_builder.button type: @type, class: css_class do %>
