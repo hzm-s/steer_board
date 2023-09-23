@@ -11,16 +11,13 @@
     <% end -%>
     <%= tag.div class: %w(slide-over), aria: { expanded: false }, data: { slide_over_target: 'sliding' } do %>
       <%= tag.div class: %w(slide-over__panel bg-white border-l border-gray-300 py-2 px-4) do %>
-        <%= tag.div class: %w(text-right) do %>
+        <%= tag.div class: %w(flex items-center justify-between) do %>
+          <%= tag.h3 'Item Detail', class: %w(text-gray-500 font-bold) %>
           <%= render Ui::IconButtonComponent.new(data: { action: 'slide-over#close' }) do %>
             <%= render Ui::IconComponent.new(name: 'close') %>
           <% end -%>
         <% end -%>
-        <%= tag.div class: %w(flex) do%>
-          <%= tag.div class: %w(flex-grow) do %>
-            <%= tag.turbo_frame id: 'item_detail' %>
-          <% end -%>
-        <% end -%>
+        <%= tag.turbo_frame id: 'item_detail' %>
       <% end -%>
     <% end -%>
   <% end -%>
