@@ -1,20 +1,30 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['sliding', 'base', 'trigger']
+  static targets = ['base']
 
-  open(el) {
-    this.slidingWidth = el.currentTarget.dataset.slidingWidth
+  open(e) {
+    if (this.sliding) {
+      this.close()
+    }
 
-    this.slidingTarget.style.left = `calc(100% - ${this.slidingWidth}rem)`
-    this.slidingTarget.style.width = `${this.slidingWidth}rem`
+    this.sliding = document.getElementById(this.getSlidingId(e.currentTarget))
+    this.slidingWidth = this.sliding.dataset.slidingWidth
 
-    this.slidingTarget.setAttribute('aria-expanded', true)
+    this.sliding.style.left = `calc(100% - ${this.slidingWidth}rem)`
+    this.sliding.style.width = `${this.slidingWidth}rem`
+
+    this.sliding.setAttribute('aria-expanded', true)
     this.baseTarget.style.width = `calc(100% - ${this.slidingWidth}rem)`
   }
 
   close() {
-    this.slidingTarget.setAttribute('aria-expanded', false)
+    this.sliding.setAttribute('aria-expanded', false)
     this.baseTarget.style.width = '100%'
+    this.sliding = undefined
+  }
+
+  getSlidingId(trigger) {
+    return `sliding-target-${trigger.dataset.slidingId}`
   }
 }
