@@ -10,9 +10,7 @@
       <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden fixed bg-white rounded-lg p-2), style: 'left: 0; bottom:-3rem;' do %>
         <%= tag.div class: %w(flex items-center justify-between) do %>
           <%= tag.h3 'New item', class: %w(font-bold) %>
-          <%= render Ui::IconButtonComponent.new(data: { action: 'reveal#toggle' }) do %>
-            <%= render Ui::IconComponent.new(name: 'close', class: %w(text-gray-400 hover:text-gray-500)) %>
-          <% end -%>
+          <%= render Ui::CloseButtonComponent.new(data: { action: 'reveal#toggle' }) %>
         <% end -%>
         <%= tag.turbo_frame id: 'new_item', src: new_item_path %>
       <% end -%>

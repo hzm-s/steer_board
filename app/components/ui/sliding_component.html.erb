@@ -4,9 +4,7 @@
       <% if title? %>
         <%= title %>
       <% end -%>
-      <%= render Ui::IconButtonComponent.new(data: { action: 'slide-over#close' }) do %>
-        <%= render Ui::IconComponent.new(name: 'close') %>
-      <% end -%>
+      <%= render Ui::CloseButtonComponent.new(data: { action: 'slide-over#close' }) %>
     <% end -%>
     <%= tag.div class: %w(py-4 px-4) do %>
       <%= content %>
