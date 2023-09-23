@@ -1,0 +1,10 @@
+<% base_class = %w(py-2 px-6 font-bold bg-violet-500 hover:bg-violet-600 text-white text-sm) %>
+<% if @form_builder %>
+  <%= @form_builder.button type: @type, class: base_class do %>
+    <%= content %>
+  <% end -%>
+<% else -%>
+  <%= button_tag type: @type, class: base_class do %>
+    <%= content %>
+  <% end -%>
+<% end -%>

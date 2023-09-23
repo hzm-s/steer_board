@@ -6,7 +6,9 @@
         <%= f.text_area :content, class: %w(w-full) %>
         <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(w-full) } %>
         <%= tag.div class: %w(mt-2 flex gap-4) do %>
-          <%= f.button 'Add', type: :submit, class: %w(py-2 px-6 font-bold bg-violet-500 hover:bg-violet-600 text-white text-sm) %>
+          <%= render Ui::PrimaryButtonComponent.new(type: :submit) do %>
+            Add
+          <% end -%>
           <%= tag.button 'Cancel', type: :button, data: { action: 'click->reveal#toggle' }, class: %w(px-2 text-stone-500 hover:underline hover:text-stone-600) %>
         <% end -%>
       <% end -%>
