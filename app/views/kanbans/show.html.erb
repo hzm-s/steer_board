@@ -7,6 +7,12 @@
           <% @work_flow.steps.each do |step| %>
             <%= render Kanban::StepComponent.new(step: step, work_flow: @work_flow) %>
           <% end -%>
+          <%= tag.div class: %w(flex-shrink-0 p-1) do %>
+            <%= render Ui::IconButtonComponent.new(class: %w(text-sm bg-gray-200 hover:bg-violet-500)) do -%>
+              <%= render Ui::IconComponent.new(name: 'plus', size: 1, class: %w(text-green-600)) %>
+            <% end -%>
+            <%= tag.p 'Add step', class: %w(text-sm mt-1) %>
+          <% end -%>
         </div>
       <% end -%>
     <% end -%>
