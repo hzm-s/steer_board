@@ -2,85 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  input,
-  input[type=text],
-  input[type=number],
-  input[type=date],
-  input[type=checkbox],
-  textarea,
-  select
-  {
-    @apply border border-gray-300;
-  }
-
-  input,
-  input[type=text],
-  input[type=number],
-  input[type=date],
-  input[type=checkbox],
-  textarea,
-  select,
-  button
-  {
-    @apply rounded-lg transition duration-300;
-  }
-  a {
-    @apply transition duration-300;
-  }
-
-  [type='text']:focus,
-  [type='email']:focus,
-  [type='url']:focus,
-  [type='password']:focus,
-  [type='number']:focus,
-  [type='date']:focus,
-  [type='datetime-local']:focus,
-  [type='month']:focus,
-  [type='search']:focus,
-  [type='tel']:focus,
-  [type='time']:focus,
-  [type='week']:focus,
-  [multiple]:focus,
-  textarea:focus,
-  select:focus {
-    --tw-ring-color: #93c5fd;
-    border-color: var(--tw-ring-color);
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
-  }
-
-  [type="checkbox"],
-  [type="radio"] {
-    color: #3b82f6;
-  }
-
-  [type="checkbox"]:focus,
-  [type="radio"]:focus {
-    --tw-ring-color: #93c5fd;
-  }
-
-  button:focus,
-  a:focus {
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
-    border-color: #93c5fd;
-    outline: none;
-  }
-}
+@layer base {}
 
 @layer components {
-  .sw-text-link {
-    @apply text-stone-500 hover:underline;
+  .button {
+    @apply rounded-lg;
   }
 
-  .sw-text-link-sm {
+  .form-input,
+  .form-textarea,
+  .form-select,
+  .form-checkbox,
+  .form-radio
+  {
+    @apply border border-gray-300 rounded-lg;
+  }
+
+  .link,
+  .text-link,
+  .button,
+  .form-input,
+  .form-textarea,
+  .form-select,
+  .form-checkbox,
+  .form-radio
+  {
+    @apply transition duration-300 focus:border-violet-300 focus:ring focus:ring-violet-200 focus:outline-0 focus:ring-opacity-80;
+  }
+
+  .text-link {
+    @apply rounded text-stone-500 hover:underline;
+  }
+
+  .text-link-sm {
     @apply text-sm;
   }
 
-  .sw-break-line {
+  .break-line {
     @apply flex items-center;
   }
 
-  .sw-break-line::after {
+  .break-line::after {
     @apply flex-grow bg-gray-200;
     margin-left: 0.5rem;
     content: '';
