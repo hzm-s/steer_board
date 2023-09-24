@@ -1,7 +1,13 @@
 <%= tag.turbo_frame id: 'new_item' do %>
   <%= form_with scope: :item, url: '/' do |f| -%>
-    <%= f.text_area :content, class: %w(form-textarea w-full) %>
-    <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(form-select w-full) } %>
+    <%= tag.div class: %w(flex flex-col gap-1) do %>
+      <%= f.label :Content, class: %w(text-sm text-slate-500 font-bold) %>
+      <%= f.text_area :content, class: %w(form-textarea w-full) %>
+    <% end -%>
+    <%= tag.div class: %w(mt-2 flex flex-col gap-1) do %>
+      <%= f.label :kind, class: %w(text-sm text-slate-500 font-bold) %>
+      <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(form-select w-full) } %>
+    <% end -%>
     <%= tag.div class: %w(mt-2 flex gap-4) do %>
       <%= render Ui::ButtonComponent.new.with_content('Add') %>
     <% end -%>
