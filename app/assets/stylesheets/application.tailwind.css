@@ -4,7 +4,10 @@
 
 @layer base {
   input,
+  input[type=text],
+  input[type=number],
   input[type=date],
+  input[type=checkbox],
   textarea,
   select
   {
@@ -12,7 +15,10 @@
   }
 
   input,
+  input[type=text],
+  input[type=number],
   input[type=date],
+  input[type=checkbox],
   textarea,
   select,
   button
