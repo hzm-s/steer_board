@@ -27,7 +27,7 @@
   .form-checkbox,
   .form-radio
   {
-    @apply transition duration-300 focus:border-violet-300 focus:ring focus:ring-violet-200 focus:outline-0 focus:ring-opacity-80;
+    @apply transition duration-300 focus:border-violet-300 focus:ring focus:ring-violet-300 focus:outline-0 focus:ring-opacity-80;
   }
 
   .text-link {
