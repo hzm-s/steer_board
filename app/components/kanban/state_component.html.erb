@@ -8,7 +8,7 @@
   <% if @can_add %>
     <%= tag.div data: { controller: 'reveal' }, class: %w(relative) do %>
       <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden fixed bg-white rounded-lg p-2), style: 'left: 0; bottom:-3rem;' do %>
-        <%= tag.div class: %w(flex items-center justify-between) do %>
+        <%= tag.div class: %w(flex items-center justify-between pb-4) do %>
           <%= tag.h3 'New item', class: %w(font-bold) %>
           <%= render Ui::CloseButtonComponent.new(data: { action: 'reveal#toggle' }) %>
         <% end -%>
