@@ -12,9 +12,6 @@
           <%= tag.div data: { controller: 'reveal' }, class: %w(flex-shrink-0) do %>
             <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden) do %>
               <%= tag.turbo_frame id: 'new_step', autoscroll: true, data: { autoscroll_block: 'end', autoscroll_hehavior: 'smooth' } %>
-              <%= tag.div class: %w(text-right mt-2) do %>
-                <%= tag.button 'Cancel', data: { action: 'reveal#toggle' }, class: %w(text-link) %>
-              <% end -%>
             <% end -%>
 
             <%= tag.div data: { reveal_target: 'item' }, class: %w(pt-1 pr-1) do %>

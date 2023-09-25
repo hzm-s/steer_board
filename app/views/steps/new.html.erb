@@ -1,8 +1,13 @@
 <%= tag.div class: %w(mt-10 container) do %>
-  <%= tag.div class: %w(mx-auto) do %>
+  <%= tag.div class: %w(mx-auto w-[19rem]) do %>
     <%= tag.turbo_frame id: 'new_step' do %>
       <%= tag.div class: %w(border border-gray-200 bg-white rounded-lg p-3 drop-shadow-md w-[19rem]) do %>
-        <%= tag.h2 'New step', class: %w(font-bold mb-4) %>
+        <%= tag.div class: %w(flex justify-between mb-4) do %>
+          <%= tag.h2 'New step', class: %w(font-bold) %>
+          <% if @can_close %>
+            <%= render Ui::CloseButtonComponent.new(data: { action: 'reveal#toggle' }) %>
+          <% end -%>
+        <% end -%>
         <%= form_with scope: :step do |f| %>
           <%= tag.div class: %w(flex flex-col gap-1) do %>
             <%= f.label :name, class: %w(text-sm text-slate-500 font-bold) %>
