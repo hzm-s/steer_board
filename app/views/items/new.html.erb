@@ -1,7 +1,7 @@
 <%= tag.turbo_frame id: 'new_item' do %>
   <%= form_with scope: :item, url: '/' do |f| -%>
     <%= tag.div class: %w(flex flex-col gap-1) do %>
-      <%= f.label :Content, class: %w(text-sm text-slate-500 font-bold) %>
+      <%= f.label :content, class: %w(text-sm text-slate-500 font-bold) %>
       <%= f.text_area :content, class: %w(form-textarea w-full) %>
     <% end -%>
     <%= tag.div class: %w(mt-2 flex flex-col gap-1) do %>
