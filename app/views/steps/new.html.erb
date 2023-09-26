@@ -1,0 +1,35 @@
+<%= tag.div class: %w(mt-10 container) do %>
+  <%= tag.div class: %w(mx-auto w-[19rem]) do %>
+    <%= tag.turbo_frame id: 'new_step' do %>
+      <%= tag.div class: %w(border border-gray-200 bg-white rounded-lg p-3 drop-shadow-md w-[19rem]) do %>
+        <%= tag.div class: %w(flex justify-between mb-4) do %>
+          <%= tag.h2 'New step', class: %w(font-bold) %>
+          <% if @can_close %>
+            <%= render Ui::CloseButtonComponent.new(data: { action: 'reveal#toggle' }) %>
+          <% end -%>
+        <% end -%>
+        <%= form_with scope: :step do |f| %>
+          <%= tag.div class: %w(flex flex-col gap-1) do %>
+            <%= f.label :name, class: %w(text-sm text-slate-500 font-bold) %>
+            <%= f.text_field :name, class: %w(form-input) %>
+          <% end -%>
+          <%= tag.div class: %w(mt-3 flex flex-col gap-1) do %>
+            <%= tag.label :Buffers, class: %w(text-sm text-slate-500 font-bold) %>
+            <%= tag.div class: %w(flex flex-col gap-2) do %>
+              <%= f.collection_check_boxes :buffers, %w(pre_buffer post_buffer), :to_s, :to_s do |buf| %>
+                <%= buf.label { buf.check_box(class: %w(form-checkbox mr-2 w-6 h-6)) + buf.text } %>
+              <% end -%>
+            <% end -%>
+          <% end -%>
+          <%= tag.div class: %w(mt-3 flex flex-col gap-1) do %>
+            <%= f.label :wip_limit, class: %w(text-sm text-slate-500 font-bold) %>
+            <%= f.number_field :wip_limit, min: 1, max: 99, class: %w(form-input) %>
+          <% end -%>
+          <%= tag.div class: %w(mt-3) do %>
+            <%= render Ui::ButtonComponent.new.with_content('Add') %>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+<% end -%>

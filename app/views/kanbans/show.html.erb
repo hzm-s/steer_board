@@ -1,22 +1,20 @@
 <div class="mt-10 px-8">
   <%= tag.div data: { controller: 'slide-over' } do %>
-
     <%= tag.div class: %w(overflow-x-auto), data: { slide_over_target: 'base' } do %>
       <%= tag.div style: "height:92vh;" do %>
-        <div class="flex flex-row gap-2">
+        <%= tag.div class: %w(flex flex-row gap-2) %>
           <% @work_flow.steps.each do |step| %>
             <%= render Kanban::StepComponent.new(step: step, work_flow: @work_flow) %>
           <% end -%>
-        </div>
+          <%= render Kanban::NewStepComponent.new %>
+        <% end -%>
       <% end -%>
     <% end -%>
-
     <%= render Ui::SlidingComponent.new(id: 'item_detail', width: 43) do |sc| %>
       <% sc.with_title do %>
         <%= tag.h3 'Item detail', class: %w(font-bold) %>
       <% end -%>
       <%= tag.turbo_frame id: 'item_detail' %>
     <% end -%>
-
   <% end -%>
 </div>
