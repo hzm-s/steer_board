@@ -1,41 +1,20 @@
 <div class="mt-10 px-8">
   <%= tag.div data: { controller: 'slide-over' } do %>
-
     <%= tag.div class: %w(overflow-x-auto), data: { slide_over_target: 'base' } do %>
       <%= tag.div style: "height:92vh;" do %>
-        <div class="flex flex-row gap-2">
-
+        <%= tag.div class: %w(flex flex-row gap-2) %>
           <% @work_flow.steps.each do |step| %>
             <%= render Kanban::StepComponent.new(step: step, work_flow: @work_flow) %>
           <% end -%>
-
-          <%= tag.div data: { controller: 'reveal' }, class: %w(flex-shrink-0) do %>
-            <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden) do %>
-              <%= tag.turbo_frame id: 'new_step', autoscroll: true, data: { autoscroll_block: 'end', autoscroll_hehavior: 'smooth' } %>
-            <% end -%>
-
-            <%= tag.div data: { reveal_target: 'item' }, class: %w(pt-1 pr-1) do %>
-              <%= link_to(
-                new_step_path,
-                data: { turbo_frame: 'new_step', action: 'reveal#toggle' },
-                class: %w(link block p-2 text-center rounded-lg border-2 border-dashed border-gray-200 hover:bg-violet-500 hover:text-white)
-              ) do %>
-                <%= render Ui::IconComponent.new(name: 'plus', size: 1.5, class: %w(text-green-600)) %>
-                <%= tag.span 'Add step', class: %w(block text-xs font-bold) %>
-              <% end -%>
-            <% end -%>
-          <% end -%>
-
-        </div>
+          <%= render Kanban::NewStepComponent.new %>
+        <% end -%>
       <% end -%>
     <% end -%>
-
     <%= render Ui::SlidingComponent.new(id: 'item_detail', width: 43) do |sc| %>
       <% sc.with_title do %>
         <%= tag.h3 'Item detail', class: %w(font-bold) %>
       <% end -%>
       <%= tag.turbo_frame id: 'item_detail' %>
     <% end -%>
-
   <% end -%>
 </div>
