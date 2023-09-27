@@ -1,5 +1,5 @@
-<%= render Ui::Board::ColumnComponent.new(size: states.size, data: { controller: 'item-counter' }) do |c| %>
-  <% c.with_header do %>
+<%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{width}rem", data: { controller: 'item-counter' } do %>
+  <%= tag.div class: %W(pb-2 bg-white border border-gray-200 rounded-lg drop-shadow-md) do %>
     <%= render Ui::Board::ColumnHeaderComponent.new(main_title: name, sub_titles: has_buffer? ? states.map(&:name) : []) do |h| %>
       <% h.with_context_menu do %>
         <%= render Ui::ContextMenuComponent.new %>
@@ -8,10 +8,18 @@
         <%= render Kanban::ItemCounterComponent.new(limit: limit) %>
       <% end -%>
     <% end -%>
-  <% end -%>
-  <% c.with_body do %>
-    <% states.each do |state| %>
-      <%= render Kanban::StateComponent.new(state: state, work_flow: @work_flow, can_add: initial_step?) %>
+    <%= tag.div class: %w(px-2) do %>
+      <% if states.size > 1 %>
+        <%= tag.div class: %w(flex flex-row justify-between) do %>
+          <% states.each do |state| %>
+            <%= render Kanban::StateComponent.new(state: state, work_flow: @work_flow, can_add: initial_step?) %>
+          <% end -%>
+        <% end -%>
+      <% else -%>
+        <% states.each do |state| %>
+          <%= render Kanban::StateComponent.new(state: state, work_flow: @work_flow, can_add: initial_step?) %>
+        <% end -%>
+      <% end -%>
     <% end -%>
   <% end -%>
 <% end -%>
