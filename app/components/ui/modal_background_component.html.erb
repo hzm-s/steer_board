@@ -1,0 +1,14 @@
+<%= tag.div(
+  data: {
+    modal_target: 'background',
+    transition_enter: 'transition-all ease-in-out duration-300',
+    transition_enter_from: 'bg-opacity-0',
+    transition_enter_to: 'bg-opacity-80',
+    transition_leave: 'transition-all ease-in-out duration-300',
+    transition_leave_from: 'bg-opacity-80',
+    transition_leave_to: 'bg-opacity-0',
+  }.merge(@extra_data),
+  class: %w(z-10 hidden fixed inset-0 bg-black bg-opacity-80 overflow-y-auto flex items-center justify-center) + @extra_class
+) do %>
+  <%= content %>
+<% end -%>
