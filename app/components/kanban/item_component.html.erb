@@ -1,4 +1,4 @@
-<%= tag.div data: { sort_item: true, item_in_list: true } do %>
+<%= tag.div data: { item_id: id, sort_item: true, item_in_list: true } do %>
   <%= link_to item_path(id), data: { turbo_frame: 'item_detail', action: 'slide-over#open', sliding_id: 'item_detail' }, class: %w(link block rounded-lg) do %>
     <%= render Ui::ItemCardComponent.new(kind: kind, size: :sm) do %>
       <% if due %>
