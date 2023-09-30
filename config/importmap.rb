@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "sortablejs" # @1.15.0
 pin "tailwindcss-stimulus-components" # @4.0.4
 pin "@hotwired/stimulus", to: "@hotwired--stimulus.js" # @3.2.2
+pin "stimulus-reveal-controller" # @4.1.0
