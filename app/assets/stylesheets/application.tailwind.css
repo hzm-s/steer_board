@@ -17,6 +17,10 @@
     @apply border border-gray-300 rounded-lg;
   }
 
+  .form-checkbox {
+    @apply border border-gray-300 rounded;
+  }
+
   .form-radio {
     @apply border border-gray-300 rounded-full;
   }
