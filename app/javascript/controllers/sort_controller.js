@@ -34,6 +34,12 @@ export default class extends Controller {
   }
 
   onEnd(e) {
-    console.log('!!! onEnd', e.newIndex)
+    const fromStateId = e.from.dataset.stateId
+    const toStateId = e.to.dataset.stateId
+
+    if (fromStateId !== toStateId) {
+      console.log('*** change status')
+      this.dispatch('itemStatusChanged', { detail: { itemId: e.item.dataset.itemId } })
+    }
   }
 }
