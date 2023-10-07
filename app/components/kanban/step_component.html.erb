@@ -1,5 +1,5 @@
 <%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{width}rem", data: { controller: 'item-counter' } do %>
-  <%= tag.div class: %W(pb-2 bg-white border border-gray-200 rounded-lg drop-shadow-md) do %>
+  <%= render Ui::BoardColumnComponent.new do %>
     <%= render Kanban::StepHeaderComponent.new(step: @step) %>
     <%= tag.div class: %w(px-2) do %>
       <% if states.size > 1 %>

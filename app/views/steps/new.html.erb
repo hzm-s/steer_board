@@ -1,7 +1,7 @@
 <%= tag.div class: %w(mt-10 container) do %>
   <%= tag.div class: %w(mx-auto w-[19rem]) do %>
     <%= tag.turbo_frame id: 'new_step' do %>
-      <%= tag.div class: %w(border border-gray-200 bg-white rounded-lg p-3 drop-shadow-md w-[19rem]) do %>
+      <%= render Ui::BoardColumnComponent.new(class: %w(p-3 w-[19rem])) do %>
         <%= tag.div class: %w(flex justify-between mb-4) do %>
           <%= tag.h2 'New step', class: %w(font-bold) %>
           <% if @can_close %>
