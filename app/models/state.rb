@@ -1,4 +1,4 @@
-class State < Struct.new(:id, :parent_id, :kind, keyword_init: true)
+class State0 < Struct.new(:id, :parent_id, :kind, keyword_init: true)
   NAMES = {
     primary: 'WIP',
     pre_buffer: 'Todo',

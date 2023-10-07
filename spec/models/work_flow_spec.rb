@@ -6,9 +6,9 @@ describe 'work flow' do
 
     todo = Step.new(name: 'Todo')
     prepare = Step.new(name: 'Prepare')
-    dev = Step.new(name: 'Dev').tap { _1.set_post_buffer }
+    dev = Step.new(name: 'Dev', buffers: [:post])
     qa = Step.new(name: 'QA')
-    deploy = Step.new(name: 'Deploy').tap { _1.set_pre_buffer }
+    deploy = Step.new(name: 'Deploy', buffers: [:pre])
     done = Step.new(name: 'Done')
 
     wf.add_step(todo)
@@ -17,6 +17,7 @@ describe 'work flow' do
     wf.add_step(qa)
     wf.add_step(deploy)
     wf.add_step(done)
+    wf.save!
 
     expect(wf.steps).to eq [todo, prepare, dev, qa, deploy, done]
 
