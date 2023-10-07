@@ -5,7 +5,6 @@
         <% @work_flow.steps.each do |step| %>
           <%= render Kanban::StepComponent.new(step: step, work_flow: @work_flow) %>
         <% end -%>
-        <%= render Kanban::NewStepComponent.new %>
       <% end -%>
     <% end -%>
     <%= render Ui::SlidingComponent.new(id: 'item_detail', width: 43) do |sc| %>
