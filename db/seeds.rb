@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+if WorkFlow.count == 0 || ENV.fetch('FORCE', false)
+  steps = [
+    Step.new(name: 'Todo'),
+    Step.new(name: 'Analyze'),
+    Step.new(name: 'Next10', wip_limit: 10),
+    Step.new(name: 'Develop', wip_limit: 8, buffers: [:post]),
+    Step.new(name: 'QA', wip_limit: 6, buffers: [:post]),
+    Step.new(name: 'Deploy'),
+    Step.new(name: 'Production'),
+  ]
+  WorkFlow.new do |wf|
+    steps.each { wf.add_step(_1) }
+    wf.save!
+  end
+end
