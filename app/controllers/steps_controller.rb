@@ -4,6 +4,6 @@ class StepsController < ApplicationController
   end
 
   def show
-    @step = WorkFlow.find.steps.find { _1.id == params[:id] }
+    @step = Step.find(params[:id])
   end
 end

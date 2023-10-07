@@ -1,5 +1,5 @@
 class KanbansController < ApplicationController
   def show
-    @work_flow = WorkFlow.find
+    @work_flow = WorkFlow.first
   end
 end
