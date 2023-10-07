@@ -3,7 +3,7 @@
     <%= tag.div class: %w(flex flex-row gap-2) do %>
       <% @work_flow.steps.each do |step| %>
         <%= tag.div class: %w(flex-shrink-0 basis-[19rem]) do %>
-          <%= tag.turbo_frame id: step.id, src: step_path(step.id) do %>
+          <%= tag.turbo_frame id: step.id, src: edit_step_path(step.id) do %>
             <%= render Ui::LoadingComponent.new %>
           <% end -%>
         <% end -%>
