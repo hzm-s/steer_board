@@ -1,0 +1,36 @@
+<%= tag.div class: %w(flex flex-col gap-1) do %>
+  <%= f.label :name, class: %w(text-sm text-slate-500 font-bold) %>
+  <%= f.text_field :name, class: %w(form-input) %>
+<% end -%>
+<%= tag.div class: %w(flex flex-col gap-1) do %>
+  <%= f.label :description, class: %w(text-sm text-slate-500 font-bold) %>
+  <%= f.text_area :description, class: %w(form-textarea) %>
+<% end -%>
+<%= tag.div class: %w(flex flex-col gap-1) do %>
+  <%= f.label :wip_limit, class: %w(text-sm text-slate-500 font-bold) %>
+  <%= f.number_field :wip_limit, min: 1, max: 99, class: %w(form-input) %>
+<% end -%>
+<%= tag.field_set class: %w(flex flex-col gap-1) do %>
+  <%= tag.legend :Buffers, class: %w(text-sm text-slate-500 font-bold) %>
+  <%= tag.div class: %w(flex flex-col gap-2) do %>
+    <%= f.collection_check_boxes :buffers, %w(pre post), :to_s, :to_s do |buf| %>
+      <%= buf.label { buf.check_box(class: %w(form-checkbox mr-2 w-6 h-6)) + buf.text } %>
+    <% end -%>
+  <% end -%>
+<% end -%>
+<%= tag.field_set class: %w(flex flex-col gap-1) do %>
+  <%= tag.legend 'Allow idea', class: %w(text-sm text-slate-500 font-bold) %>
+  <%= tag.div class: %w(flex flex-col gap-2) do %>
+    <%= f.collection_radio_buttons :allow_idea, %w(yes no), :to_s, :to_s do |ai| %>
+      <%= ai.label { ai.radio_button(class: %w(form-radio mr-2 w-6 h-6)) + ai.text } %>
+    <% end -%>
+  <% end -%>
+<% end -%>
+<%= tag.field_set class: %w(flex flex-col gap-1) do %>
+  <%= tag.legend 'Can add item?', class: %w(text-sm text-slate-500 font-bold) %>
+  <%= tag.div class: %w(flex flex-col gap-2) do %>
+    <%= f.collection_radio_buttons :can_add_item, %w(yes no), :to_s, :to_s do |ai| %>
+      <%= ai.label { ai.radio_button(class: %w(form-radio mr-2 w-6 h-6)) + ai.text } %>
+    <% end -%>
+  <% end -%>
+<% end -%>

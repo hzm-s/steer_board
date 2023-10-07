@@ -1,5 +1,12 @@
 <%= tag.turbo_frame id: @step.id do %>
   <%= render Ui::BoardColumnComponent.new(class: %w(p-3)) do %>
-    <%= @step.name %>
+    <%= tag.div class: %w(flex flex-col gap-3) do %>
+      <%= form_with scope: :step, html: { autocomplete: 'off' } do |f| %>
+        <%= render partial: 'form', locals: { f: f } %>
+        <%= tag.div class: %w() do %>
+          <%= render Ui::ButtonComponent.new.with_content('Save') %>
+        <% end -%>
+      <% end -%>
+    <% end -%>
   <% end -%>
 <% end -%>
