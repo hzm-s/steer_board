@@ -1,36 +1,19 @@
-class WorkFlow
-  attr_reader :steps
-
-  def initialize
-    @steps = []
-  end
+class WorkFlow < ApplicationRecord
+  has_many :steps, -> { order(position: :asc) }, dependent: :destroy
 
   def add_step(step)
-    @steps << step
+    self.steps << step
   end
 
-  def update_step(step)
-    index = @steps.index(step)
-    @steps[index] = step
+  def step_of(base_step_id)
+    steps.find { _1.id == base_step_id }
   end
 
-  def step_of(step_id)
-    @steps.find { _1.id == step_id }
+  def previous_step_of(base_step_id)
+    steps.find { _1.id == base_step_id }.higher_item
   end
 
-  def previous_step_of(step_id)
-    step = step_of(step_id)
-
-    index_of_previous = @steps.index(step) - 1
-    return nil if index_of_previous < 0
-
-    @steps[index_of_previous]
-  end
-
-  def next_step_of(step_id)
-    step = step_of(step_id)
-
-    index_of_next = @steps.index(step) + 1
-    @steps[index_of_next]
+  def next_step_of(base_step_id)
+    steps.find { _1.id == base_step_id }.lower_item
   end
 end
