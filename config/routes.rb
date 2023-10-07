@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resource :setting, only: [:show], module: :kanban
   end
 
-  resources :steps, only: [:new, :edit]
+  resources :steps, only: [:new, :edit, :update]
 
   resources :items, only: [:index, :show, :new, :edit]
 
