@@ -1,3 +1,5 @@
 <%= tag.turbo_frame id: @step.id do %>
-  <%= @step.name %>
+  <%= render Ui::BoardColumnComponent.new(class: %w(p-3)) do %>
+    <%= @step.name %>
+  <% end -%>
 <% end -%>
