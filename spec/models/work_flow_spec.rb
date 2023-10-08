@@ -6,9 +6,9 @@ describe 'work flow' do
 
     todo = Step.new(name: 'Todo')
     prepare = Step.new(name: 'Prepare')
-    dev = Step.new(name: 'Dev', buffers: [:post])
+    dev = Step.new(name: 'Dev', post_queue: true)
     qa = Step.new(name: 'QA')
-    deploy = Step.new(name: 'Deploy', buffers: [:pre])
+    deploy = Step.new(name: 'Deploy', pre_queue: true)
     done = Step.new(name: 'Done')
 
     wf.add_step(todo)
