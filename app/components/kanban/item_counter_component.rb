@@ -1,5 +1,5 @@
 class Kanban::ItemCounterComponent < ViewComponent::Base
-  def initialize(limit: nil)
-    @limit = limit
+  def initialize(wip_limit: nil)
+    @wip_limit = wip_limit
   end
 end

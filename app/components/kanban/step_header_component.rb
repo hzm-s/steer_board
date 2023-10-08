@@ -4,7 +4,7 @@ class Kanban::StepHeaderComponent < ViewComponent::Base
   end
 
   def state_names
-    return [] unless @step.has_buffer?
+    return [] unless @step.has_queue?
 
     @step.states.map(&:name)
   end
