@@ -1,6 +1,10 @@
 class WorkFlow < ApplicationRecord
   has_many :steps, -> { order(position: :asc) }, dependent: :destroy
 
+  def initial_state
+    steps.first.states.first
+  end
+
   def add_step(step)
     self.steps << step
   end
