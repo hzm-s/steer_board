@@ -11,26 +11,19 @@
   <%= f.number_field :wip_limit, min: 1, max: 99, class: %w(form-input text-sm) %>
 <% end -%>
 <%= tag.field_set class: %w(flex flex-col gap-1) do %>
-  <%= tag.legend :Buffers, class: %w(text-sm text-slate-500 font-bold) %>
+  <%= tag.legend :Queues, class: %w(text-sm text-slate-500 font-bold) %>
   <%= tag.div class: %w(flex flex-col gap-1) do %>
-    <%= f.collection_check_boxes :buffers, StepStateKind.buffers, :buffer_position, :buffer_position do |buf| %>
-      <%= buf.label(class: %w(text-sm)) { buf.check_box(class: %w(form-checkbox mr-2)) + buf.text.to_s } %>
-    <% end -%>
+    <%= f.label(:pre_queue, class: %w(text-sm)) { f.check_box(:pre_queue, class: %w(form-checkbox mr-2)) + 'pre' } %>
+    <%= f.label(:post_queue, class: %w(text-sm)) { f.check_box(:post_queue, class: %w(form-checkbox mr-2)) + 'post' } %>
   <% end -%>
 <% end -%>
-<%= tag.field_set class: %w(flex flex-col gap-1) do %>
-  <%= tag.legend 'Allow idea', class: %w(text-sm text-slate-500 font-bold) %>
+<%= tag.div class: %w(border-t border-gray-200 pt-3 flex flex-col gap-2) do %>
   <%= tag.div class: %w(flex flex-col gap-1) do %>
-    <%= f.collection_radio_buttons :allow_idea, BooleanValue.all, :value, :label do |ai| %>
-      <%= ai.label(class: %w(text-sm)) { ai.radio_button(class: %w(form-radio mr-2)) + ai.label } %>
-    <% end -%>
+    <%= f.label(:allow_idea, class: %w(text-sm)) { f.check_box(:allow_idea, class: %w(form-checkbox mr-2)) + 'allow to put idea item on this step' } %>
+    <%= tag.p 'help text here.', class: %w(text-xs text-gray-700 bg-slate-100 rounded p-2) %>
   <% end -%>
-<% end -%>
-<%= tag.field_set class: %w(flex flex-col gap-1) do %>
-  <%= tag.legend 'Can add item?', class: %w(text-sm text-slate-500 font-bold) %>
   <%= tag.div class: %w(flex flex-col gap-1) do %>
-    <%= f.collection_radio_buttons :can_add, BooleanValue.all, :value, :label do |ca| %>
-      <%= ca.label(class: %w(text-sm)) { ca.radio_button(class: %w(form-radio mr-2)) + ca.text } %>
-    <% end -%>
+    <%= f.label(:allow_add, class: %w(text-sm)) { f.check_box(:allow_add, class: %w(form-checkbox mr-2)) + 'allow to add new item on this step' } %>
+    <%= tag.p 'help text here.', class: %w(text-xs text-gray-700 bg-slate-100 rounded p-2) %>
   <% end -%>
 <% end -%>

@@ -1,6 +1,9 @@
 class StepSetting < ApplicationRecord
   belongs_to :step
 
+  alias_attribute :pre_queue, :has_pre_queue
+  alias_attribute :post_queue, :has_post_queue
+
   after_initialize do
     has_pre_queue.nil? && self.has_pre_queue = false
     has_post_queue.nil? && self.has_post_queue = false
