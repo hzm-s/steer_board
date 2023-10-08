@@ -6,7 +6,7 @@ class Ui::ItemCardComponent < ViewComponent::Base
   end
 
   def color_type
-    return :option if @kind == :idea
+    return :option if @kind == ItemKind.idea
 
     :primary
   end
