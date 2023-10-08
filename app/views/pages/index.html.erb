@@ -7,6 +7,14 @@
       <li>
         <%= link_to 'kanban', kanban_path, class: 'text-blue-600' %>
       </li>
+      <li>
+        <%= link_to 'kanban setting', kanban_setting_path(id: :kanban_setting), class: 'text-blue-600' %>
+      </li>
+      <% Step.all.each do |step| %>
+        <li>
+          <%= link_to "edit #{step.name}", edit_step_path(step), class: 'text-blue-600' %>
+        </li>
+      <% end -%>
     </ul>
   </div>
 </div>
