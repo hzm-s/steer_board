@@ -7,20 +7,48 @@ class ItemKind < Struct.new(:name)
     end
 
     def from_name(name)
-      raise ArgumentError, "#{name} is invalid item kind" unless name.to_sym.in?(KINDS)
-
       new(name.to_sym)
     end
 
-    def load(name)
-      return from_name(name) if name
+    def idea
+      new(:idea)
+    end
 
-      nil
+    def feature
+      new(:feature)
+    end
+
+    def rework
+      new(:rework)
+    end
+
+    def kaizen
+      new(:kaizen)
+    end
+
+    def other
+      new(:other)
+    end
+
+    def load(name)
+      return nil unless name
+
+      from_name(name)
     end
 
     def dump(obj)
       obj.to_s
     end
+  end
+
+  def initialize(name)
+    raise ArgumentError, "#{name} is invalid #{self.class}" unless name.to_sym.in?(KINDS)
+
+    super
+  end
+
+  def should_estimate?
+    name.in?(%i(idea feature))
   end
 
   def to_s
