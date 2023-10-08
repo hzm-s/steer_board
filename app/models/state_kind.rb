@@ -5,10 +5,6 @@ class StateKind
         0
       end
 
-      def buffer_position
-        :pre
-      end
-
       def previous_state_of(step, work_flow)
         step.last_state_of_previous(work_flow)
       end
@@ -39,10 +35,6 @@ class StateKind
     class << self
       def number
         2
-      end
-
-      def buffer_position
-        :post
       end
 
       def previous_state_of(step, work_flow)
