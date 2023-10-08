@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_07_033743) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_08_071953) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "kind", null: false
+    t.string "content", null: false
+    t.text "note"
+    t.integer "size"
+    t.datetime "due"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "progresses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "item_id", null: false
+    t.uuid "step_id", null: false
+    t.string "state_kind", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_progresses_on_item_id", unique: true
+    t.index ["step_id"], name: "index_progresses_on_step_id"
+  end
 
   create_table "step_settings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "step_id", null: false
@@ -42,6 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_033743) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "progresses", "items"
+  add_foreign_key "progresses", "steps"
   add_foreign_key "step_settings", "steps"
   add_foreign_key "steps", "work_flows"
 end
