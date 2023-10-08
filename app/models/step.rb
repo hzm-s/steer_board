@@ -1,18 +1,18 @@
 class Step < ApplicationRecord
   acts_as_list scope: :work_flow
 
-  has_many :states, -> { order(kind: :asc) }, class_name: 'StepState', dependent: :destroy, extend: StepStateSet
+  has_one :setting, class_name: 'StepSetting', dependent: :destroy
 
-  attr_accessor :buffers
+  attr_accessor :pre_queue, :post_queue
 
   after_initialize do
-    if states.empty?
-      self.states.build(kind: StepStateKind.from_name(:primary))
+    if !setting
+      self.build_setting(has_pre_queue: pre_queue, has_post_queue: post_queue)
     end
+  end
 
-    if Array(buffers).any?
-      buffers.each { self.states.build(kind: StepStateKind.buffer_from_position(_1)) }
-    end
+  def states
+    setting.states
   end
 
   def last_state_of_previous(work_flow)

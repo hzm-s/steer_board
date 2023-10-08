@@ -4,7 +4,7 @@ class CreateSteps < ActiveRecord::Migration[7.0]
       t.references :work_flow, null: false, type: :uuid, foreign_key: true
       t.integer :position, null: false
       t.string :name, null: false
-      t.integer :wip_limit
+      t.text :description
 
       t.timestamps
 

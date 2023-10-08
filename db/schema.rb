@@ -14,20 +14,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_033743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "step_states", force: :cascade do |t|
+  create_table "step_settings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "step_id", null: false
-    t.integer "kind", null: false
+    t.integer "wip_limit"
+    t.boolean "has_pre_queue", null: false
+    t.boolean "has_post_queue", null: false
+    t.boolean "allow_idea", null: false
+    t.boolean "allow_add", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["step_id", "kind"], name: "index_step_states_on_step_id_and_kind", unique: true
-    t.index ["step_id"], name: "index_step_states_on_step_id"
+    t.index ["step_id"], name: "index_step_settings_on_step_id"
   end
 
   create_table "steps", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "work_flow_id", null: false
     t.integer "position", null: false
     t.string "name", null: false
-    t.integer "wip_limit"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["work_flow_id", "position"], name: "index_steps_on_work_flow_id_and_position", unique: true
@@ -39,6 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_033743) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "step_states", "steps"
+  add_foreign_key "step_settings", "steps"
   add_foreign_key "steps", "work_flows"
 end
