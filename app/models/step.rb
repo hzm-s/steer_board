@@ -3,11 +3,15 @@ class Step < ApplicationRecord
 
   has_one :setting, class_name: 'StepSetting', dependent: :destroy
 
-  attr_accessor :pre_queue, :post_queue
+  attr_accessor :wip_limit, :pre_queue, :post_queue
 
   after_initialize do
     if !setting
-      self.build_setting(has_pre_queue: pre_queue, has_post_queue: post_queue)
+      self.build_setting(
+        wip_limit: wip_limit,
+        has_pre_queue: pre_queue,
+        has_post_queue: post_queue,
+      )
     end
   end
 
