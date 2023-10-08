@@ -5,7 +5,6 @@ class StepsController < ApplicationController
 
   def edit
     @step = Step.find(params[:id])
-    #@form = EditStepForm.from_step(@step)
   end
 
   def update
