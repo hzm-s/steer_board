@@ -1,6 +1,12 @@
 class State < Struct.new(:step_id, :kind)
+  delegate :name, to: :kind
+
   def initialize(step_id, kind_name)
     super(step_id, StateKind.from_name(kind_name))
+  end
+
+  def id
+    "#{step_id}__#{kind}"
   end
 
   def previous(work_flow)

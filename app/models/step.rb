@@ -3,7 +3,7 @@ class Step < ApplicationRecord
 
   has_one :setting, class_name: 'StepSetting', dependent: :destroy
 
-  delegate :wip_limit, :has_pre_queue, :has_post_queue, to: :setting
+  delegate :wip_limit, :has_pre_queue, :has_post_queue, :has_queue?, to: :setting
   attr_writer :wip_limit, :has_pre_queue, :has_post_queue
 
   after_initialize do

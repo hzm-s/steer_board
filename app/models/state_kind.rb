@@ -12,6 +12,14 @@ class StateKind
       def next_state_of(step, work_flow)
         step.states.primary
       end
+
+      def name
+        'Todo'
+      end
+
+      def to_s
+        'pre_queue'
+      end
     end
   end
 
@@ -28,6 +36,14 @@ class StateKind
       def next_state_of(step, work_flow)
         step.states.post_queue || step.first_state_of_next(work_flow)
       end
+
+      def name
+        'WIP'
+      end
+
+      def to_s
+        'primary'
+      end
     end
   end
 
@@ -43,6 +59,14 @@ class StateKind
 
       def next_state_of(step, work_flow)
         step.first_state_of_next(work_flow)
+      end
+
+      def name
+        'Done'
+      end
+
+      def to_s
+        'post_queue'
       end
     end
   end
