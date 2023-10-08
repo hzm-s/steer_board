@@ -36,4 +36,10 @@ class StoryPoint < Struct.new(:value)
   def to_i
     value
   end
+
+  def to_s
+    return '?' if unknown?
+
+    to_i.to_s
+  end
 end
