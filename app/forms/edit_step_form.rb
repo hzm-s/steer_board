@@ -1,12 +1,11 @@
 class EditStepForm
   include ActiveModel::Model
 
-  attr_accessor :id, :name, :wip_limit, :description, :buffers, :allow_idea, :can_add
+  attr_accessor :name, :wip_limit, :description, :buffers, :allow_idea, :can_add
 
   class << self
     def from_step(step)
       new(
-        id: step.id,
         name: step.name,
         wip_limit: step.wip_limit,
         description: '',

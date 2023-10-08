@@ -1,14 +1,14 @@
 <%= tag.div class: %w(flex flex-col gap-1) do %>
-  <%= f.label :name, for: dom_id(f.object, :name), class: %w(text-sm text-slate-500 font-bold) %>
-  <%= f.text_field :name, id: dom_id(f.object, :name), class: %w(form-input text-sm) %>
+  <%= f.label :name, class: %w(text-sm text-slate-500 font-bold) %>
+  <%= f.text_field :name, class: %w(form-input text-sm) %>
 <% end -%>
 <%= tag.div class: %w(flex flex-col gap-1) do %>
-  <%= f.label :description, for: dom_id(f.object, :description), class: %w(text-sm text-slate-500 font-bold) %>
-  <%= f.text_area :description, id: dom_id(f.object, :description), class: %w(form-textarea text-sm) %>
+  <%= f.label :description, class: %w(text-sm text-slate-500 font-bold) %>
+  <%= f.text_area :description, class: %w(form-textarea text-sm) %>
 <% end -%>
 <%= tag.div class: %w(flex flex-col gap-1) do %>
-  <%= f.label :wip_limit, for: dom_id(f.object, :wip_limit), class: %w(text-sm text-slate-500 font-bold) %>
-  <%= f.number_field :wip_limit, min: 1, max: 99, id: dom_id(f.object, :wip_limit), class: %w(form-input text-sm) %>
+  <%= f.label :wip_limit, class: %w(text-sm text-slate-500 font-bold) %>
+  <%= f.number_field :wip_limit, min: 1, max: 99, class: %w(form-input text-sm) %>
 <% end -%>
 <%= tag.field_set class: %w(flex flex-col gap-1) do %>
   <%= tag.legend :Buffers, class: %w(text-sm text-slate-500 font-bold) %>
