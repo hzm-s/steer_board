@@ -12,6 +12,10 @@ class Item < ApplicationRecord
     end
   end
 
+  def short_id
+    @short_id ||= id.split('-').first.slice(0, 4)
+  end
+
   def initialize_status(work_flow)
     self.build_progress(state: work_flow.initial_state)
   end
