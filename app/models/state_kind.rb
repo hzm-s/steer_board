@@ -1,10 +1,6 @@
 class StateKind
   module PreQueue
     class << self
-      def number
-        0
-      end
-
       def previous_state_of(step, work_flow)
         step.last_state_of_previous(work_flow)
       end
@@ -12,15 +8,19 @@ class StateKind
       def next_state_of(step, work_flow)
         step.states.primary
       end
+
+      def name
+        'Todo'
+      end
+
+      def to_s
+        'pre_queue'
+      end
     end
   end
 
   module Primary
     class << self
-      def number
-        1
-      end
-
       def previous_state_of(step, work_flow)
         step.states.pre_queue || step.last_state_of_previous(work_flow)
       end
@@ -28,21 +28,33 @@ class StateKind
       def next_state_of(step, work_flow)
         step.states.post_queue || step.first_state_of_next(work_flow)
       end
+
+      def name
+        'WIP'
+      end
+
+      def to_s
+        'primary'
+      end
     end
   end
 
   module PostQueue
     class << self
-      def number
-        2
-      end
-
       def previous_state_of(step, work_flow)
         step.states.primary
       end
 
       def next_state_of(step, work_flow)
         step.first_state_of_next(work_flow)
+      end
+
+      def name
+        'Done'
+      end
+
+      def to_s
+        'post_queue'
       end
     end
   end
@@ -53,19 +65,5 @@ class StateKind
     def from_name(name)
       CLASSES[name]
     end
-
-    #def queue_from_position(pos)
-    #  from_name("#{pos}_queue".to_sym)
-    #end
-
-    #def load(number)
-    #  if number
-    #    CLASSES.values.find { _1.number == number }
-    #  end
-    #end
-
-    #def dump(obj)
-    #  obj.number
-    #end
   end
 end

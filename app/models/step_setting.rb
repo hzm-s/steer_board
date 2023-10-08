@@ -14,4 +14,8 @@ class StepSetting < ApplicationRecord
       set.add_post_queue if has_post_queue?
     end
   end
+
+  def has_queue?
+    states.pre_queue || states.post_queue
+  end
 end
