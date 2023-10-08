@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @state_id = params[:state_id]
-    @items = Item.all_by_state(@state_id)
+    @items = Item.all_by_state(State.from_id(@state_id))
   end
 
   def show

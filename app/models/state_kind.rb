@@ -63,7 +63,9 @@ class StateKind
 
   class << self
     def from_name(name)
-      CLASSES[name]
+      raise ArgumentError, "#{name} is invalid #{self}" unless CLASSES.has_key?(name.to_sym)
+
+      CLASSES[name.to_sym]
     end
   end
 end

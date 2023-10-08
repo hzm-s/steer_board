@@ -4,6 +4,14 @@ class Item < ApplicationRecord
   serialize :kind, ItemKind
   serialize :size, StoryPoint
 
+  alias_attribute :body, :content
+
+  class << self
+    def all_by_state(state)
+      joins(:progress).merge(Progress.by_state(state))
+    end
+  end
+
   def initialize_status(work_flow)
     self.build_progress(state: work_flow.initial_state)
   end
@@ -22,5 +30,15 @@ class Item < ApplicationRecord
     return if size
 
     self.size = StoryPoint.unknown if a_kind.should_estimate?
+  end
+
+  # FIXME:
+  def contributors
+    @contributors ||=
+      begin
+        size = kind == ItemKind.idea ? (0..1) : (1..3)
+
+        size.to_a.sample.times.map { Member.random }.uniq
+      end
   end
 end
