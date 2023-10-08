@@ -3,8 +3,8 @@ if WorkFlow.count == 0 || ENV.fetch('FORCE', false)
     Step.new(name: 'Todo'),
     Step.new(name: 'Analyze'),
     Step.new(name: 'Next10', wip_limit: 10),
-    Step.new(name: 'Develop', wip_limit: 8, buffers: [:post]),
-    Step.new(name: 'QA', wip_limit: 6, buffers: [:post]),
+    Step.new(name: 'Develop', wip_limit: 8, post_queue: true),
+    Step.new(name: 'QA', wip_limit: 6, post_queue: true),
     Step.new(name: 'Deploy'),
     Step.new(name: 'Production'),
   ]
