@@ -1,7 +1,10 @@
 <div class="mt-2 px-8 flex flex-col gap-1">
   <%= tag.div class: %w(flex justify-between items-center) do %>
     <%= tag.div do %>
-      <%= link_to 'Kanban', kanban_path, class: %w(font-bold text-sm) %>
+      <%= link_to kanban_path, class: %w(font-bold text-sm) do %>
+        <%= render Ui::IconComponent.new(name: 'arrow-left', size: 0.75) %>
+        <%= tag.span 'Kanban' %>
+      <% end -%>
     <% end -%>
   <% end -%>
   <%= render Kanban::FrameComponent.new(data: { slide_over_target: 'base' }) do %>
