@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resource :kanban, only: [:show] do
-    resource :setting, only: [:show], module: :kanban
-  end
+  resource :kanban, only: [:show, :edit]
 
   resources :steps, only: [:new, :edit, :update]
 

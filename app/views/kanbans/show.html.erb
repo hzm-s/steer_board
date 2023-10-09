@@ -4,7 +4,7 @@
       <%= tag.h2 'Kanban', class: %w(font-bold text-sm) %>
     <% end -%>
     <%= tag.div do %>
-      <%= link_to '#', class: %w(text-link text-link-sm) do %>
+      <%= link_to edit_kanban_path, class: %w(text-link text-link-sm) do %>
         <%= render Ui::IconComponent.new(name: :cog, size: 0.75) %>
         <%= tag.span 'Settings' %>
       <% end -%>
