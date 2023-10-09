@@ -1,7 +1,9 @@
 <%= tag.div class: %w(flex-shrink-0), style: "flex-basis: #{single_column_size}rem" do %>
   <%= tag.div class: %w(overflow-y-auto) do %>
     <%= tag.div class: @can_add ? %w(board__column-with-add) : %w(board__column) do %>
-      <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id), data: { item_counter_target: 'list' } %>
+      <%= tag.turbo_frame id: "#{id}__items", src: items_path(state_id: id), data: { item_counter_target: 'list' } do %>
+        <%= render Ui::LoadingComponent.new %>
+      <% end %>
     <% end -%>
   <% end -%>
 
