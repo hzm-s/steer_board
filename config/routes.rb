@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resource :kanban, only: [:show, :edit]
+  resource :kanban, only: [:show]
+
+  resources :work_flows, only: [:show]
 
   resources :steps, only: [:new, :edit, :update]
 
