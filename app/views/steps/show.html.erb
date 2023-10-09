@@ -16,11 +16,11 @@
               <% if @step.has_queue? %>
                 <%= tag.ul class: %w(list-disc pl-4) do %>
                   <% @step.states.queues.each do |q| %>
-                    <%= tag.li q.name, class: %w() %>
+                    <%= tag.li q.name, class: %w(text-sm) %>
                   <% end -%>
                 <% end -%>
               <% else -%>
-                <%= tag.spn '-', class: %w() %>
+                <%= tag.spn '-', class: %w(text-sm) %>
               <% end -%>
             <% end -%>
           <% end -%>
