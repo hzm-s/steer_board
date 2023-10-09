@@ -1,6 +1,6 @@
 class ItemIdComponent < ViewComponent::Base
-  def initialize(**args)
-    @id = args[:id]
-    @extra_class = args[:class] || []
+  def initialize(item:, **options)
+    @item = item
+    @extra_class = options[:class] || []
   end
 end

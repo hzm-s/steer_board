@@ -9,7 +9,7 @@
       <%= tag.div class: %w(flex justify-between) do %>
         <%= tag.div class: %w(flex items-center gap-1) do %>
           <%= render ItemKindComponent.new(kind: kind) %>
-          <%= render ItemIdComponent.new(id: @item.short_id, class: %w(text-sm)) %>
+          <%= render ItemIdComponent.new(item: @item, class: %w(text-sm)) %>
         <% end -%>
         <%= tag.div class: %w(flex-grow-0) do %>
           <%= size && render(ItemSizeComponent.new(size: size)) %>
