@@ -1,26 +1,32 @@
-<%= tag.div class: %w(mx-auto w-[19rem]) do %>
-  <%= tag.turbo_frame id: dom_id(@step) do %>
-    <%= render Ui::BoardColumnComponent.new(class: %w(p-3)) do %>
-      <%= tag.div class: %w(flex flex-col gap-5) do %>
-        <%= tag.h3 "Step.#{@step.position}", class: %w(font-bold text-sm text-gray-500) %>
-        <%= render Ui::LabeledFieldComponent.new(label: 'Name', value: @step.name, size: :sm) %>
-        <%= render Ui::LabeledFieldComponent.new(label: 'Description', value: @step.description, size: :sm) %>
-        <%= render Ui::LabeledFieldComponent.new(label: 'Wip limit', value: @step.wip_limit.to_s, size: :sm) %>
-        <%= render Ui::LabeledFieldComponent.new(label: 'Queues', size: :sm) do |lf| %>
-          <% lf.with_custom_value do %>
-            <% if @step.has_queue? %>
-              <%= tag.ul class: %w(list-disc pl-4) do %>
-                <% @step.states.queues.each do |q| %>
-                  <%= tag.li q.name, class: %w(text-sm) %>
+<%= tag.div class: %w(mt-10 container) do %>
+  <%= tag.div class: %w(mx-auto w-[19rem]) do %>
+    <%= tag.turbo_frame id: dom_id(@step) do %>
+      <%= render Ui::BoardColumnComponent.new(class: %w(p-3)) do %>
+        <%= tag.div class: %w(flex justify-between mb-4) do %>
+          <%= tag.h3 "Step#{@step.position}", class: %w(font-bold text-sm) %>
+          <%= link_to 'Change', edit_step_path(@step), data: { frame_target: '_self' }, class: %w(text-link text-link-sm) %>
+        <% end -%>
+        <%= tag.div class: %w(flex flex-col gap-2) do %>
+          <%= render Ui::LabeledFieldComponent.new(label: 'Name', value: @step.name, size: :sm) %>
+          <%= render Ui::LabeledFieldComponent.new(label: 'Description', value: @step.description, size: :sm) do |lf| %>
+          <% end -%>
+          <%= render Ui::LabeledFieldComponent.new(label: 'Wip limit', value: @step.wip_limit.to_s, size: :sm) %>
+          <%= render Ui::LabeledFieldComponent.new(label: 'Queues', size: :sm) do |lf| %>
+            <% lf.with_custom_value do %>
+              <% if @step.has_queue? %>
+                <%= tag.ul class: %w(list-disc pl-4) do %>
+                  <% @step.states.queues.each do |q| %>
+                    <%= tag.li q.name, class: %w() %>
+                  <% end -%>
                 <% end -%>
+              <% else -%>
+                <%= tag.spn '-', class: %w() %>
               <% end -%>
-            <% else -%>
-              <%= tag.spn 'No queue', class: %w(text-sm) %>
             <% end -%>
           <% end -%>
+          <%= render Ui::LabeledFieldComponent.new(label: 'Allow idea', value: @step.setting.allow_idea? ? 'Yes' : 'No', size: :sm) %>
+          <%= render Ui::LabeledFieldComponent.new(label: 'Allow to add new item', value: @step.setting.allow_add? ? 'Yes' : 'No', size: :sm) %>
         <% end -%>
-        <%= render Ui::LabeledFieldComponent.new(label: 'Allow idea', value: @step.setting.allow_idea? ? 'Yes' : 'No', size: :sm) %>
-        <%= render Ui::LabeledFieldComponent.new(label: 'Allow to add new item', value: @step.setting.allow_add? ? 'Yes' : 'No', size: :sm) %>
       <% end -%>
     <% end -%>
   <% end -%>

@@ -1,20 +1,22 @@
-<% size_classes = {
+<% size_class = {
   sm: { label: %w(text-xs), value: %w(text-sm) },
   md: { label: %w(text-sm), value: %w(text-md) },
-} %>
-<%= tag.div class: %w(flex flex-col gap-1) do %>
+}[@size] %>
+<% bg_class = @bg ? %w(bg-gray-100 rounded-lg py-2 px-3) : [] %>
+
+<%= tag.div class: %w(flex flex-col gap-1) + bg_class do %>
   <%= tag.div class: %w(flex justify-between) do %>
-    <%= tag.span @label, class: %w(text-slate-500 font-bold) + size_classes[@size][:label] %>
+    <%= tag.span @label, class: %w(text-slate-500 font-bold) + size_class[:label] %>
     <% if actions? %>
       <%= actions %>
     <% end -%>
   <% end -%>
-  <%= tag.div do %>
+  <%= tag.div class: %w() do %>
     <% if custom_value? %>
       <%= custom_value %>
     <% else -%>
       <% if @value.present? %>
-        <%= simple_format @value, class: %w() + size_classes[@size][:value] %>
+        <%= simple_format @value, class: %w() + size_class[:value] %>
       <% else -%>
         <%= tag.p '-' %>
       <% end %>
