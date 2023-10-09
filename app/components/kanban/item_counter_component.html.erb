@@ -1,7 +1,7 @@
-<%= render Ui::PillComponent.new(wide: @limit) do %>
+<%= render Ui::PillComponent.new(wide: @wip_limit) do %>
   <%= tag.span '-', data: { item_counter_target: 'count' } %>
-  <% if @limit -%>
+  <% if @wip_limit -%>
     <%= tag.span '/' %>
-    <%= tag.span @limit %>
+    <%= tag.span @wip_limit %>
   <% end -%>
 <% end -%>
