@@ -1,29 +1,29 @@
 <%= tag.div class: %w(flex flex-col gap-1) do %>
-  <%= f.label :name, class: %w(text-sm text-slate-500 font-bold) %>
-  <%= f.text_field :name, class: %w(form-input text-sm) %>
+  <%= f.label :name, class: %w(text-sm text-slate-500 font-bold), for: dom_id(f.object, :name) %>
+  <%= f.text_field :name, id: dom_id(f.object, :name), class: %w(form-input text-sm) %>
 <% end -%>
 <%= tag.div class: %w(flex flex-col gap-1) do %>
-  <%= f.label :description, class: %w(text-sm text-slate-500 font-bold) %>
-  <%= f.text_area :description, class: %w(form-textarea text-sm) %>
+  <%= f.label :description, class: %w(text-sm text-slate-500 font-bold), for: dom_id(f.object, :description) %>
+  <%= f.text_area :description, rows: 3, id: dom_id(f.object, :description), class: %w(form-textarea text-sm) %>
 <% end -%>
 <%= tag.div class: %w(flex flex-col gap-1) do %>
-  <%= f.label :wip_limit, class: %w(text-sm text-slate-500 font-bold) %>
-  <%= f.number_field :wip_limit, min: 1, max: 99, class: %w(form-input text-sm) %>
+  <%= f.label :wip_limit, class: %w(text-sm text-slate-500 font-bold), for: dom_id(f.object, :wip_limit) %>
+  <%= f.number_field :wip_limit, min: 1, max: 99, id: dom_id(f.object, :wip_limit), class: %w(form-input text-sm) %>
 <% end -%>
 <%= tag.field_set class: %w(flex flex-col gap-1) do %>
   <%= tag.legend :Queues, class: %w(text-sm text-slate-500 font-bold) %>
   <%= tag.div class: %w(flex flex-col gap-1) do %>
-    <%= f.label(:has_pre_queue, class: %w(text-sm)) { f.check_box(:has_pre_queue, class: %w(form-checkbox mr-2)) + 'pre' } %>
-    <%= f.label(:has_post_queue, class: %w(text-sm)) { f.check_box(:has_post_queue, class: %w(form-checkbox mr-2)) + 'post' } %>
+    <%= f.label(:has_pre_queue, class: %w(text-sm), for: dom_id(f.object, :has_pre_queue)) { f.check_box(:has_pre_queue, id: dom_id(f.object, :has_pre_queue), class: %w(form-checkbox mr-2)) + 'pre' } %>
+    <%= f.label(:has_post_queue, class: %w(text-sm), for: dom_id(f.object, :has_post_queue)) { f.check_box(:has_post_queue, id: dom_id(f.object, :has_post_queue), class: %w(form-checkbox mr-2)) + 'post' } %>
   <% end -%>
 <% end -%>
 <%= tag.div class: %w(border-t border-gray-200 pt-3 flex flex-col gap-2) do %>
   <%= tag.div class: %w(flex flex-col gap-1) do %>
-    <%= f.label(:allow_idea, class: %w(text-sm)) { f.check_box(:allow_idea, class: %w(form-checkbox mr-2)) + 'allow to put idea item on this step' } %>
+    <%= f.label(:allow_idea, class: %w(text-sm), for: dom_id(f.object, :allow_idea)) { f.check_box(:allow_idea, id: dom_id(f.object, :allow_idea), class: %w(form-checkbox mr-2)) + 'allow to put idea item on this step' } %>
     <%= tag.p 'help text here.', class: %w(text-xs text-gray-700 bg-slate-100 rounded p-2) %>
   <% end -%>
   <%= tag.div class: %w(flex flex-col gap-1) do %>
-    <%= f.label(:allow_add, class: %w(text-sm)) { f.check_box(:allow_add, class: %w(form-checkbox mr-2)) + 'allow to add new item on this step' } %>
+    <%= f.label(:allow_add, class: %w(text-sm), for: dom_id(f.object, :allow_add)) { f.check_box(:allow_add, id: dom_id(f.object, :allow_add), class: %w(form-checkbox mr-2)) + 'allow to add new item on this step' } %>
     <%= tag.p 'help text here.', class: %w(text-xs text-gray-700 bg-slate-100 rounded p-2) %>
   <% end -%>
 <% end -%>
