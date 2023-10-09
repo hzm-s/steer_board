@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :work_flows, only: [:show]
 
-  resources :steps, only: [:new, :edit, :update]
+  resources :steps, only: [:new, :show, :edit, :update]
 
   resources :items, only: [:index, :show, :new, :edit]
 
