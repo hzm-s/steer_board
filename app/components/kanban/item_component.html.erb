@@ -11,7 +11,7 @@
           <%= render ItemKindComponent.new(kind: kind) %>
           <%= render ItemIdComponent.new(item: @item, class: %w(text-sm)) %>
         <% end -%>
-        <%= tag.div class: %w(flex-grow-0) do %>
+        <%= tag.div class: %w(flex items-center) do %>
           <%= size && render(ItemSizeComponent.new(size: size)) %>
         <% end -%>
       <% end -%>
