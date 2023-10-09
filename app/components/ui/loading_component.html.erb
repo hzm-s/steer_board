@@ -1,1 +1,3 @@
-<%= render Ui::IconComponent.new(name: :spinner, class: %w(fa-spin text-violet-400)) %>
+<%= tag.div class: %w(flex items-center justify-center) do %>
+  <%= render Ui::IconComponent.new(name: :spinner, class: %w(fa-spin text-violet-400)) %>
+<% end -%>
