@@ -6,7 +6,7 @@
 
       <%= idc.with_main_content do %>
         <%= tag.turbo_frame id: 'item_detail_content' do %>
-          <%= render Ui::LabeledFieldComponent.new(name: 'Content') do |c| %>
+          <%= render ItemEditableFieldComponent.new(label: 'Content') do |c| %>
             <%= c.with_actions do %>
               <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
             <% end -%>
@@ -22,7 +22,7 @@
 
       <%= idc.with_note do %>
         <%= tag.turbo_frame id: 'item_detail_note' do %>
-          <%= render Ui::LabeledFieldComponent.new(name: 'Note') do |c| %>
+          <%= render ItemEditableFieldComponent.new(label: 'Note') do |c| %>
             <%= c.with_actions do %>
               <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
             <% end -%>
@@ -38,7 +38,7 @@
 
       <%= idc.with_current_contributors do %>
         <%= tag.turbo_frame id: 'item_detail_contributors' do %>
-          <%= render Ui::LabeledFieldComponent.new(name: 'Current worker(s)') do |c| %>
+          <%= render ItemEditableFieldComponent.new(label: 'Current worker(s)') do |c| %>
             <%= c.with_actions do %>
               <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
             <% end -%>
@@ -53,7 +53,7 @@
 
       <%= idc.with_kind do %>
         <%= tag.turbo_frame id: 'item_detail_kind' do %>
-          <%= render Ui::LabeledFieldComponent.new(name: 'Kind') do |c| %>
+          <%= render ItemEditableFieldComponent.new(label: 'Kind') do |c| %>
             <%= c.with_actions do %>
               <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
             <% end -%>
@@ -69,7 +69,7 @@
 
       <%= idc.with_estimate do %>
         <%= tag.turbo_frame id: 'item_detail_estimate' do %>
-          <%= render Ui::LabeledFieldComponent.new(name: 'Estimate') do |c| %>
+          <%= render ItemEditableFieldComponent.new(label: 'Estimate') do |c| %>
             <%= c.with_actions do %>
               <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
             <% end -%>
@@ -85,7 +85,7 @@
 
       <%= idc.with_due do %>
         <%= tag.turbo_frame id: 'item_detail_due' do %>
-          <%= render Ui::LabeledFieldComponent.new(name: 'Due') do |c| %>
+          <%= render ItemEditableFieldComponent.new(label: 'Due') do |c| %>
             <%= c.with_actions do %>
               <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
             <% end -%>
