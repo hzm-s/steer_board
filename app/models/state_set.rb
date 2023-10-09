@@ -24,4 +24,8 @@ class StateSet < SimpleDelegator
   def post_queue
     find { _1.kind == StateKind::PostQueue }
   end
+
+  def queues
+    [pre_queue, post_queue].compact
+  end
 end

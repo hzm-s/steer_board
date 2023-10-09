@@ -1,7 +1,23 @@
-<%= tag.div class: %w(flex justify-between) do %>
-  <%= tag.span @name, class: %w(text-slate-500 text-xs font-bold) %>
-  <% if actions? %>
-    <%= actions %>
+<% size_classes = {
+  sm: { label: %w(text-xs), value: %w(text-sm) },
+  md: { label: %w(text-sm), value: %w(text-md) },
+} %>
+<%= tag.div class: %w(flex flex-col gap-1) do %>
+  <%= tag.div class: %w(flex justify-between) do %>
+    <%= tag.span @label, class: %w(text-slate-500 font-bold) + size_classes[@size][:label] %>
+    <% if actions? %>
+      <%= actions %>
+    <% end -%>
+  <% end -%>
+  <%= tag.div do %>
+    <% if custom_value? %>
+      <%= custom_value %>
+    <% else -%>
+      <% if @value.present? %>
+        <%= simple_format @value, class: %w() + size_classes[@size][:value] %>
+      <% else -%>
+        <%= tag.p '-' %>
+      <% end %>
+    <% end %>
   <% end -%>
 <% end -%>
-<%= field %>

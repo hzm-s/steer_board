@@ -2,7 +2,6 @@
   <%= tag.div class: %w(flex justify-between items-center) do %>
     <%= tag.div do %>
       <%= link_to kanban_path, class: %w(font-bold text-sm) do %>
-        <%= render Ui::IconComponent.new(name: 'arrow-left', size: 0.75) %>
         <%= tag.span 'Kanban' %>
       <% end -%>
     <% end -%>
@@ -11,7 +10,7 @@
     <%= tag.div class: %w(flex flex-row gap-2) do %>
       <% @work_flow.steps.each do |step| %>
         <%= tag.div class: %w(flex-shrink-0 basis-[19rem]) do %>
-          <%= tag.turbo_frame id: step.id, src: edit_step_path(step.id) do %>
+          <%= tag.turbo_frame id: dom_id(step), src: step_path(step.id) do %>
             <%= render Ui::LoadingComponent.new %>
           <% end -%>
         <% end -%>
