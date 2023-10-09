@@ -1,0 +1,7 @@
+<%= tag.div class: %w(flex justify-between) do %>
+  <%= tag.span @label, class: %w(text-slate-500 text-xs font-bold) %>
+  <% if actions? %>
+    <%= actions %>
+  <% end -%>
+<% end -%>
+<%= field %>
