@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :work_flows, only: [:show]
 
   resources :steps, only: [:new, :show, :edit, :update] do
-    resources :arrival_rules, only: [:edit], module: :step
+    resources :arrival_rules, only: [:index], module: :step
   end
 
   resources :items, only: [:index, :show, :new, :edit]
