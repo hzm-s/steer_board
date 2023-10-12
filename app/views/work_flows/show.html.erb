@@ -9,7 +9,7 @@
   <%= tag.div class: %w(flex flex-col gap-4) do %>
     <%= tag.h2 'Work flow', class: %w(font-bold text-xl) %>
     <%= render Kanban::FrameComponent.new do %>
-      <%= tag.div class: %w(bg-gray-200 rounded-lg p-2 flex-shrink-0), style: "width: #{@work_flow.steps.size * 15 + (@work_flow.steps.size - 1 + 2) * 0.5 + (15 + 1 * 0.5)}rem" do %>
+      <%= tag.div class: %w(bg-gray-200 rounded-lg p-2), style: "width: #{@work_flow.steps.size * 15 + (@work_flow.steps.size - 1 + 2) * 0.5 + (15 + 1 * 0.5)}rem" do %>
         <%= tag.div class: %w(flex flex-row gap-2 items-stretch) do %>
           <% @work_flow.steps.each do |step| %>
             <%= tag.div class: %w(flex-shrink-0 basis-[15rem]) do %>
