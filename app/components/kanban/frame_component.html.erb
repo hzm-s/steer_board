@@ -1,5 +1,5 @@
-<%= tag.div class: %w(overflow-x-auto), data: @extra_data do %>
-  <%= tag.div class: %w(pb-3) do %>
+<%= tag.div class: %w(overflow-x-auto w-full), data: @extra_data do %>
+  <%= tag.div class: %w(pb-3) + @extra_class do %>
     <%= content %>
   <% end -%>
 <% end -%>
