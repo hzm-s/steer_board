@@ -2,6 +2,7 @@
   <%= tag.div class: %w(mx-auto w-[19rem]) do %>
     <%= tag.turbo_frame id: 'step_form' do %>
       <%= render Ui::BoardColumnComponent.new(class: %w(p-3)) do %>
+        <%= tag.h3 'Edit step', class: %w(font-bold mb-4) %>
         <%= form_with model: @step, method: :patch, html: { autocomplete: 'off', disable: true } do |f| %>
           <%= tag.div class: %w(flex flex-col gap-3) do %>
             <%= render partial: 'form', locals: { f: f } %>
