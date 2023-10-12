@@ -29,6 +29,9 @@
             <%= render Ui::LoadingComponent.new %>
           <% end -%>
           <%= tag.div class: %w(pl-3 border-l border-gray-200) do %>
+            <%= tag.turbo_frame id: 'step_arrival_rule_form', src: edit_step_arrival_rule_path(step_id: 1, id: 1) do %>
+              <%= render Ui::LoadingComponent.new %>
+            <% end -%>
           <% end -%>
         <% end -%>
       <% end -%>
