@@ -22,9 +22,15 @@
         <% end -%>
       <% end -%>
     <% end -%>
-    <%= tag.div class: %w(w-[50rem] mx-auto) do %>
-      <%= tag.turbo_frame id: 'step_form', src: edit_step_path(@work_flow.steps.first) do %>
-        <%= render Ui::LoadingComponent.new %>
+    <%= tag.div class: %w(mx-auto) do %>
+      <%= render Ui::BoardColumnComponent.new(class: %w(p-3)) do %>
+        <%= tag.div class: %w(flex gap-3) do %>
+          <%= tag.turbo_frame id: 'step_form', src: edit_step_path(@work_flow.steps.first) do %>
+            <%= render Ui::LoadingComponent.new %>
+          <% end -%>
+          <%= tag.div class: %w(pl-3 border-l border-gray-200) do %>
+          <% end -%>
+        <% end -%>
       <% end -%>
     <% end -%>
   <% end -%>
