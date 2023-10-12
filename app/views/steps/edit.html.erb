@@ -1,11 +1,7 @@
 <%= tag.div class: %w(mt-10 container) do %>
   <%= tag.div class: %w(mx-auto w-[19rem]) do %>
-    <%= tag.turbo_frame id: dom_id(@step) do %>
+    <%= tag.turbo_frame id: 'step_form' do %>
       <%= render Ui::BoardColumnComponent.new(class: %w(p-3)) do %>
-        <%= tag.div class: %w(flex justify-between mb-2) do %>
-          <%= tag.h3 "Step#{@step.position}", class: %w(font-bold text-sm) %>
-          <%= link_to 'Cancel', step_path(@step), data: { frame_target: '_self' }, class: %w(text-link text-link-sm) %>
-        <% end -%>
         <%= form_with model: @step, method: :patch, html: { autocomplete: 'off', disable: true } do |f| %>
           <%= tag.div class: %w(flex flex-col gap-3) do %>
             <%= render partial: 'form', locals: { f: f } %>

@@ -1,13 +1,7 @@
 <%= tag.div class: %w(mt-10 container) do %>
   <%= tag.div class: %w(mx-auto w-[19rem]) do %>
-    <%= tag.turbo_frame id: 'new_step' do %>
-      <%= render Ui::BoardColumnComponent.new(class: %w(p-3 w-[19rem])) do %>
-        <%= tag.div class: %w(flex justify-between mb-2) do %>
-          <%= tag.h2 'New step', class: %w(font-bold text-sm) %>
-          <% if @can_close %>
-            <%= render Ui::CloseButtonComponent.new(data: { action: 'reveal#toggle' }) %>
-          <% end -%>
-        <% end -%>
+    <%= tag.turbo_frame id: 'step_form' do %>
+      <%= render Ui::BoardColumnComponent.new(class: %w(p-3)) do %>
         <%= form_with model: @step, url: '/', html: { autocomplete: 'off' } do |f| %>
           <%= tag.div class: %w(flex flex-col gap-3) do %>
             <%= render partial: 'form', locals: { f: f } %>
