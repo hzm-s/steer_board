@@ -6,7 +6,7 @@
       <% end -%>
     <% end -%>
   <% end -%>
-  <%= tag.div class: %w(flex flex-col gap-4) do %>
+  <%= tag.div class: %w(flex flex-col gap-2 pb-8) do %>
     <%= tag.h2 'Work flow', class: %w(font-bold text-xl) %>
     <%= render Kanban::FrameComponent.new do %>
       <%= tag.div class: %w(bg-gray-200 rounded-lg p-2), style: "width: #{@work_flow.steps.size * 15 + (@work_flow.steps.size - 1 + 2) * 0.5 + (15 + 1 * 0.5)}rem" do %>
