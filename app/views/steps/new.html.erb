@@ -7,7 +7,7 @@
           <%= tag.div class: %w(flex flex-col gap-3) do %>
             <%= render partial: 'form', locals: { f: f } %>
             <%= tag.div class: %w() do %>
-              <%= render Ui::ButtonComponent.new.with_content('Add') %>
+              <%= render Ui::ButtonComponent.new(size: :sm).with_content('Add') %>
             <% end -%>
           <% end -%>
         <% end -%>
