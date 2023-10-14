@@ -4,7 +4,7 @@
       <%= render Ui::BoardColumnComponent.new(class: %w(py-3 px-5)) do %>
         <%= tag.div class: %w(flex gap-5) do %>
           <%= tag.div class: %w(w-[20rem]) do %>
-            <%= tag.h3 'Edit step', class: %w(font-bold mb-4) %>
+            <%= tag.h3 'Edit step', class: %w(font-bold mb-3) %>
             <%= form_with model: @step, method: :patch, html: { autocomplete: 'off' } do |f| %>
               <%= tag.div class: %w(flex flex-col gap-3) do %>
                 <%= render partial: 'form', locals: { f: f } %>

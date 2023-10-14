@@ -1,14 +1,37 @@
 <%= tag.turbo_frame id: 'step_arrival_rules' do %>
   <%= tag.div class: %w(flex flex-col gap-2) do %>
-    <%= tag.h3 'Arrival rules', class: %w(font-bold) %>
+    <%= tag.h3 'Arrival rules', class: %w(font-bold text-slate-500 text-sm) %>
     <%= tag.ul class: %w(list-disc pl-4) do %>
-      <%= tag.li 'Rule AAA', class: %w(text-sm leading-6) %>
-      <%= tag.li 'Rule BBB', class: %w(text-sm leading-6) %>
-      <%= tag.li 'Rule CCC', class: %w(text-sm leading-6) %>
+      <%= tag.li class: %w(group text-sm leading-6) do %>
+        <%= tag.div class: %w(flex items-center justify-between) do %>
+          <%= tag.span 'Code coverage >= 80%' %>
+          <%= tag.div class: %w(hidden group-hover:flex items-center gap-2) do %>
+            <%= link_to '#', class: %w(text-link), title: 'Edit' do %>
+              <%= render Ui::IconComponent.new(name: 'pen-to-square', style: :regular, size: 1) %>
+            <% end -%>
+            <%= link_to '#', class: %w(text-link), title: 'Delete' do %>
+              <%= render Ui::IconComponent.new(name: 'trash-can', style: :regular, size: 1) %>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+      <%= tag.li class: %w(group text-sm leading-6) do %>
+        <%= tag.div class: %w(flex items-center justify-between) do %>
+          <%= tag.span 'Code reviewed by 2 pepole' %>
+          <%= tag.div class: %w(hidden group-hover:flex items-center gap-2) do %>
+            <%= link_to '#', class: %w(text-link), title: 'Edit' do %>
+              <%= render Ui::IconComponent.new(name: 'pen-to-square', style: :regular, size: 1) %>
+            <% end -%>
+            <%= link_to '#', class: %w(text-link), title: 'Delete' do %>
+              <%= render Ui::IconComponent.new(name: 'trash-can', style: :regular, size: 1) %>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+      <% end -%>
     <% end -%>
     <%= form_with scope: :arrival_rule, html: { autocomplete: 'off' } do |f| %>
       <%= f.text_field :content, class: %w(form-input text-sm w-full) %>
-      <%= tag.div class: %w(mt-2) do %>
+      <%= tag.div class: %w(mt-3) do %>
         <%= render Ui::ButtonComponent.new(size: :sm, kind: :secondary).with_content('Add') %>
       <% end -%>
     <% end -%>
