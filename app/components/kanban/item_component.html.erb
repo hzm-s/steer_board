@@ -16,7 +16,7 @@
         <% end -%>
       <% end -%>
       <%= tag.div class: %w(mt-1) do %>
-        <%= body %>
+        <%= simple_format body, { class: %w(text-sm) }, wrapper_tag: :div %>
       <% end -%>
       <%= tag.div class: %w(mt-1 flex justify-end) do %>
         <%= render Ui::AvatarListComponent.new(members: contributors, size: :sm) %>
