@@ -27,6 +27,8 @@
 
   .link,
   .text-link,
+  .icon-link,
+  .icon-link-danger,
   .button,
   .form-input,
   .form-textarea,
@@ -43,6 +45,14 @@
 
   .text-link-sm {
     @apply text-sm;
+  }
+
+  .icon-link {
+    @apply rounded text-stone-500 hover:text-stone-600;
+  }
+
+  .icon-link-danger {
+    @apply rounded text-stone-500 hover:text-rose-600;
   }
 
   .break-line {

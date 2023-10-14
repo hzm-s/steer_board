@@ -1,0 +1,16 @@
+<%= tag.div class: %w(mt-10 container) do %>
+  <%= tag.div class: %w(mx-auto w-[19rem]) do %>
+    <%= tag.turbo_frame id: dom_id(@step) do %>
+      <%= link_to(
+        edit_step_path(@step),
+        data: { turbo_frame: 'step_form' },
+        class: %w(link block rounded-lg bg-white border border-gray-300 p-3 hover:bg-violet-100),
+      ) do %>
+        <%= tag.div class: %w(text-center) do %>
+          <%= tag.p "Step#{@step.position}", class: %w(text-stone-500 text-xs) %>
+          <%= tag.h3 @step.name, class: %w(font-bold) %>
+        <% end -%>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+<% end -%>

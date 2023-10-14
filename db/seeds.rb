@@ -1,14 +1,19 @@
 force = ENV.fetch('FORCE', false)
 
-if WorkFlow.count == 0 || force
+if force
+  Item.destroy_all
+  WorkFlow.destroy_all
+end
+
+if WorkFlow.count == 0
   steps = [
-    Step.new(name: 'Todo'),
-    Step.new(name: 'Analyze'),
-    Step.new(name: 'Next10', wip_limit: 10),
+    Step.new(name: 'Todo', description: "The first step.\n\n(Queue)"),
+    Step.new(name: 'Analyze', description: "Analyze. Idea => Feature\n\nCan skip this step when bug"),
+    Step.new(name: 'Next10', description: "Upcoming items\n\n(Queue)", wip_limit: 10),
     Step.new(name: 'Develop', wip_limit: 8, has_post_queue: true),
     Step.new(name: 'QA', wip_limit: 6, has_post_queue: true),
     Step.new(name: 'Deploy'),
-    Step.new(name: 'Production'),
+    Step.new(name: 'Production', description: 'Done!'),
   ]
   WorkFlow.new do |wf|
     steps.each do |step|
@@ -18,7 +23,7 @@ if WorkFlow.count == 0 || force
   end
 end
 
-if Item.count == 0 || force
+if Item.count == 0
   wf = WorkFlow.last
   todo, analyze, next10, dev, qa, deploy, prod = *wf.steps
 

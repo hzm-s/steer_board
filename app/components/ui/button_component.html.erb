@@ -2,6 +2,7 @@
 <% color_classes = {
   primary: %w(bg-violet-500 hover:bg-violet-600 text-white),
   secondary: %w(bg-gray-200 text-gray-800 hover:bg-violet-500 hover:text-white),
+  danger: %w(bg-gray-200 border text-rose-600 hover:bg-rose-600 hover:text-white)
 } %>
 <% size_classes = {
   md: %w(py-2 px-6 text-sm),
@@ -14,7 +15,13 @@
     <% content %>
   <% end -%>
 <% else -%>
-  <%= button_tag type: @type, class: css_class do %>
-    <% content %>
+  <% if @href %>
+    <%= link_to @href, class: %w(inline-block) + css_class do %>
+      <% content %>
+    <% end -%>
+  <% else -%>
+    <%= tag.button type: @type, class: css_class do %>
+      <% content %>
+    <% end -%>
   <% end -%>
 <% end -%>
