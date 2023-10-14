@@ -14,7 +14,13 @@
     <% content %>
   <% end -%>
 <% else -%>
-  <%= button_tag type: @type, class: css_class do %>
-    <% content %>
+  <% if @href %>
+    <%= link_to @href, class: %w(inline-block) + css_class do %>
+      <% content %>
+    <% end -%>
+  <% else -%>
+    <%= tag.button type: @type, class: css_class do %>
+      <% content %>
+    <% end -%>
   <% end -%>
 <% end -%>
