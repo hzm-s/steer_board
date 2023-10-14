@@ -23,17 +23,8 @@
       <% end -%>
     <% end -%>
     <%= tag.div class: %w(mx-auto) do %>
-      <%= render Ui::BoardColumnComponent.new(class: %w(p-3)) do %>
-        <%= tag.div class: %w(flex gap-3) do %>
-          <%= tag.turbo_frame id: 'step_form', src: edit_step_path(@work_flow.steps.first) do %>
-            <%= render Ui::LoadingComponent.new %>
-          <% end -%>
-          <%= tag.div class: %w(pl-3 border-l border-gray-200) do %>
-            <%= tag.turbo_frame id: 'step_arrival_rule_form', src: edit_step_arrival_rule_path(step_id: 1, id: 1) do %>
-              <%= render Ui::LoadingComponent.new %>
-            <% end -%>
-          <% end -%>
-        <% end -%>
+      <%= tag.turbo_frame id: 'step_form', src: edit_step_path(@work_flow.steps.first) do %>
+        <%= render Ui::LoadingComponent.new %>
       <% end -%>
     <% end -%>
   <% end -%>

@@ -1,3 +1,16 @@
 <%= tag.turbo_frame id: 'step_arrival_rules' do %>
-  step arrival rules
+  <%= tag.div class: %w(flex flex-col gap-2) do %>
+    <%= tag.h3 'Arrival rules', class: %w(font-bold) %>
+    <%= tag.ul class: %w(list-disc pl-4) do %>
+      <%= tag.li 'Rule AAA', class: %w(text-sm leading-6) %>
+      <%= tag.li 'Rule BBB', class: %w(text-sm leading-6) %>
+      <%= tag.li 'Rule CCC', class: %w(text-sm leading-6) %>
+    <% end -%>
+    <%= form_with scope: :arrival_rule, html: { autocomplete: 'off' } do |f| %>
+      <%= f.text_field :content, class: %w(form-input text-sm w-full) %>
+      <%= tag.div class: %w(mt-2) do %>
+        <%= render Ui::ButtonComponent.new(size: :sm, kind: :secondary).with_content('Add') %>
+      <% end -%>
+    <% end -%>
+  <% end -%>
 <% end -%>
