@@ -1,9 +1,9 @@
 .board__column {
-  height: calc(79vh);
+  height: calc(82vh);
 }
 
 .board__column-with-add {
-  height: calc(79vh - 2.6rem);
+  height: calc(82vh - 2.6rem);
 }
 
 .board__item-list-outer {
