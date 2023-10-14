@@ -26,6 +26,9 @@
           <% end -%>
         <% end -%>
       <% end -%>
+      <%= tag.div class: %w(mt-4 text-right) do %>
+        <%= render Ui::ButtonComponent.new(href: '#', kind: :danger, size: :sm).with_content('Remove this step') %>
+      <% end -%>
     <% end -%>
   <% end -%>
 <% end -%>
