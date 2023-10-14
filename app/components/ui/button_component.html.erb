@@ -11,16 +11,16 @@
 <% css_class = base_class + color_classes[@kind] + size_classes[@size] %>
 
 <% if @form_builder %>
-  <%= @form_builder.button type: @type, class: css_class do %>
+  <%= @form_builder.button type: @type, class: css_class + @extra_class do %>
     <% content %>
   <% end -%>
 <% else -%>
   <% if @href %>
-    <%= link_to @href, class: %w(inline-block) + css_class do %>
+    <%= link_to @href, class: %w(inline-block) + css_class + @extra_class do %>
       <% content %>
     <% end -%>
   <% else -%>
-    <%= tag.button type: @type, class: css_class do %>
+    <%= tag.button type: @type, class: css_class + @extra_class do %>
       <% content %>
     <% end -%>
   <% end -%>

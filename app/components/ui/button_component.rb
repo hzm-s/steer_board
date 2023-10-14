@@ -5,5 +5,6 @@ class Ui::ButtonComponent < ViewComponent::Base
     @size = size
     @form_builder = form_builder
     @href = href
+    @extra_class = options[:class] || []
   end
 end
