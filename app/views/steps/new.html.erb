@@ -2,15 +2,13 @@
   <%= tag.div class: %w(mx-auto w-[20rem]) do %>
     <%= tag.turbo_frame id: 'step_form' do %>
       <%= render Ui::BoardColumnComponent.new(class: %w(py-3 px-5)) do %>
-        <%= tag.div class: %w(flex gap-3) do %>
-          <%= tag.div class: %w(w-[20rem]) do %>
-            <%= tag.h3 'New step', class: %w(font-bold mb-4) %>
-            <%= form_with model: @step, url: '/', html: { autocomplete: 'off' } do |f| %>
-              <%= tag.div class: %w(flex flex-col gap-3) do %>
-                <%= render partial: 'form', locals: { f: f } %>
-                <%= tag.div class: %w() do %>
-                  <%= render Ui::ButtonComponent.new(size: :sm).with_content('Add') %>
-                <% end -%>
+        <%= tag.div class: %w(w-[20rem]) do %>
+          <%= tag.h3 'New step', class: %w(font-bold mb-4) %>
+          <%= form_with model: @step, url: '/', html: { autocomplete: 'off' } do |f| %>
+            <%= tag.div class: %w(flex flex-col gap-3) do %>
+              <%= render partial: 'form', locals: { f: f } %>
+              <%= tag.div class: %w() do %>
+                <%= render Ui::ButtonComponent.new(size: :sm).with_content('Add') %>
               <% end -%>
             <% end -%>
           <% end -%>
