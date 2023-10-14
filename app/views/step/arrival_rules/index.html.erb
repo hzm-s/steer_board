@@ -6,10 +6,10 @@
         <%= tag.div class: %w(flex items-center justify-between) do %>
           <%= tag.span 'Code coverage >= 80%' %>
           <%= tag.div class: %w(hidden group-hover:flex items-center gap-2) do %>
-            <%= link_to '#', class: %w(text-link), title: 'Edit' do %>
+            <%= link_to '#', class: %w(icon-link), title: 'Edit' do %>
               <%= render Ui::IconComponent.new(name: 'pen-to-square', style: :regular, size: 1) %>
             <% end -%>
-            <%= link_to '#', class: %w(text-link), title: 'Delete' do %>
+            <%= link_to '#', class: %w(icon-link-danger), title: 'Delete' do %>
               <%= render Ui::IconComponent.new(name: 'trash-can', style: :regular, size: 1) %>
             <% end -%>
           <% end -%>
@@ -19,10 +19,10 @@
         <%= tag.div class: %w(flex items-center justify-between) do %>
           <%= tag.span 'Code reviewed by 2 pepole' %>
           <%= tag.div class: %w(hidden group-hover:flex items-center gap-2) do %>
-            <%= link_to '#', class: %w(text-link), title: 'Edit' do %>
+            <%= link_to '#', class: %w(icon-link), title: 'Edit' do %>
               <%= render Ui::IconComponent.new(name: 'pen-to-square', style: :regular, size: 1) %>
             <% end -%>
-            <%= link_to '#', class: %w(text-link), title: 'Delete' do %>
+            <%= link_to '#', class: %w(icon-link-danger), title: 'Delete' do %>
               <%= render Ui::IconComponent.new(name: 'trash-can', style: :regular, size: 1) %>
             <% end -%>
           <% end -%>
