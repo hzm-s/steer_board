@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :steps, only: [:new, :show, :edit, :update] do
     resources :arrival_rules, only: [:index], module: :step
+    resources :departure_rules, only: [:index], module: :step
   end
 
   resources :items, only: [:index, :show, :new, :edit]
