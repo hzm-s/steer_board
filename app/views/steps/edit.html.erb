@@ -15,8 +15,13 @@
             <% end -%>
           <% end -%>
           <%= tag.div class: %w(w-[24rem] border-l border-gray-200 pl-5) do %>
-            <%= tag.turbo_frame id: 'step_arrival_rules', src: step_arrival_rules_path(step_id: @step.id) do %>
-              <%= render Ui::LoadingComponent.new %>
+            <%= tag.div class: %w(flex flex-col gap-4) do %>
+              <%= tag.turbo_frame id: 'step_arrival_rules', src: step_arrival_rules_path(step_id: @step.id) do %>
+                <%= render Ui::LoadingComponent.new %>
+              <% end -%>
+              <%= tag.turbo_frame id: 'step_departure_rules', src: step_departure_rules_path(step_id: @step.id) do %>
+                <%= render Ui::LoadingComponent.new %>
+              <% end -%>
             <% end -%>
           <% end -%>
         <% end -%>
