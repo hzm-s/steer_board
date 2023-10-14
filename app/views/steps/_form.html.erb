@@ -20,10 +20,8 @@
 <%= tag.div class: %w(border-t border-gray-200 pt-3 flex flex-col gap-2) do %>
   <%= tag.div class: %w(flex flex-col gap-1) do %>
     <%= f.label(:allow_idea, class: %w(text-sm), for: dom_id(f.object, :allow_idea)) { f.check_box(:allow_idea, id: dom_id(f.object, :allow_idea), class: %w(form-checkbox mr-2)) + 'allow to put idea item on this step' } %>
-    <%= tag.p 'help text here.', class: %w(text-xs text-gray-700 bg-slate-100 rounded p-2) %>
   <% end -%>
   <%= tag.div class: %w(flex flex-col gap-1) do %>
     <%= f.label(:allow_add, class: %w(text-sm), for: dom_id(f.object, :allow_add)) { f.check_box(:allow_add, id: dom_id(f.object, :allow_add), class: %w(form-checkbox mr-2)) + 'allow to add new item on this step' } %>
-    <%= tag.p 'help text here.', class: %w(text-xs text-gray-700 bg-slate-100 rounded p-2) %>
   <% end -%>
 <% end -%>
