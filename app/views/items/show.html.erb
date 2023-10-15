@@ -6,7 +6,7 @@
         <%= render Item::DetailComponent.new(item: @item, mode: :show) %>
         <%= tag.div class: %w(rounded-lg border border-gray-200 divide-y) do %>
           <%= tag.div data: { controller: 'reveal' } do %>
-            <%= tag.div data: { action: 'click->reveal#toggle' }, class: %w(cursor-pointer py-3 px-3 flex justify-between hover:bg-violet-50) do %>
+            <%= tag.button type: :button, data: { action: 'click->reveal#toggle' }, class: %w(w-full cursor-pointer py-3 px-3 flex justify-between hover:bg-violet-50) do %>
               <%= tag.p do %>
                 <%= render Ui::ToggleIconComponent.new(size: 0.75) %>
                 <%= tag.span 'Depature from ', class: %w(text-sm) %>
@@ -16,12 +16,12 @@
                 <%= tag.span '5 / 5', class: %w(text-xs) %>
               <% end -%>
             <% end -%>
-            <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden bg-gray-50 py-3 px-3) do %>
+            <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden border-t border-gray-200) do %>
               <%= tag.turbo_frame id: 'item_departure_check', src: item_departure_check_path(@item.id) %>
             <% end -%>
           <% end -%>
           <%= tag.div data: { controller: 'reveal' } do %>
-            <%= tag.div data: { action: 'click->reveal#toggle' }, class: %w(cursor-pointer py-3 px-3 flex justify-between hover:bg-violet-50) do %>
+            <%= tag.button type: :button, data: { action: 'click->reveal#toggle' }, class: %w(w-full cursor-pointer py-3 px-3 flex justify-between hover:bg-violet-50) do %>
               <%= tag.p do %>
                 <%= render Ui::ToggleIconComponent.new(size: 0.75) %>
                 <%= tag.span 'Arrival to', class: %w(text-sm) %>
@@ -31,12 +31,12 @@
                 <%= tag.span '1 / 1', class: %w(text-xs) %>
               <% end -%>
             <% end -%>
-            <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden bg-gray-50 py-3 px-3) do %>
+            <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden border-t border-gray-200) do %>
               <%= tag.turbo_frame id: 'item_departure_check', src: item_departure_check_path(@item.id) %>
             <% end -%>
           <% end -%>
           <%= tag.div class: %w(py-2 px-3) do %>
-            <%= render Ui::ButtonComponent.new(size: :sm).with_content('Move Item') %>
+            <%= render Ui::ButtonComponent.new(size: :sm).with_content('Forward Item') %>
           <% end -%>
         <% end -%>
       <% end -%>
