@@ -1,4 +1,4 @@
-class ItemDetailComponent < ViewComponent::Base
+class Item::DetailLayoutComponent < ViewComponent::Base
   renders_one :main_content
   renders_one :note
   renders_one :current_contributors

@@ -1,4 +1,4 @@
-class ItemSizeComponent < ViewComponent::Base
+class Item::SizeComponent < ViewComponent::Base
   def initialize(size:, decorate: true, **args)
     @size = size
     @decorate = decorate
