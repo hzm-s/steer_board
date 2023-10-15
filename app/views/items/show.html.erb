@@ -32,7 +32,7 @@
               <% end -%>
             <% end -%>
             <%= tag.div data: { reveal_target: 'item' }, class: %w(hidden border-t border-gray-200) do %>
-              <%= tag.turbo_frame id: 'item_departure_check', src: item_departure_check_path(@item.id) %>
+              <%= tag.turbo_frame id: 'item_arrival_check', src: item_arrival_check_path(@item.id) %>
             <% end -%>
           <% end -%>
           <%= tag.div class: %w(py-2 px-3) do %>
