@@ -1,12 +1,12 @@
 <%= tag.div id: sliding_target_id, aria: { expanded: false }, data: data_attrs, class: %w(slide-over) + @extra_class do %>
   <%= tag.div class: %w(slide-over__panel bg-white border-l border-gray-200) do %>
-    <%= tag.div class: %w(flex items-center justify-between py-2 px-4 border-b border-gray-200) do %>
+    <%= tag.div class: %w(flex items-center justify-between py-2 px-8 border-b border-gray-200) do %>
       <% if title? %>
         <%= title %>
       <% end -%>
       <%= render Ui::CloseButtonComponent.new(data: { action: 'slide-over#close' }) %>
     <% end -%>
-    <%= tag.div class: %w(py-4 px-4) do %>
+    <%= tag.div class: %w(py-4 px-8) do %>
       <%= content %>
     <% end -%>
   <% end -%>
