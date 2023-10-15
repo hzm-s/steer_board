@@ -3,6 +3,7 @@ class Ui::IconComponent < ViewComponent::Base
     @name = attrs[:name]
     @style = attrs[:style] || :solid
     @size = attrs[:size] || 1.5
+    @extra_data = attrs[:data] || {}
     @extra_class = attrs[:class] || []
   end
 

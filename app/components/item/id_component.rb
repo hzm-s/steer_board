@@ -1,4 +1,4 @@
-class ItemIdComponent < ViewComponent::Base
+class Item::IdComponent < ViewComponent::Base
   def initialize(item:, **options)
     @item = item
     @extra_class = options[:class] || []

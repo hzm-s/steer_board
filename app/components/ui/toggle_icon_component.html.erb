@@ -1,0 +1,6 @@
+<%= tag.span data: { reveal_target: 'item' }.merge(@extra_data), class: %w(inline-block) + @extra_class, style: "width: #{@size}rem;" do %>
+  <%= render Ui::IconComponent.new(name: 'chevron-right', size: 0.75) %>
+<% end -%>
+<%= tag.span data: { reveal_target: 'item' }.merge(@extra_data), class: %w(inline-block hidden) + @extra_class, style: "width: #{@size}rem" do %>
+  <%= render Ui::IconComponent.new(name: 'chevron-down', size: 0.75) %>
+<% end -%>

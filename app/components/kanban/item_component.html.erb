@@ -3,16 +3,16 @@
     <%= render Ui::ItemCardComponent.new(kind: kind, size: :sm) do %>
       <% if due %>
         <%= tag.div class: %w(mb-1) do %>
-          <%= render ItemDueComponent.new(date: due) %>
+          <%= render Item::DueComponent.new(date: due) %>
         <% end -%>
       <% end -%>
       <%= tag.div class: %w(flex justify-between) do %>
         <%= tag.div class: %w(flex items-center gap-1) do %>
-          <%= render ItemKindComponent.new(kind: kind) %>
-          <%= render ItemIdComponent.new(item: @item, class: %w(text-sm)) %>
+          <%= render Item::KindComponent.new(kind: kind) %>
+          <%= render Item::IdComponent.new(item: @item, class: %w(text-sm)) %>
         <% end -%>
         <%= tag.div class: %w(flex items-center) do %>
-          <%= size && render(ItemSizeComponent.new(size: size)) %>
+          <%= size && render(Item::SizeComponent.new(size: size)) %>
         <% end -%>
       <% end -%>
       <%= tag.div class: %w(mt-1) do %>

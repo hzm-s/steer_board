@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :departure_rules, only: [:index], module: :step
   end
 
-  resources :items, only: [:index, :show, :new, :edit]
+  resources :items, only: [:index, :show, :new, :edit] do
+    resources :arrival_checks, only: [:show], module: :item
+    resources :departure_checks, only: [:show], module: :item
+  end
 
   resources :pages, only: [:index, :show]
 

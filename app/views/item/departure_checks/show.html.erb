@@ -1,0 +1,12 @@
+<%= tag.turbo_frame id: 'item_departure_check' do %>
+  <%= tag.div class: %w(flex flex-col divide-y) do %>
+    <% %w(aaa bbb ccc ddd eee).each_with_index do |key, i| %>
+      <% field_id = "#{key}_#{i}" %>
+      <%= form_with scope: field_id do |f| %>
+        <%= tag.div class: %w(py-2 pl-3 hover:bg-gray-50) do %>
+          <%= f.label(:content, class: %w(text-sm), for: field_id) { f.check_box(:content, id: field_id, class: %w(form-checkbox mr-2)) + "departure rule #{key}" } %>
+        <% end -%>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+<% end -%>
