@@ -1,23 +1,22 @@
 <%= render Item::DetailLayoutComponent.new(item: @item) do |idc| %>
-
-  <%= idc.with_main_content do %>
+  <% idc.with_main_content do %>
     <%= tag.turbo_frame id: 'item_detail_content' do %>
       <%= render Item::EditableFieldComponent.new(label: 'Content') do |c| %>
         <% if edit? %>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
           <% end -%>
-          <%= c.with_field do %>
+          <% c.with_field do %>
             <%= form_with scope: :item do |f| %>
               <%= f.text_area @item.body, class: %w(form-textarea text-sm w-full) %>
               <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
             <% end -%>
           <% end -%>
         <% else -%>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(text-link text-link-sm leading-tight) %>
           <% end -%>
-          <%= c.with_field do %>
+          <% c.with_field do %>
             <%= simple_format @item.body, class: %w(text-md) %>
           <% end -%>
         <% end -%>
@@ -25,75 +24,75 @@
     <% end -%>
   <% end -%>
 
-  <%= idc.with_note do %>
+  <% idc.with_current_contributors do %>
+    <%= tag.turbo_frame id: 'item_detail_contributors' do %>
+      <%= render Item::EditableFieldComponent.new(label: 'Current worker(s)') do |c| %>
+        <% if edit? %>
+          <% c.with_actions do %>
+            <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
+          <% end -%>
+          <% c.with_field do %>
+            <%= tag.div class: %w(mt-1 flex flex-wrap gap-1) do %>
+              <%= render Ui::AvatarListComponent.new(members: @item.contributors, size: :md) %>
+            <% end -%>
+          <% end -%>
+        <% else -%>
+          <% c.with_actions do %>
+            <%= link_to 'Join', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(text-link text-link-sm leading-tight) %>
+          <% end -%>
+          <% c.with_field do %>
+            <%= tag.div class: %w(mt-1 flex flex-wrap gap-1) do %>
+              <%= render Ui::AvatarListComponent.new(members: @item.contributors, size: :md) %>
+            <% end -%>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+
+  <% idc.with_note do %>
     <%= tag.turbo_frame id: 'item_detail_note' do %>
       <%= render Item::EditableFieldComponent.new(label: 'Note') do |c| %>
         <% if edit? %>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
           <% end -%>
-          <%= c.with_field do %>
+          <% c.with_field do %>
             <%= form_with scope: :item do |f| %>
               <%= f.text_area @item.note, class: %w(form-textarea text-sm w-full) %>
               <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
             <% end -%>
           <% end -%>
         <% else -%>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(text-link text-link-sm leading-tight) %>
           <% end -%>
-          <%= c.with_field do %>
-            <%= simple_format @item.note, class: %w(text-sm) %>
+          <% c.with_field do %>
+            <%= simple_format @item.note || '-', class: %w(text-sm) %>
           <% end -%>
         <% end -%>
       <% end -%>
     <% end -%>
   <% end -%>
 
-  <%= idc.with_current_contributors do %>
-    <%= tag.turbo_frame id: 'item_detail_contributors' do %>
-      <%= render Item::EditableFieldComponent.new(label: 'Current worker(s)') do |c| %>
-        <% if edit? %>
-          <%= c.with_actions do %>
-            <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
-          <% end -%>
-          <%= c.with_field do %>
-            <%= tag.div class: %w(mt-1 flex flex-wrap gap-1) do %>
-              <%= render Ui::AvatarListComponent.new(members: @item.contributors, size: :md) %>
-            <% end -%>
-          <% end -%>
-        <% else -%>
-          <%= c.with_actions do %>
-            <%= link_to 'Join', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(text-link text-link-sm leading-tight) %>
-          <% end -%>
-          <%= c.with_field do %>
-            <%= tag.div class: %w(mt-1 flex flex-wrap gap-1) do %>
-              <%= render Ui::AvatarListComponent.new(members: @item.contributors, size: :md) %>
-            <% end -%>
-          <% end -%>
-        <% end -%>
-      <% end -%>
-    <% end -%>
-  <% end -%>
-
-  <%= idc.with_kind do %>
+  <% idc.with_kind do %>
     <%= tag.turbo_frame id: 'item_detail_kind' do %>
       <%= render Item::EditableFieldComponent.new(label: 'Kind') do |c| %>
         <% if edit? %>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
           <% end -%>
-          <%= c.with_field do %>
+          <% c.with_field do %>
             <%= form_with scope: :item do |f| %>
               <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(form-select text-sm w-full mb-1) } %>
               <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
             <% end -%>
           <% end -%>
         <% else -%>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(text-link text-link-sm leading-tight) %>
           <% end -%>
-          <%= c.with_field do %>
+          <% c.with_field do %>
             <%= tag.span @item.kind, class: %w(text-sm) %>
           <% end -%>
         <% end -%>
@@ -101,24 +100,24 @@
     <% end -%>
   <% end -%>
 
-  <%= idc.with_estimate do %>
+  <% idc.with_estimate do %>
     <%= tag.turbo_frame id: 'item_detail_estimate' do %>
       <%= render Item::EditableFieldComponent.new(label: 'Estimate') do |c| %>
         <% if edit? %>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
           <% end -%>
-          <%= c.with_field do %>
+          <% c.with_field do %>
             <%= form_with scope: :item do |f| %>
               <%= f.collection_select :size, %w(0 1 2 3 5 8 13 21 ?), :to_s, :to_s, {}, { class: %w(form-select text-sm w-full mb-1) } %>
               <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
             <% end -%>
           <% end -%>
         <% else -%>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(text-link text-link-sm leading-tight) %>
           <% end -%>
-          <%= c.with_field do %>
+          <% c.with_field do %>
             <%= render Item::SizeComponent.new(size: @item.size, decorate: false, class: %w(text-sm)) %>
           <% end -%>
         <% end -%>
@@ -126,29 +125,28 @@
     <% end -%>
   <% end -%>
 
-  <%= idc.with_due do %>
+  <% idc.with_due do %>
     <%= tag.turbo_frame id: 'item_detail_due' do %>
       <%= render Item::EditableFieldComponent.new(label: 'Due') do |c| %>
         <% if edit? %>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Cancel', item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(leading-tight text-link text-link-sm) %>
           <% end -%>
-          <%= c.with_field do %>
+          <% c.with_field do %>
             <%= form_with scope: :item do |f| %>
               <%= f.date_field :due, class: %w(form-input text-sm w-full mb-1) %>
               <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
             <% end -%>
           <% end -%>
         <% else -%>
-          <%= c.with_actions do %>
+          <% c.with_actions do %>
             <%= link_to 'Edit', edit_item_path(@item.id), data: { turbo_frame: '_self' }, class: %w(text-link text-link-sm leading-tight) %>
           <% end -%>
-          <%= c.with_field do %>
+          <% c.with_field do %>
             <%= tag.span @item.due ? l(@item.due) : 'No due', class: %w(text-sm) %>
           <% end -%>
         <% end -%>
       <% end -%>
     <% end -%>
   <% end -%>
-
 <% end -%>
