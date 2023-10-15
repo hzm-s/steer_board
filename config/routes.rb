@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:index, :show, :new, :edit] do
+    resources :arrival_checks, only: [:show], module: :item
     resources :departure_checks, only: [:show], module: :item
   end
 
