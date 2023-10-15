@@ -59,7 +59,7 @@
           <% end -%>
           <% c.with_field do %>
             <%= form_with scope: :item do |f| %>
-              <%= f.text_area @item.note, class: %w(form-textarea text-sm w-full) %>
+              <%= f.text_area @item.note, rows: 10, class: %w(form-textarea text-sm w-full) %>
               <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
             <% end -%>
           <% end -%>
