@@ -12,7 +12,7 @@
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>
-                <%= f.text_area @item.body, class: %w(form-textarea w-full) %>
+                <%= f.text_area @item.body, class: %w(form-textarea text-sm w-full) %>
                 <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
               <% end -%>
             <% end -%>
@@ -28,7 +28,7 @@
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>
-                <%= f.text_area @item.note, class: %w(form-textarea w-full) %>
+                <%= f.text_area @item.note, class: %w(form-textarea text-sm w-full) %>
                 <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
               <% end -%>
             <% end -%>
@@ -59,7 +59,7 @@
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>
-                <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(form-select w-full mb-1) } %>
+                <%= f.collection_select :kind, ItemKind.all, :name, :name, {}, { class: %w(form-select text-sm w-full mb-1) } %>
                 <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
               <% end -%>
             <% end -%>
@@ -75,7 +75,7 @@
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>
-                <%= f.collection_select :size, %w(0 1 2 3 5 8 13 21 ?), :to_s, :to_s, {}, { class: %w(form-select w-full mb-1) } %>
+                <%= f.collection_select :size, %w(0 1 2 3 5 8 13 21 ?), :to_s, :to_s, {}, { class: %w(form-select text-sm w-full mb-1) } %>
                 <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
               <% end -%>
             <% end -%>
@@ -91,7 +91,7 @@
             <% end -%>
             <%= c.with_field do %>
               <%= form_with scope: :item do |f| %>
-                <%= f.date_field :due, class: %w(form-input w-full mb-1) %>
+                <%= f.date_field :due, class: %w(form-input text-sm w-full mb-1) %>
                 <%= render Ui::ButtonComponent.new(size: :sm).with_content('Save') %>
               <% end -%>
             <% end -%>
