@@ -6,7 +6,7 @@
         <%= render Item::DetailComponent.new(item: @item, mode: :show) %>
         <%= tag.div class: %w(rounded-lg border border-gray-200 divide-y) do %>
           <%= tag.div data: { controller: 'reveal' } do %>
-            <%= tag.button type: :button, data: { action: 'click->reveal#toggle' }, class: %w(w-full cursor-pointer py-2 px-3 flex justify-between hover:bg-violet-50) do %>
+            <%= tag.button type: :button, data: { action: 'click->reveal#toggle' }, class: %w(w-full cursor-pointer rounded-t-lg py-2 px-3 flex justify-between hover:bg-violet-50) do %>
               <%= tag.p do %>
                 <%= render Ui::ToggleIconComponent.new(size: 0.75) %>
                 <%= tag.span 'Depature from ', class: %w(text-sm) %>
