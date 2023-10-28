@@ -8,9 +8,9 @@
   <% end -%>
   <%= tag.div class: %w(flex flex-col gap-2 pb-8) do %>
     <%= tag.h2 'Work flow', class: %w(font-bold text-xl) %>
-    <%= render WorkFlow::StepSummaryListComponent.new(steps: @work_flow.steps, base_width: 15, space: 2) %>
+    <%= render WorkFlow::StepSummaryListComponent.new(steps: @work_flow.steps, current_step_id: @step_id, base_width: 15, space: 2) %>
     <%= tag.div class: %w(mx-auto) do %>
-      <%= tag.turbo_frame id: 'step_form', src: edit_step_path(@work_flow.steps.first) do %>
+      <%= tag.turbo_frame id: 'step_form', src: edit_step_path(@step_id) do %>
         <%= render Ui::LoadingComponent.new %>
       <% end -%>
     <% end -%>

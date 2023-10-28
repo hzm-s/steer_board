@@ -3,7 +3,7 @@
     <%= tag.turbo_frame id: dom_id(@step) do %>
       <%= link_to(
         edit_step_path(@step),
-        data: { turbo_frame: 'step_form' },
+        data: { turbo_frame: 'step_form', focus_target: 'item', item_key: @step.id },
         class: %w(link block rounded-lg bg-white border border-gray-300 p-3 hover:bg-violet-100),
       ) do %>
         <%= tag.div class: %w(text-center) do %>

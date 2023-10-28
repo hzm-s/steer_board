@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {}
+@layer base {
+  .hover-transition {
+    @apply transition duration-300;
+  }
+}
 
 @layer components {
   .button {

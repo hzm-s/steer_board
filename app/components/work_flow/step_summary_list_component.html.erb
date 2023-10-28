@@ -1,6 +1,6 @@
 <%= render Kanban::FrameComponent.new do %>
   <%= tag.div class: %w(bg-gray-200 rounded-lg p-2), style: "min-width: 100%; width: #{width}rem;" do %>
-    <%= tag.div class: %w(flex flex-row gap-2 items-stretch) do %>
+    <%= tag.div class: %w(flex flex-row gap-2 items-stretch), data: { controller: 'focus', focus_target_key_value: @current_step_id || @steps.first.id } do %>
       <% @steps.each do |step| %>
         <%= tag.div class: %w(flex-shrink-0 basis-[15rem]) do %>
           <%= tag.turbo_frame id: dom_id(step), src: step_path(step.id) do %>

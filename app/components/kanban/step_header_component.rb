@@ -1,6 +1,7 @@
 class Kanban::StepHeaderComponent < ViewComponent::Base
-  def initialize(step:)
+  def initialize(step:, work_flow:)
     @step = step
+    @work_flow = work_flow
   end
 
   def state_names
