@@ -1,7 +1,7 @@
 class WorkFlow::StepSummaryListComponent < ViewComponent::Base
   include TailwindHelper
 
-  def initialize(steps:, current_step_id: nil, base_width:, space:)
+  def initialize(steps:, current_step_id:, base_width:, space:)
     @steps = steps
     @current_step_id = current_step_id
     @base_width = base_width
