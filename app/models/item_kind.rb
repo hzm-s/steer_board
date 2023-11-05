@@ -30,7 +30,7 @@ class ItemKind < Struct.new(:name)
   def initialize(name)
     raise ArgumentError, "#{name} is invalid #{self.class}" unless name.to_sym.in?(KINDS)
 
-    super
+    super(name.to_sym)
   end
 
   def should_estimate?
