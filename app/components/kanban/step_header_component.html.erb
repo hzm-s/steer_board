@@ -1,7 +1,7 @@
 <div class="relative flex justify-center py-2">
   <%= render Kanban::ItemCounterComponent.new(wip_limit: @step.wip_limit) %>
   <%= tag.div class: %w(absolute right-3) do %>
-    <%= link_to work_flow_path(@work_flow, step_id: @step.id) do %>
+    <%= link_to work_flow_path(@work_flow, step_id: @step.id), title: 'Setting' do %>
       <%= render Ui::IconComponent.new(name: :cog, size: 1, class: %w(rounded-full border border-gray-200 p-1 text-gray-400 hover:text-white hover:bg-gray-400 hover-transition)) %>
     <% end -%>
   <% end -%>
