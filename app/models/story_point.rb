@@ -1,5 +1,5 @@
 class StoryPoint < Struct.new(:value)
-  UNKNOWN_VALUE = -1
+  UNKNOWN_VALUE = 99
 
   VALUES = [0, 1, 2, 3, 5, 8, 13, 21, UNKNOWN_VALUE].freeze
 
@@ -11,20 +11,10 @@ class StoryPoint < Struct.new(:value)
     def unknown
       new(UNKNOWN_VALUE)
     end
-
-    def load(arg)
-      return nil unless arg
-
-      new(arg.to_i)
-    end
-
-    def dump(obj)
-      obj.to_i
-    end
   end
 
   def initialize(value)
-    raise ArgumentError, "#{value} is invalid #{self.class}" unless value.in?(VALUES)
+    raise ArgumentError, "#{value} is invalid #{self.class}" if value && !value.in?(VALUES)
 
     super
   end

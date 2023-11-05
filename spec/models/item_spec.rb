@@ -31,4 +31,17 @@ describe Item do
       expect(item.status).to eq step2.states.primary
     end
   end
+
+  it do
+    item = Item.new(
+      kind: ItemKind.feature,
+      content: 'the item',
+    )
+    item.size = StoryPoint.new(8)
+    expect(item.size).to eq StoryPoint.new(8)
+    item.save!
+
+    saved = Item.last
+    expect(saved.size).to eq StoryPoint.new(8)
+  end
 end

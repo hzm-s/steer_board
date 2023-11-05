@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
   has_one :progress, dependent: :destroy
 
-  serialize :kind, ItemKind
-  serialize :size, StoryPoint
+  composed_of :kind, class_name: 'ItemKind'
+  composed_of :size, class_name: 'StoryPoint', mapping: { size: :to_i }, allow_nil: true
 
   alias_attribute :body, :content
 

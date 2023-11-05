@@ -39,15 +39,15 @@ if Item.count == 0
       Item.new(kind: ItemKind.idea, content: '[Dummy] ---'),
     ],
     analyze.states.primary => [
-      Item.new(kind: ItemKind.idea, content: '[UI prototype] Backlog'),
+      Item.new(kind: ItemKind.idea, content: '[UI prototype] Backlog', size: StoryPoint.new(21)),
     ],
     next10.states.primary => [
-      Item.new(kind: ItemKind.feature, content: '[UI prototype] Item with tasks'),
-      Item.new(kind: ItemKind.feature, content: '[UI prototype] Move items'),
-      Item.new(kind: ItemKind.feature, content: '[UI prototype] Check to done'),
+      Item.new(kind: ItemKind.feature, content: '[UI prototype] Item with tasks', size: StoryPoint.new(8)),
+      Item.new(kind: ItemKind.feature, content: '[UI prototype] Move items', size: StoryPoint.new(8)),
+      Item.new(kind: ItemKind.feature, content: '[UI prototype] Check to done', size: StoryPoint.new(5)),
     ],
     dev.states.primary => [
-      Item.new(kind: ItemKind.kaizen, content: 'Board (use ViewComponent)'),
+      Item.new(kind: ItemKind.kaizen, content: 'Board (use ViewComponent)', size: StoryPoint.new(3)),
       Item.new(kind: ItemKind.other, content: '[Dummy] ***'),
       Item.new(kind: ItemKind.feature, content: '[Dummy] ***'),
       Item.new(kind: ItemKind.feature, content: '[Dummy] ***'),
@@ -58,17 +58,17 @@ if Item.count == 0
       Item.new(kind: ItemKind.feature, content: '[Dummy] ---'),
     ],
     dev.states.post_queue => [
-      Item.new(kind: ItemKind.feature, content: '[UI prototype] Board buffer'),
-      Item.new(kind: ItemKind.feature, content: '[UI prototype] Board column'),
+      Item.new(kind: ItemKind.feature, content: '[UI prototype] Board buffer', size: StoryPoint.new(13)),
+      Item.new(kind: ItemKind.feature, content: '[UI prototype] Board column', size: StoryPoint.new(8)),
     ],
     qa.states.primary => [
-      Item.new(kind: ItemKind.feature, content: '[UI prototype] Index page'),
-      Item.new(kind: ItemKind.rework, content: '[UI prototype] Individual pages'),
+      Item.new(kind: ItemKind.feature, content: '[UI prototype] Index page', size: StoryPoint.new(2)),
+      Item.new(kind: ItemKind.rework, content: '[UI prototype] Individual pages', size: StoryPoint.new(1)),
       Item.new(kind: ItemKind.other, content: '[Setup] DB'),
       Item.new(kind: ItemKind.other, content: '[Setup] Repository'),
     ],
     prod.states.primary => [
-      Item.new(kind: ItemKind.other, content: '[Setup] git'),
+      Item.new(kind: ItemKind.other, content: '[Setup] git', size: StoryPoint.new(1)),
       Item.new(kind: ItemKind.other, content: '[Setup] rails'),
     ],
   }

@@ -6,10 +6,6 @@ class ItemKind < Struct.new(:name)
       KINDS.map { new(_1) }
     end
 
-    def from_name(name)
-      new(name.to_sym)
-    end
-
     def idea
       new(:idea)
     end
@@ -28,16 +24,6 @@ class ItemKind < Struct.new(:name)
 
     def other
       new(:other)
-    end
-
-    def load(name)
-      return nil unless name
-
-      from_name(name)
-    end
-
-    def dump(obj)
-      obj.to_s
     end
   end
 
