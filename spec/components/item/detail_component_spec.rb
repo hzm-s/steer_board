@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Item::DetailComponent, type: :component do
+RSpec.describe ItemDetailComponent, type: :component do
   pending "add some examples to (or delete) #{__FILE__}"
 
   # it "renders something useful" do
